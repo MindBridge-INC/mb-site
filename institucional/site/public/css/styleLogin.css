@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
+
+* {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(52, 52, 52);
+    background-color: rgb(248, 245, 238);
+    overflow: hidden;
+}
+
+.container {
+    max-width: 400px;
+    padding: 0 20px;
+    margin: 170px auto
+}
+
+.card {
+    width: 100%;
+    background-color: rgb(244, 237, 222);
+    border-radius: 20px;
+}
+
+.card .titulo {
+    line-height: 80px;
+    background-color: rgb(210, 198, 174);
+    color: #fff;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+.card form {
+    padding: 30px;
+}
+
+.card form div {
+    /* margin-top: 20px; */
+    margin-bottom: 10px;
+    /* padding: 5px; */
+}
+
+.card form .button input {
+    background-color: transparent;
+    margin: 30px 0 0 0;
+    height: 100%;
+    width: 70%;
+    border: 3px solid rgb(238, 183, 88);
+    border-radius: 100px;
+    padding: 20px;
+    transition: all .3s ease-in;
+
+}
+
+.card form .button:hover input {
+    background-color: rgb(245, 241, 233);
+    border: 3px solid rgb(247, 223, 125);
+    color: rgb(98, 98, 98);
+    cursor: pointer;
+}
+
+.card input {
+    margin-bottom: 30px;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0 10px 20px;
+    border-bottom: 3px solid rgb(210, 198, 174);
+    background-color: rgb(228, 217, 196);
+    border-radius: 30px;
+    outline: none;
+}
