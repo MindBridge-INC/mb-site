@@ -35,6 +35,10 @@ body {
     height: 150px;
 }
 
+#logo-clemente {
+    width: 200px;
+}
+
 .container {
     position: relative;
     max-width: 1150px;
@@ -146,5 +150,62 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+
+    #logo {
+        width: 125px;
+        height: 125px;
+    }
+
+    #logo-clemente {
+        width: 150px;
+    }
+
+    .pagina-cad .logo {
+        max-width: 400px;
+    }
+
+    .container {
+        position: relative;
+        max-width: 1150px;
+        width: 100%;
+        background: rgb(248, 245, 238);
+        padding: 30px 50px;
+        border-radius: 70px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .container form {
+        margin-top: 30px;
+    }
+    
+    .container .form .titulo {
+        font-size: 16px;
+        margin: 30px 0 5px 0;
+    }
+    
+    .form .inputbox input { 
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .container .form .inputbox {
+        width: 100%;
+        margin: 5px 0 5px 0;
+    }
+    
+    .form .inputbox button {
+        margin: 12px 0px 0px 0px;
+        padding: 7px;
+        width: 150px;
+        border: 3px solid rgb(23, 57, 92);
+        font-size: 12px;
+    }
+
+    .form .inputbox button:hover {
+        border: 3px solid rgb(30, 84, 138);
     }
 }
