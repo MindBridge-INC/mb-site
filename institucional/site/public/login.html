@@ -9,41 +9,33 @@
 </head>
 
 <body>
-
     <div class="container">
-        <div class="card">
 
-            <div class="titulo">
-                <img src="img/16.png" alt="">
+        <div class="titulo">
+            <img src="img/16.png" alt="">
+        </div>
+
+        <form action="#">
+
+            <div>
+                <input type="text" id="iptUsuario" placeholder="E-mail *">
             </div>
 
-            <form action="" method="post">
-                <div>
-                    <div>
-                        <input type="text" id="iptUsuario" placeholder="E-mail *">
-                    </div>
-                </div>
+            <div>
+                <input type="password" id="iptSenha" placeholder="Senha *">
+            </div>
 
-                <div>
-                    <div>
-                        <input type="password" id="iptSenha" placeholder="Senha *">
-                    </div>
-                </div>
+            <div style="text-align: center;">
+                <span id="msgErro"></span>
+            </div>
 
-                <div style="text-align: center;">
-                    <span id="msgErro"></span>
-                </div>
-
-                <div class="button" style="text-align: center;">
-                    <input id="btnEntrar" type="button" value="Entrar" onclick="entrar()">
-                    <!-- <button id="btnEntrar" onclick="entrar()">Entrar</button> -->
-                </div>
-            </form>
-        </div>
+            <div class="button">
+                <button id="btnEntrar" onclick="entrar()">Entrar</button>
+            </div>
+        </form>
     </div>
 
 </body>
 
 </html>
-
 <script src="./js/scriptLogin.js"></script>
