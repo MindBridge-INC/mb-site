@@ -26,7 +26,7 @@ body {
     position: relative;
     display: flex;
     justify-content: center;
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
 }
 
@@ -41,10 +41,10 @@ body {
 
 .container {
     position: relative;
-    max-width: 1150px;
+    max-width: 1300px;
     width: 100%;
     background: rgb(248, 245, 238);
-    padding: 50px 50px;
+    padding: 45px 50px;
     border-radius: 70px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
@@ -60,25 +60,25 @@ body {
 }
 
 .container .form .titulo {
-    font-size: 24px;
-    margin: 30px 0 5px 0;
+    font-size: 18px;
+    margin: 25px 0 5px 0;
 }
 
 .container .form .inputbox {
     width: 100%;
-    margin: 10px 0 10px 0;
+    margin: 6px 0px;
 }
 
 .form .inputbox input {
     position: relative;
-    height: 50px;
+    height: 37px;
     width: 100%;
     padding: 0 20px;
     border: 0;
     background-color: rgb(241, 233, 216);
     border-radius: 30px;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -89,7 +89,7 @@ body {
     width: 200px;
     border: 5px solid rgb(23, 57, 92);
     border-radius: 100px;
-    padding: 15px;
+    padding: 10px;
     transition: all .3s ease-in;
     font-family: 'Fredoka', sans-serif;
     font-weight: 600;
@@ -121,11 +121,18 @@ body {
 .form .coluna {
     display: flex;
     justify-content: start;
-    column-gap: 15px;
+    column-gap: 12px;
 }
 
 /* Responsividade */
 @media screen and (max-width: 1268px) {
+    .pagina-cad {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
     .pagina-cad .logo {
         display: none;
     }
