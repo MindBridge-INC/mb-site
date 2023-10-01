@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/cadastro.js"></script>
+    <title>MindBridge | Cadastro</title>
+</head>
+
+<body>
+
+    <div class="pagina-cad">
+
+        <!-- <div class="logo">
+            <div>
+                <div>
+                    <img id="logo" src="img/21.png" alt="">
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="container">
+
+            <div class="logo-app">
+                <a href="./payattention!.html"><img id="logo-clemente" src="./assets/img/logo pay horizontal.png"
+                        alt=""></a>
+            </div>
+
+            <form action="#" class="form">
+
+                <div class="titulo">
+                    <span>
+                        Dados do <b>responsável</b>
+                    </span>
+                </div>
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input style="width: 80%;" id="iptNomeResp" type="text" placeholder="Nome" required>
+                    </div>
+
+                    <div class="inputbox">
+                        <input style="width: 80%;" id="iptSobrenome" type="text" placeholder="Sobrenome" required>
+                    </div>
+                </div>
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input style="width: 60%;" id="iptTelefone" type="text" placeholder="Telefone" required>
+                    </div>
+                    <div class="inputbox">
+                        <input id="iptEmail" type="text" placeholder="E-mail" required>
+                    </div>
+                </div>
+
+                <div class="titulo">
+                    <span>
+                        Dados da <b>escola</b>
+                    </span>
+                </div>
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input style="width: 80%;" type="text" id="iptNomeEscola" placeholder="Nome da escola" required>
+                    </div>
+
+                    <div class="inputbox">
+                        <select style="
+                            background-color: #f1e9d8ff;
+                            border-radius: 8vh;
+                            border: none;
+                            height: 35px;
+                            color: #9c968aff;
+                            font-family: 'Arimo';
+                            font-weight: 600;
+                            padding-left: 15px;
+                            font-size: 12px;
+                            width: 50%;" type="text" id="iptModalidade" placeholder="Modalidade" required>
+                            <option disabled selected>Modalidade</option>
+                            <option value="Escola">Escola</option>
+                            <option value="Escola de Cursos">Escola de Cursos</option>
+                            <option value="Escola Técnica">Escola Técnica</option>
+                            <option value="Universidade">Universidade</option>
+
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input style="width: 30%;" type="text" id="iptCNPJ" placeholder="CNPJ" required>
+                    </div>
+                </div>
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input onchange="buscarEndereco()" style="width: 70%;" type="text" id="iptCEP"
+                            placeholder="CEP">
+                    </div>
+
+                    <div class="inputbox">
+                        <input style="width: 100%;" type="text" id="iptLograd" placeholder="Logradouro">
+                    </div>
+
+                    <div class="inputbox">
+                        <input style="width: 40%;" type="text" id="iptNum" placeholder="Nº">
+                    </div>
+
+                    <div class="inputbox">
+                        <input style="width: 100%;" type="text" id="iptComp" placeholder="Complemento">
+                    </div>
+                </div>
+
+                <!-- <div class="inputbox">
+                    <div class="inputbox">
+                        <input type="text" id="iptComp" placeholder="Complemento">
+                    </div>
+                </div> -->
+
+                <div class="coluna">
+                    <div class="inputbox">
+                        <input type="text" id="iptBairro" placeholder="Bairro">
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="text" id="iptCidade" placeholder="Cidade">
+                    </div>
+
+                    <div class="inputbox">
+                        <select style="
+                            background-color: #f1e9d8ff;
+                            border-radius: 8vh;
+                            border: none;
+                            height: 35px;
+                            color: #9c968aff;
+                            font-family: 'Arimo';
+                            font-weight: 600;
+                            padding-left: 15px;
+                            font-size: 12px;
+                            width: 50%;" type="text" id="iptEstado" placeholder="Modalidade" required>
+                            <option disabled selected>Estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputbox cadastrar">
+                    <button onclick="sucesso(), sucesso2()">Cadastrar</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

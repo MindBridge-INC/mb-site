@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/payattention.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/login.js"></script>
+    <title>MindBridge</title>
+</head>
+
+<body>
+    <div class="backgroundBlur" id="backgroundBlur"></div>
+    <div id="aparecerLogin"></div>
+
+    <header>
+        <div class="headerFundo">
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./index.html#sobre">Sobre</a></li>
+                <a href="./index.html"><img class="logo" src="https://github.com/MindBridge-INC/mb-site-thaisa/blob/main/mindbridge/vetores/logo%20mind%20quadrado.png?raw=true" width="50px"></a>
+                <li><a href="./servicos.html">Serviços</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+            </ul>
+
+            <a class="aDoLogin" href="javascript:void(0);" onclick="abrirLogin()"><img class="login" src="https://github.com/MindBridge-INC/mb-site-thaisa/blob/main/mindbridge/vetores/login.png?raw=true"></a>
+        </div>
+    </header>
+    
+
+    <section style="display: flex; padding-top: 7%;">
+        <section>
+            <img src="./assets/img/bola azul.png azul.png" width="17%">
+            <img src="./assets/img/logo pay horizontal.png" style="padding-left: 8%;" width="40%"><br>
+            <a href="./cadastro.html"><button class="botao"
+            style="
+                background-color: transparent;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-left: 25%;
+            margin-top: 3%;
+            "
+            >Cadastrar-se</button></a><br>
+            <img src="./assets/img/tubo azul escuro.png" style="padding-top: 10%;" width="75%">
+      
+        </section>
+        
+        <section style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+            <img style="margin-right: 65%; margin-bottom: 5%;" src="./assets/img/monitoramento de.png" width="70%">
+            <img style="margin-right: 65%; margin-bottom: 5%;" src="./assets/img/ram.png" width="63%">
+            <img style="margin-right: 65%;" src="./assets/img/chrome.png" width="63%">
+
+        </section>
+
+    </section>
+
+
+    <section style="padding-top: 3%; display: flex; padding-bottom: 3%;">
+        <section style="padding-left: 18%;">
+            <img style="margin-bottom: 10%;" src="./assets/img/paineis de acesso.png" width="60%"><br>
+            
+            <img src="./assets/img/painel academico.png" width="33%">
+            <img src="./assets/img/aluno.png" width="33%">
+        </section>
+
+        <section class="texto">
+            <p style="font-family: 'Arimo'; text-align: justify;">
+                <span>No âmbito acadêmico,</span> docentes e gestores obterão acesso imediato a dados que abrangem não somente o <span>funcionamento dos dispositivos, mas também o progresso dos estudantes.</span> Esta abordagem possibilita um monitoramento em tempo real, permitindo intervenções mais precisas e oportunas.
+            </p>
+
+            <p style="font-family: 'Arimo';  text-align: justify;">
+                <span>Para os estudantes,</span> esta plataforma proporciona uma experiência <span>interativa e motivadora,</span> através da qual podem avaliar o próprio desempenho por meio de um <span>sistema de pontuação.</span>
+            </p>
+        </section>
+    </section>
+
+    <section style="padding-left: 50%; ">
+        <img src="./assets/img/tubo azul claro.png" width="100%">
+    </section>
+
+    <section id="faleConosco" style=" padding-top: 5%; padding-bottom: 5%; padding-left:30%; padding-right: 20%; display: flex; align-items: center; justify-content: center; margin-left: -5%; gap: -5%;">
+        <section>
+            <img src="./assets/img/clemente joia.png" width="40%">
+        </section>
+
+        <section style="display: flex; align-items: start; justify-content: start; flex-direction: column; gap: 5px;">
+            <img style="padding-bottom: 2%;" src="./assets/img/fale conosco.png" width="60%">
+
+            <input id="input_responsavel" type="text" placeholder="   Nome*">
+            <input id="input_email" type="email" placeholder="   E-mail*">
+            <input id="input_mensagem" type="text" style="border-radius: 30px;" placeholder="   Mensagem*">
+            <button onclick="sendMail()" class="botao"
+            style="
+                background-color: transparent;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-top: 3%;
+            "
+            >Enviar</button>
+        </section>
+    </section>
+
+    <footer style="padding-bottom: 5%;">
+        <div class="footerFundo">
+            <a href=""><img class="logoFooter" src="https://github.com/MindBridge-INC/mb-site-thaisa/blob/main/mindbridge/vetores/logo%20mind%20horizontal.png?raw=true" width="200px"></a>
+
+            <div class="links">
+                <div>
+                    <li class="letra"><a href="./inicio.css">Página inicial</li></a>
+                    <li><a href="./inicio.html">Institucional</li></a>
+                    <li><a href="./servicos.html">Serviços</li></a>
+                </div>
+
+                <div>
+                    <li class="letra"><a href="./payattention.css">Pay Attention!</li></a>
+                    <li><a href="./payattention!.html">Escola</li></a>
+                    <li><a href="./payattention!.html">Universidade</li></a>
+                    <li><a href="">Painel Acadêmico</li></a>
+                    <li><a href="">Painel Estudante</li></a>
+                </div>
+
+                <div class="contatos">
+                    <div>
+                        <li class="letra"><a href="./inicio.html#footer">Contato</li></a>
+                        <li><a href="./payattention!.html#faleConosco">E-mail</li></a>
+                    </div>
+
+                    <div class="redes">
+                        <a href="https://www.instagram.com/mindbridge.education/"><img class="logoRedes"
+                                src="https://github.com/MindBridge-INC/mb-site-thaisa/blob/main/mindbridge/vetores/instagram.png?raw=true"></a>
+                        <a href="https://github.com/MindBridge-INC"><img class="logoRedes"
+                                src="https://github.com/MindBridge-INC/mb-site-thaisa/blob/main/mindbridge/vetores/github.png?raw=true"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="./js/smtp.js"></script>
+
+<script>
+    function sendMail() {
+    var email = input_email.value;
+    var mensagem = input_mensagem.value;
+    var responsavel = input_responsavel.value;
+
+    
+    var form = {
+        from: email,
+        message: mensagem,
+        responsableName: responsavel,
+    }
+    // Enviar solicitação POST para o servidor
+    fetch('/email/sendmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Aqui, você pode realizar ações após o envio bem-sucedido, se desejar
+          alert('Email enviado com sucesso!');
+        } else {
+          alert('Erro ao enviar o email.');
+        }
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar o email:', error);
+      });
+}
+</script>

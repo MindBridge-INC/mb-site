@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+
+@media only screen and (min-width: 280px) { 
+            body {
+                background-color: #F8F5EE;
+            }
+
+            ul{
+                font-size: 25%;
+                margin-left: -10%;
+            }
+
+            .login {
+                width: 5px;
+            }
+
+            .aDoLogin{
+                margin-top: -6px;
+            }
+
+            .logo {
+                width: 15px;
+            }
+
+            .headerFundo{
+            width: 90%;
+            height: 30px;
+            }
+
+             /* ..... */
+             .footerFundo{
+            width: 80%;
+            height: 80px;
+            font-size: 4px;
+            border-radius: 15px;
+            }
+
+             .logoFooter{
+                width: 50px;
+            }
+
+            .letra{
+                font-size: 5px;
+            }
+
+            .logoRedes{
+                width: 10px;
+            }
+
+            .links{
+                width: 60%;
+                height: 40px;
+            }
+
+            /* soluções */
+            .imgSolucoes{
+                width: 80px;
+            }
+
+            .solucoes > div {
+                width: 80%;
+            }
+
+            p{
+                font-size: 6px;
+                width: 120%;
+            }
+
+            button{
+                border: 1.5px solid #EEB758;
+                width: 50px;
+                height: 18px;
+                font-size: 5px;
+                }
+
+                .lego{
+                    width: 100px;
+                }
+
+                
+                .textoEvolução{
+                    font-size: 4px;
+                }
+        }       
+
+        @media only screen and (min-width: 320px) { 
+            body {
+                background-color: #F8F5EE;
+            }
+
+            ul{
+                font-size: 45%;
+                margin-left: -9%;
+            }
+
+            .login {
+                width: 8px;
+                margin-top: -4px;
+            }
+
+            .aDoLogin{
+                margin-top: -4px;
+            }
+
+            .logo {
+                width: 20px;
+            }
+
+            .headerFundo{
+            width: 85%;
+            height: 40px;
+            }
+
+            /* ..... */
+            .footerFundo{
+            width: 70%;
+            height: 80px;
+            font-size: 4px;
+            border-radius: 15px;
+            }
+
+             .logoFooter{
+                width: 50px;
+            }
+
+            .letra{
+                font-size: 5px;
+            }
+
+            .logoRedes{
+                width: 10px;
+            }
+
+            .links{
+                width: 60%;
+                height: 40px;
+            }
+
+             /* soluções */
+            .imgSolucoes{
+                width: 80px;
+            }
+
+            .solucoes > div {
+                width: 80%;
+            }
+
+            p{
+                font-size: 6px;
+                width: 120%;
+            }
+
+            button{
+                border: 1.5px solid #EEB758;
+                width: 50px;
+                height: 18px;
+                font-size: 5px;
+                }
+
+                .lego{
+                    width: 100px;
+                }
+
+            
+                .textoEvolução{
+                    font-size: 5px;
+                }
+        }       
+
+        @media only screen and (min-width: 600px){
+            body {
+                background-color: #F8F5EE;
+            }
+
+            ul{
+                font-size: 60%;
+                margin-left: -8%;
+            }
+
+            .login {
+                width: 10px;
+            }
+
+            .aDoLogin{
+                margin-top: -3px;
+            }
+
+
+            .logo {
+                width: 25px;
+            }
+
+            .headerFundo{
+            width: 70%;
+            height: 50px;
+            }
+
+             /* ..... */
+             .footerFundo{
+            width: 65%;
+            height: 140px;
+            font-size: 8px;
+            border-radius: 30px;
+            }
+
+             .logoFooter{
+                width: 110px;
+            }
+
+            .letra{
+                font-size: 9px;
+            }
+
+            .logoRedes{
+                width: 18px;
+            }
+
+            .links{
+                width: 50%;
+                height: 60px;
+            }
+
+            /* soluções */
+            .imgSolucoes{
+                width: 150px;
+            }
+
+            .solucoes > div {
+                width: 80%;
+            }
+
+            p{
+                font-size: 10px;
+                width: 110%;
+            }
+
+            button{
+                border: 2.5px solid #EEB758;
+                width: 90px;
+                height: 30px;
+                font-size: 10px;
+                }
+
+                .lego{
+                    width: 200px;
+                }
+
+                .textoEvolução{
+                    font-size: 10px;
+                }
+        }
+
+        @media only screen and (min-width: 786px){
+            body {
+                background-color: #F8F5EE;
+            }
+
+            ul{
+                font-size: 80%;
+                margin-left: -5%;
+            }
+
+            .login {
+                width: 15px;
+            }
+
+            .aDoLogin{
+                margin-top: 1vh;
+            }
+
+
+            .logo {
+                width: 35px;
+            }
+
+            .headerFundo{
+            width: 80%;
+            height: 60px;
+            }
+
+            /* ..... */
+            .footerFundo{
+            width: 70%;
+            height: 180px;
+            font-size: 10px;
+            border-radius: 40px;
+            }
+
+             .logoFooter{
+                width: 130px;
+            }
+
+            .letra{
+                font-size: 12px;
+            }
+
+            .logoRedes{
+                width: 22px;
+            }
+
+            .links{
+                width: 50%;
+                height: 80px;
+            }
+
+            /* soluções */
+            .imgSolucoes{
+                width: 210px;
+            }
+
+            .solucoes > div {
+                width: 60%;
+            }
+
+            p{
+                font-size: 12px;
+            }
+
+            button{
+                border: 3px solid #EEB758;
+                width: 100px;
+                height: 35px;
+                font-size: 12px;
+                }
+
+                .lego{
+                    width: 260px;
+                }
+
+                .textoEvolução{
+                    font-size: 12px;
+                }
+        }
+
+        @media only screen and (min-width: 922px){
+            body {
+                background-color: #F8F5EE
+            }
+
+            ul{
+                font-size: 90%;
+                margin-left: -4%;
+            }
+
+            .login {
+                width: 18px;
+            }
+            
+
+            .logo{
+                width: 40px; 
+            }
+
+            .headerFundo{
+            width: 80%;
+            height: 70px;
+            }
+
+             /* ..... */
+             .footerFundo{
+            width: 70%;
+            height: 200px;
+            font-size: 12px;
+            border-radius: 40px;
+            }
+
+             .logoFooter{
+                width: 150px;
+            }
+
+            .letra{
+                font-size: 15px;
+            }
+
+            .logoRedes{
+                width: 28px;
+            }
+
+            .links{
+                width: 50%;
+                height: 80px;
+            }
+
+            /* soluções */
+            .imgSolucoes{
+                width: 250px;
+            }
+
+            .solucoes > div {
+                width: 60%;
+            }
+
+            p{
+                font-size: 14px;
+            }
+
+            button{
+                border: 3.5px solid #EEB758;
+                width: 120px;
+                height: 40px;
+                font-size: 13px;
+                }
+
+                .lego{
+                    width: 300px;
+                }
+            
+
+                .textoEvolução{
+                    font-size: 14px;
+                }
+
+        }
+
+        @media only screen and (min-width: 1200px){
+            body {
+                background-color: #F8F5EE
+            }
+
+            ul{
+                font-size: 100%;
+                margin-left: -3%;
+            }
+
+            .login {
+                width: 20px;
+            }
+
+            .logo{
+                width: 50px; 
+            }
+
+            .headerFundo{
+            width: 80%;
+            height: 70px;
+            }
+
+            /* ..... */
+            .footerFundo{
+            width: 70%;
+            height: 250px;
+            font-size: 15px;
+            border-radius: 40px;
+        }
+            .logoFooter{
+                width: 180px;
+            }
+
+            .letra{
+                font-size: 17px;
+            }
+
+            .logoRedes{
+                width: 30px;
+            }
+
+            .links{
+                width: 50%;
+                height: 80px;
+            }
+
+            /* .solucoes */
+            .imgSolucoes{
+                width: 320px;
+            }
+
+            .solucoes > div {
+                width: 50%;
+            }
+
+            p{
+                font-size: 18px;
+            }
+
+            button{
+                border: 4px solid #EEB758;
+                width: 150px;
+                height: 50px;
+                font-size: 14px;
+                }
+
+            .lego{
+                width: 400px;
+            }
+
+            .textoEvolução{
+                font-size: 19px;
+            }
+        }
+
+
+
+    /* padroes começam aqui!!!!!!!!!!!!!!!!!!!!! */
+    
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+        width: 8px;
+        height: 3px; 
+    }
+      
+    body::-webkit-scrollbar-track {
+        background: #f3eee3ff;
+        padding: 2px;
+    }
+      
+    body::-webkit-scrollbar-thumb {
+        background-color: #d2c6aeff;
+    }
+
+    a:hover{
+        transform: scale(1.05);
+    }
+
+    li:hover{
+        transform: scale(1.05);
+    }
+
+    button:hover{
+        transform: scale(1.05);
+    }
+
+   
+    
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+
+        .headerFundo{
+            background-color: #f3eee3;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .headerFundo > ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10%;
+            width: 80%;
+        }
+     
+        .headerFundo > ul > li > a{
+            text-decoration: none;
+            color: rgb(44, 44, 44);
+        }
+
+
+        /* footer */
+
+        footer{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-family: 'Arimo', sans-serif;
+            font-weight: 700;
+        }
+
+        .footerFundo{
+            background-color: #f3eee3ff;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .links{
+            display: flex;
+            align-items: start;
+            justify-content: space-around;
+        }
+
+        .links > div {
+            list-style: none;
+            gap: 50px;
+        }
+
+        .links > div > li > a {
+            text-decoration: none;
+            color: rgb(44, 44, 44);
+        }
+
+        .contatos{
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            margin-top: 0;
+        }
+
+        .contatos > div {
+            list-style: none;
+            flex-direction: column;
+            align-items: end;
+            justify-content: end;
+        }
+
+        .contatos > div > li > a{
+            text-decoration: none;
+            color: rgb(44, 44, 44);
+        }
+
+        .letra{
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+        }
+
+        .links > div > li {
+            margin-bottom: 3px;
+        }
+
+        .contatos > div > li {
+            margin-bottom: 3px;
+        }
+
+        .redes {
+            margin-top: 50%;
+        }
+/* 
+        solucoes */
+
+        .solucoes {
+            padding-left:20% ;
+            padding-right:20% ;
+            padding-top:5% ;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            gap: 20%;
+        }
+    
+        p{
+            font-family: 'Arimo', sans-serif;
+            font-weight: 400;
+            text-justify: justify;
+        }
+    
+        button{
+        background-color: transparent;
+        border-radius: 100px;
+        cursor: pointer;
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 600;
+        }
+    
+        span{
+            font-weight: 800;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    
+        .ponte {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 8%;
+        }
+    
+        .valores {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 5%;
+        }
