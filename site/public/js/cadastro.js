@@ -72,7 +72,6 @@ function sucesso(){
       cepVar == "" ||
       logradouroVar == "" ||
       numeroVar == "" ||
-      complementoVar == "" ||
       bairroVar == "" ||
       cidadeVar == "" ||
       estadoVar == ""
