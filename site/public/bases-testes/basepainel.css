@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&display=swap');
+
 * {
-margin: 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+    color: rgb(32, 32, 32);
 }
 
 body {
-    background-color: rgb(231, 225, 211);
+    background-color: rgb(248, 245, 238);
 }
 
 .container {
@@ -19,11 +24,9 @@ body {
 .menuLateral {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    background-color: brown;
     max-width: 175px;
     width: 100%;
-    padding: 5vh 2vh;
+    padding: 0vh 2vw 0vh 2vw;
 }
 
 .menuLateral .alinharIcone {
@@ -32,28 +35,32 @@ body {
 }
 
 #logoHorizontal {
-    width: 125px;
+    width: 100px;
+    margin-top: 5vh;
     margin-bottom: 10vh;
 }
 
 #icon {
-    width: 50px;
+    width: 40px;
     margin-bottom: 3vh;
 }
 
 #iconLogout {
-    width: 50px;
-    margin-top: 20vh;
+    width: 40px;
+    margin-top: 10vh;
+}
+
+#icon,#iconLogout:hover {
+    cursor: pointer;
 }
 
 /* DASHBOARDS */
 
 .painel {
     display: block;
-    /* max-width: 1300px; */
     width: 100%;
-    padding: 5vh;
-    background-color: rgb(150, 104, 43);
+    padding: 3vh 7vh;
+    background-color: rgb(255, 253, 248);
     border-radius: 5vh;
 }
 
@@ -67,10 +74,8 @@ body {
 .painel .header .titulo {
     display: flex;
     align-items: center;
-    /* font-size: 3vh; */
     width: 70%;
-    color: aliceblue;
-    background-color: black;
+    margin-bottom: 5vh;
 }
 
 .painel .header .selecao {
@@ -78,8 +83,6 @@ body {
     align-items: center;
     font-size: 2.5vh;
     width: 100%;
-    color: aliceblue;
-    background-color: rgb(125, 58, 189);
 }
 
 .painel .header .usuario {
@@ -88,15 +91,16 @@ body {
     align-items: center;
     font-size: 6vh;
     width: 50%;
-    color: aliceblue;
-    background-color: rgb(185, 62, 62);
 }
 
 .painel .header .usuario .ident {
     display: flex;
     font-size: 3vh;
     align-items: center;
+    margin-right: 15vh;
+
 }
+
 .painel .header .usuario .ident div {
     margin-left: 2vh;
 }
@@ -104,4 +108,48 @@ body {
 #pfp {
     width: 80px;
     border-radius: 5vh;
+}
+
+/* GRÁFICOS */
+
+.conteudo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Adaptar CSS para cada conteúdo inserido */
+
+.graficos {
+    height: 280px;
+    width: 100%
+}
+
+.tituloGraf {
+    margin-bottom: 2.5vh;
+}
+
+.card1 {
+    border: solid rgb(207, 198, 174) 0.7vh;
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
+    width: 260px;
+}
+
+.card2 {
+    border: solid rgb(207, 198, 174) 0.7vh;
+    border-radius: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 77px;
+    width: 260px;
+    margin: 0vh 0vh 2vh 2vh;
+}
+
+.valor {
+    font-size: 7vh;
+    font-weight: 900;
 }

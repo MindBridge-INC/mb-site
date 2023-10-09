@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="stylesheet" href="basepainel.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel</title>
 </head>
+
 <body>
 
     <div class="container">
@@ -15,50 +17,52 @@
             <div>
 
                 <div class="alinharIcone">
-                    <img id="logoHorizontal" src="../assets/img/lego.png" alt="">
+                    <img id="logoHorizontal" src="../assets/img/logo.png" alt="">
                 </div>
 
                 <div class="alinharIcone">
-                    <img id="icon" src="../assets/img/login.png" alt="">
+                    <a href="#"><img id="icon" src="../assets/img/grafico.png" alt=""></a>
                 </div>
 
                 <div class="alinharIcone">
-                    <img id="icon" src="../assets/img/login.png" alt="">
+                    <a href="#"><img id="icon" src="../assets/img/login.png" alt=""></a>
+
                 </div>
 
                 <div class="alinharIcone">
-                    <img id="icon" src="../assets/img/login.png" alt="">
+                    <a href="#"><img id="icon" src="../assets/img/login.png" alt=""></a>
                 </div>
 
                 <div class="alinharIcone">
-                    <img id="icon" src="../assets/img/login.png" alt="">
+                    <a href="#"><img id="icon" src="../assets/img/login.png" alt=""></a>
+
                 </div>
 
                 <div class="alinharIcone">
-                    <img id="iconLogout" src="../assets/img/x.png" alt="">
+                    <a href="#"><img id="iconLogout" src="../assets/img/sair.png" alt=""></a>
                 </div>
 
             </div>
-            
 
         </div>
-        
-        
+
+
         <div class="painel">
 
             <div class="header">
-                
+
                 <div class="titulo">
 
                     <div>
-                        <span style="font-size: 5vh;">Painel Técnico</span><br>
-                        <span style="font-size: 2vh;">08/10/2023 - 14:28</span>
+                        <span style="font-size: 7vh; font-weight: 600;">Painel Técnico</span><br>
+                        <span style="font-size: 2vh; font-weight: 400;">08/10/2023 - 14:28</span>
                     </div>
-                    
+
 
                 </div>
-                
-                <div class="selecao"> <!-- remover esse trecho em telas sem seleção-->
+
+                <!-- remover esse trecho em telas sem seleção-->
+                <!-- <div class="selecao">
                     
                     <div class="custom-select">
                         <span>Ambiente</span>
@@ -69,7 +73,8 @@
                         </select>
                     </div>
 
-                </div> <!-- remover esse trecho em telas sem seleção-->
+                </div>  -->
+                <!-- remover esse trecho em telas sem seleção-->
 
                 <div class="usuario">
 
@@ -79,8 +84,8 @@
                         </div>
 
                         <div id="divIdentidade">
-                            <span>Lilien</span><br>
-                            <span style="font-size: 2vh;">Administrador</span>
+                            <span style="font-weight: 600;">Lilien</span><br>
+                            <span style="font-size: 2vh; font-weight: 400;">Administrador</span>
                         </div>
                     </div>
 
@@ -88,14 +93,59 @@
 
             </div>
 
-            <div class="graficos">
+            <!-- Por aqui serão inseridos todos os conteúdos relevantes: gráficos, listas, CRUDs -->
+            <div class="conteudo">
+
+                <!-- Primeiro conjunto de informações -->
+                <div class="graficos">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGraf">
+                        <span style="font-size: 3.5vh; font-weight: 600;">Máquinas cadastradas</span>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardMaquina">
+                        <div style="display: flex;">
+                            <div class="card1">
+                                <span class="valor">265</span>
+                            </div>
+
+                            <div>
+                                <div class="card2">
+                                    <div>
+                                        <span class="valor">14</span>
+                                    </div>
+                                    <div>
+                                        <span style="margin-left: 2vh;">Ativas</span>
+                                        <br>
+                                        <span style="font-size: 1.6vh; margin-left: 2vh;">A mais de 1 semana</span>
+                                    </div>
+                                </div>
+                                <div class="card2">
+                                    <div>
+                                       <span class="valor">65</span>
+                                    </div>
+                                    <div>
+                                        <span style="margin-left: 2vh;">Inativas</span>
+                                        <br>
+                                        <span style="font-size: 1.6vh; margin-left: 2vh;">A mais de 1 semana</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contéudo [...] -->
 
             </div>
-
 
         </div>
 
     </div>
-    
+
 </body>
+
 </html>
