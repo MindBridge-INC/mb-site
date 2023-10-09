@@ -1,0 +1,107 @@
+* {
+margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(231, 225, 211);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 3vh;
+}
+
+/* MENU LATERAL */
+
+.menuLateral {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    background-color: brown;
+    max-width: 175px;
+    width: 100%;
+    padding: 5vh 2vh;
+}
+
+.menuLateral .alinharIcone {
+    display: flex;
+    justify-content: center;
+}
+
+#logoHorizontal {
+    width: 125px;
+    margin-bottom: 10vh;
+}
+
+#icon {
+    width: 50px;
+    margin-bottom: 3vh;
+}
+
+#iconLogout {
+    width: 50px;
+    margin-top: 20vh;
+}
+
+/* DASHBOARDS */
+
+.painel {
+    display: block;
+    /* max-width: 1300px; */
+    width: 100%;
+    padding: 5vh;
+    background-color: rgb(150, 104, 43);
+    border-radius: 5vh;
+}
+
+/* DASHBOARDS - HEADER: TÍTULO, SELEÇÕES, USUÁRIO */
+
+.painel .header {
+    display: flex;
+    width: 100%;
+}
+
+.painel .header .titulo {
+    display: flex;
+    align-items: center;
+    /* font-size: 3vh; */
+    width: 70%;
+    color: aliceblue;
+    background-color: black;
+}
+
+.painel .header .selecao {
+    display: flex;
+    align-items: center;
+    font-size: 2.5vh;
+    width: 100%;
+    color: aliceblue;
+    background-color: rgb(125, 58, 189);
+}
+
+.painel .header .usuario {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 6vh;
+    width: 50%;
+    color: aliceblue;
+    background-color: rgb(185, 62, 62);
+}
+
+.painel .header .usuario .ident {
+    display: flex;
+    font-size: 3vh;
+    align-items: center;
+}
+.painel .header .usuario .ident div {
+    margin-left: 2vh;
+}
+
+#pfp {
+    width: 80px;
+    border-radius: 5vh;
+}
