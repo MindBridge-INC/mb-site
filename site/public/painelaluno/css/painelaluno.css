@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+    color: rgb(32, 32, 32);
+}
+
+body {
+    background-color: rgb(248, 245, 238);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 3vh;
+}
+
+/* MENU LATERAL */
+
+.menuLateral {
+    display: flex;
+    justify-content: center;
+    max-width: 115px;
+    width: 100%;
+    padding: 3vh 2vw 0vh 2vw;
+}
+
+.menuLateral .alinharIcone {
+    display: flex;
+    justify-content: center;
+}
+
+#logoHorizontal {
+    width: 35px;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+#icon1 {
+    width: 30px;
+    margin-bottom: 3vh;
+}
+
+#icon2 {
+    width: 35px;
+    margin-bottom: 3vh;
+}
+
+#icon3 {
+    width: 30px;
+    margin-bottom: 3vh;
+}
+
+
+#iconLogout {
+    width: 35px;
+    margin-top: 30vh;
+}
+
+#icon,#iconLogout:hover {
+    cursor: pointer;
+}
+
+/* DASHBOARDS */
+
+.painel {
+    display: block;
+    width: 75%;
+    padding: 3vh 7vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+}
+
+.painel2 {
+    display: block;
+    width: 20%;
+    padding: 3vh 4vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
+}
+
+/* DASHBOARDS - HEADER: TÍTULO, SELEÇÕES, USUÁRIO */
+
+.painel .header {
+    display: flex;
+    width: 100%;
+}
+
+.painel .header .titulo {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 5vh;
+}
+
+.painel .header .selecao {
+    display: flex;
+    align-items: center;
+    font-size: 2.5vh;
+    width: 100%;
+}
+
+.painel .header .usuario {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 6vh;
+    width: 50%;
+}
+
+.painel .header .usuario .ident {
+    display: flex;
+    font-size: 3vh;
+    align-items: center;
+    margin-right: 15vh;
+}
+
+.painel .header .usuario .ident div {
+    margin-left: 2vh;
+}
+
+#pfp {
+    width: 80px;
+    border-radius: 5vh;
+}
+
+.pontuacao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin-left: 10vh;
+}
+
+.moedasepontos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    
+}
