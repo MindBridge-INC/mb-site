@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="./css/conquistas.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <title>Painel do Aluno</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    a {
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+</style>
+<body>
+
+    <div class="container">
+
+        <div class="menuLateral">
+
+            <div>
+
+                <div class="alinharIcone">
+                    <img id="logoHorizontal" src="../assets/img/logo.png" alt="">
+                </div>
+
+                <div class="alinharIcone">
+                    <a href="./painelaluno.html"><img id="icon1" src="../assets/img/grafico.png" alt=""></a>
+                </div>
+
+                <div class="alinharIcone">
+                    <a href="./conquistas.html"><img id="icon2" src="../assets/img/conquistas.png" alt=""></a>
+
+                </div>
+
+                <div class="alinharIcone">
+                    <a href="./chat.html"><img id="icon3" src="../assets/img/chat.png" alt=""></a>
+                </div>
+
+                <div class="alinharIcone">
+                    <a href="../portalaluno.html"><img id="iconLogout" src="../assets/img/sair.png" alt=""></a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="painel">
+
+            <div class="header">
+
+                <div class="titulo" style="margin-top: 3vh;">
+
+                    <div>
+                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Conquistas</span><br>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
+                            14:28</span>
+                    </div>
+
+
+                </div>
+
+                <div class="pontuacao">
+                    <div class="moedasepontos">
+                        <img src="../assets/img/estrela.png" width="18%">
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">8567</span>
+                    </div>
+
+                    <!-- <div class="moedasepontos">
+                        <img src="../assets/img/moeda.png" width="25%">
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">1489</span>
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="emblemas&inventário" style="display: flex; gap: 15vh;">
+                <div class="emblema" style=" width: 50%;">
+                    <div>
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d" >Emblemas</span>
+                    </div>
+    
+                    <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 5vh;">
+                        <img src="../assets/img/emblema_amarelo.png" width="130vh">
+                        <img src="../assets/img/emblema_vermelho.png" width="130vh">
+                    </div>
+    
+                    <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 5vh;">
+                        <img src="../assets/img/emblema_verde.png" width="130vh">
+                        <img src="../assets/img/emblema_azul.png" width="130vh" style="opacity: 0.6;">
+                    </div>
+                </div>
+
+                <div class="emblema" style="width: 50%; display: flex; gap: 3vh; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d" >Inventário</span>
+                    </div>
+    
+                    <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
+                        <img src="../assets/img/inventário_lapis.png" width="100vh">
+                        <img src="../assets/img/inventário_livro.png" width="100vh">
+                        <img src="../assets/img/inventario_clip.png" width="100vh">
+                    </div>
+    
+                    <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
+                        <img src="../assets/img/inventario_pin.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_note.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_carta.png" width="100vh" style="opacity: 0.6;">
+                    </div>
+
+                    <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
+                        <img src="../assets/img/inventario_grafico.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_escola.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_formatura.png" width="100vh" style="opacity: 0.6;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="painel2">
+            <div style="margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
+                <img src="../assets/img/thaisailustracao.png" width="80%">
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center;">
+                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
+                    Nóbrega</span>
+            </div>
+            <div style="display: flex;
+            align-items: center;
+            justify-content: center; margin-top: 0.5vh">
+                <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">01231070 - 2EM2023
+                </span>
+            </div>
+
+
+            <div class="dica_clemente" style="display: flex; align-items: center;
+            justify-content: center; width: 100%; gap: 2vh; margin-top: 120%; ">
+                <div>
+                    <img src="../assets/img/clemente joia.png" width="30vh">
+                </div>
+                <div style="width: 100%;">
+                    <span style="font-family: Fredoka; font-size: 2.5vh; font-weight: 700; color: #2e2d2d" >
+                        Dica do Clemente:
+                    </span>
+                    <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d;">
+                        “Persistência e dedicação são as chaves do sucesso acadêmico.”
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

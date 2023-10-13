@@ -10,6 +10,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
+<style>
+a {
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+</style>
+
 <body>
 
     <div class="container">
@@ -23,20 +34,20 @@
                 </div>
 
                 <div class="alinharIcone">
-                    <a href="#"><img id="icon1" src="../assets/img/grafico.png" alt=""></a>
+                    <a href="./painelaluno.html"><img id="icon1" src="../assets/img/grafico.png" alt=""></a>
                 </div>
 
                 <div class="alinharIcone">
-                    <a href="#"><img id="icon2" src="../assets/img/conquistas.png" alt=""></a>
+                    <a href="./conquistas.html"><img id="icon2" src="../assets/img/conquistas.png" alt=""></a>
 
                 </div>
 
                 <div class="alinharIcone">
-                    <a href="#"><img id="icon3" src="../assets/img/chat.png" alt=""></a>
+                    <a href="./chat.html"><img id="icon3" src="../assets/img/chat.png" alt=""></a>
                 </div>
 
                 <div class="alinharIcone">
-                    <a href="#"><img id="iconLogout" src="../assets/img/sair.png" alt=""></a>
+                    <a href="../portalaluno.html"><img id="iconLogout" src="../assets/img/sair.png" alt=""></a>
                 </div>
 
             </div>
@@ -48,7 +59,7 @@
 
             <div class="header">
 
-                <div class="titulo" style="margin-top: 3vh;">
+                <div class="titulo" style="margin-top: 3vh;" >
 
                     <div>
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Painel Aluno</span><br>
@@ -59,16 +70,16 @@
 
                 </div>
 
-                <div class="pontuacao">
+                <div class="pontuacao" >
                     <div class="moedasepontos">
-                        <img src="../assets/img/estrela.png" width="25%">
+                        <img src="../assets/img/estrela.png" width="18%">
                         <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">8567</span>
                     </div>
 
-                    <div class="moedasepontos">
+                    <!-- <div class="moedasepontos">
                         <img src="../assets/img/moeda.png" width="25%">
                         <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">1489</span>
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -175,7 +186,7 @@
                     </div>
                     <div style="display: flex; align-items: center;
                     justify-content: start; width: 100%;">
-                        <img src="../assets/img/emblema_azul.png" width="100vh">
+                        <img src="../assets/img/emblema_azul.png" width="100vh" style="opacity: 0.6;">
                     </div>
 
                 </div>
@@ -186,8 +197,8 @@
         </div>
 
         <div class="painel2">
-            <div style="margin-top: 2vh; display: flex; align-items: center;justify-content: center;">
-                <img src="../assets/img/thaisailustracao.png" width="90%">
+            <div style="margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
+                <img src="../assets/img/thaisailustracao.png" width="80%">
             </div>
             <div style="display: flex;
             align-items: center;
@@ -233,7 +244,7 @@
             labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
             datasets: [{
                 label: 'Pontos',
-                data: [150, 120, 90, 45, 50],
+                data: [60, 65, 40, 55, 26],
                 backgroundColor: '#EEB758',
                 borderColor: '#ffffff',
                 borderWidth: 0,
