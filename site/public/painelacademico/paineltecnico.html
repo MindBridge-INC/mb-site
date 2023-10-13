@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="css/paineltecnico.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Painel Técnico | PayAttention!</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="menuLateral">
+
+            <div>
+
+                <div class="alinharIcone">
+                    <img id="logoHorizontal" src="../assets/img/logo pay quadrado.png" alt="">
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone dash hover">
+                        <a href="#"><img id="icon" src="../assets/img/grafico.png" alt=""></a>
+                    </div>
+                </div>
+
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="#"><img id="icon" src="../assets/img/icone_maquina.png" alt=""></a>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="#"><img id="icon" src="../assets/img/icone_chapeu.png" alt=""></a>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="#"><img id="icon" src="../assets/img/login.png" alt=""></a>
+                    </div>
+                </div>
+
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="#"><img id="icon" src="../assets/img/sair.png" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="painel">
+
+            <div class="header">
+
+                <div class="titulo">
+
+                    <div>
+                        <span style="font-size: 5.4vh; font-weight: 600;">Painel Técnico</span><br>
+                        <span style="font-size: 1.8vh; font-weight: 400;">08/10/2023 - 14:28</span>
+                    </div>
+
+
+                </div>
+
+                <!-- remover esse trecho em telas sem seleção-->
+                <!-- <div class="selecao">
+                    
+                    <div class="custom-select">
+                        <span>Ambiente</span>
+                        <select name="sltAmbiente" id="sltAmbiente">
+                            <option value="1">LAB01</option>
+                            <option value="2">LAB02</option>
+                            <option value="3">LAB03</option>
+                        </select>
+                    </div>
+
+                </div>  -->
+                <!-- remover esse trecho em telas sem seleção-->
+
+                <div class="usuario">
+
+                    <div class="ident">
+                        <div id="divPfp">
+                            <img id="pfp" src="../assets/img/lilien.png" alt="">
+                        </div>
+
+                        <div id="divIdentidade">
+                            <div>
+                                <span style="font-size:3vh;font-weight: 600;">Lilien</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 2vh; font-weight: 400;">Administrador</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Por aqui serão inseridos todos os conteúdos relevantes: gráficos, listas, CRUDs -->
+            <div class="conteudo">
+
+                <!-- Primeiro conjunto de informações | Máquinas ativa -->
+                <div class="graficos">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGraf">
+                        <span style="font-size:3vh; font-weight: 600;">Máquinas cadastradas</span>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="card">
+                        <div style="display: flex;">
+                            <div class="card1">
+                                <span class="valor">265</span>
+                            </div>
+
+                            <div>
+                                <div class="card2">
+                                    <div>
+                                        <span class="valor">14</span>
+                                    </div>
+                                    <div>
+                                        <span style="margin-left: 2vh;">Ativas</span>
+                                        <br>
+                                        <span style="font-size: 1.6vh; margin-left: 2vh;">A mais de 1 semana</span>
+                                    </div>
+                                </div>
+                                <div class="card2">
+                                    <div>
+                                        <span class="valor">65</span>
+                                    </div>
+                                    <div>
+                                        <span style="margin-left: 2vh;">Inativas</span>
+                                        <br>
+                                        <span style="font-size: 1.6vh; margin-left: 2vh;">A mais de 1 semana</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Segundo conjunto de informações | Número total de alertas -->
+                <div class="graficos" style="width: 300px;">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGraf">
+                        <div style="display: flex; justify-content: space-between; align-items: end;">
+                            <div>
+                                <span style="font-size: 3vh; font-weight: 600;">Número de alertas</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 1.7vh; font-weight: 300; text-align: end;">Dia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardAlerta">
+
+                        <div class="circulo alerta">
+                            <span class="valor">54</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Terceiro conjunto de informações | Número de máquinas com velocidade da rede abaixo de 100 kbps -->
+                <div class="graficos" style="width: 300px;">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGrafRede">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: end;">
+                                <div>
+                                    <span style="font-size: 3vh; font-weight: 600;">Velocidade da rede</span>
+                                </div>
+                                <div>
+                                    <span style="font-size: 1.7vh; font-weight: 300; text-align: end;">
+                                        < 100 kbps</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span style="font-size: 1.7vh; font-weight: 300;">Número de máquinas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardAlerta">
+
+                        <div class="circulo velocidadeRede">
+                            <span class="valor">23</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Quarto conjunto de informações  | Armazenamento-->
+                <div class="graficos" style="width: 300px;">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGrafRede">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: end;">
+                                <div>
+                                    <span style="font-size: 3vh; font-weight: 600;">Armazenamento Crítico</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span style="font-size: 1.7vh; font-weight: 300;">Maior que 70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardArmazenamento">
+
+                        <div>
+                            <div>
+                                <canvas id="myChartArmazenamento"
+                                    style="position: relative; max-height: 200px; max-width: 260px;"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center;">
+                                <button>Detalhes</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <!-- Quinto conjunto de informações  | Memoria crit-->
+                <div class="graficos" style="width: 400px;">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGrafRede">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: end;">
+                                <div>
+                                    <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
+                                </div>
+                                <div style="font-size: 1.7vh; font-weight: 300;">
+                                    Maior que 80%
+                                </div>
+                            </div>
+
+                            <div>
+                                <span style="font-size: 1.7vh; font-weight: 300;">Número de máquinas/dia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardArmazenamento">
+
+                        <div>
+                            <div>
+                                <canvas id="myChartRAM"
+                                    style="position: relative; height: 200px; max-width: 400px;"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center;">
+                                <button>Detalhes</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <!-- Sexto conjunto de informações  | CPU crit-->
+                <div class="graficos" style="width: 400px;">
+
+                    <!-- Título do conteúdo -->
+                    <div class="tituloGrafRede">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: end;">
+                                <div>
+                                    <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
+                                </div>
+                                <div style="font-size: 1.7vh; font-weight: 300;">
+                                    Maior que 60%
+                                </div>
+                            </div>
+
+                            <div>
+                                <span style="font-size: 1.7vh; font-weight: 300;">Número de máquinas/dia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="cardArmazenamento">
+
+                        <div>
+                            <div>
+                                <canvas id="myChartCPU"
+                                    style="position: relative; height: 200px; max-width: 400px;"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center;">
+                                <button>Detalhes</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script src="js/paineltecnico.js">
+
+</script>
