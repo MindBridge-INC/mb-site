@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+    color: rgb(32, 32, 32);
+}
+
+body {
+    background-color: rgb(248, 245, 238);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 3vh;
+}
+
+/* MENU LATERAL */
+
+.menuLateral {
+    display: flex;
+    justify-content: center;
+    max-width: 115px;
+    width: 100%;
+    padding: 3vh 2vw 0vh 2vw;
+}
+
+.menuLateral .alinharIcone {
+    display: flex;
+    justify-content: center;
+}
+
+#logoHorizontal {
+    width: 60px;
+    margin-top: 2vh;
+    margin-bottom: 10vh;
+}
+
+#icon1 {
+    width: 35px;
+    margin-bottom: 3vh;
+}
+
+#icon2 {
+    width: 35px;
+    margin-bottom: 3vh;
+}
+
+#icon3 {
+    width: 40px;
+    margin-bottom: 3vh;
+}
+
+#icon4 {
+    width: 32px;
+    margin-bottom: 3vh;
+}
+
+
+#iconLogout {
+    width: 35px;
+    margin-top: 20vh;
+}
+
+#icon,#iconLogout:hover {
+    cursor: pointer;
+}
+
+/* DASHBOARDS */
+
+.painel {
+    display: block;
+    width: 90%;
+    padding: 3vh 7vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+}
+
+.painel2 {
+    display: block;
+    width: 20%;
+    padding: 3vh 4vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
+}
+
+/* DASHBOARDS - HEADER: TÍTULO, SELEÇÕES, USUÁRIO */
+
+.painel .header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+option{
+    font-family: Arimo;
+}
