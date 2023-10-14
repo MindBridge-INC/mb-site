@@ -41,28 +41,28 @@ body {
 }
 
 #icon1 {
-    width: 35px;
+    width: 30px;
     margin-bottom: 3vh;
 }
 
 #icon2 {
-    width: 35px;
+    width: 30px;
     margin-bottom: 3vh;
 }
 
 #icon3 {
-    width: 40px;
+    width: 35px;
     margin-bottom: 3vh;
 }
 
 #icon4 {
-    width: 32px;
+    width: 29px;
     margin-bottom: 3vh;
 }
 
 
 #iconLogout {
-    width: 35px;
+    width: 32px;
     margin-top: 20vh;
 }
 
@@ -74,7 +74,7 @@ body {
 
 .painel {
     display: block;
-    width: 90%;
+    width: 75%;
     padding: 3vh 7vh;
     background-color: rgb(255, 253, 248);
     border-radius: 5vh;
@@ -94,10 +94,22 @@ body {
 
 .painel .header {
     display: flex;
-    width: 100%;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-option{
-    font-family: Arimo;
+.painel .header .titulo {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 5vh;
 }
+
+.dadosCadastrados{
+    font-size: 2vh; 
+    font-weight: 700; 
+    color: #2e2d2d;
+    font-family: "Arimo";
+}
+
