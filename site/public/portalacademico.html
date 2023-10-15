@@ -284,9 +284,9 @@
         <div class="container" style=" background-color: #F8F5EE; border-radius: 8vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5vh;">
             <img class="logo" src="./assets/img/logo pay horizontal.png">
 
-            <input type="email" placeholder="E-mail*">
-            <input type="password" placeholder="Senha*">
-            <button onclick="sucesso()" class="botao"
+            <input type="email" placeholder="E-mail*" id="email_input">
+            <input type="password" placeholder="Senha*" id="senha_input">
+            <button onclick="sucessoAdmin()" class="botao"
             style="
             background-color: transparent;
             border-radius: 100px;
@@ -304,9 +304,4 @@
 </body>
 
 </html>
-
-<script>
-    function sucesso(){
-    alert("Login efetuado com sucesso!")
-}
-</script>
+<script src="./js/login.js"></script>

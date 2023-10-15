@@ -26,61 +26,104 @@ modalidadeEnsino VARCHAR(50) NOT NULL,
 CHECK (modalidadeEnsino = 'Escola' || modalidadeEnsino = 'Escola de Cursos' || 
 modalidadeEnsino = 'Escola Técnica' || modalidadeEnsino  = 'Universidade')
 );
-
-CREATE TABLE Usuario(
-idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE UsuarioInstituicao(
+idAdmin INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
 sobrenome VARCHAR(50) NOT NULL,
 email VARCHAR(100)NOT NULL,
 senha VARCHAR(50),
-tipoUser VARCHAR(50),
-CHECK (tipoUser = 'Administrador' || tipoUser = 'Aluno'),
 fkInstituicao INT,
 FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
 );
+update UsuarioInstituicao set senha = "sptech123" where idAdmin = 1;
+select * from InstituicaoEnsino inner join UsuarioInstituicao;
+
+CREATE TABLE UsuarioAluno(
+idAluno INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+sobrenome VARCHAR(50) NOT NULL,
+email VARCHAR(100)NOT NULL,
+senha VARCHAR(50),
+fkInstituicao INT,
+FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
+);
+insert into UsuarioAluno VALUES (null, 'Matheus', 'Lima', 'matheus.slima@sptech.school', 'sptech123', 1);
 
 CREATE TABLE Pontuacao(
 idPontuacao INT PRIMARY KEY AUTO_INCREMENT,
 Pontos INT,
-fkUser INT,
-FOREIGN KEY (fkUser) REFERENCES Usuario(idUsuario)
+fkAluno INT,
+FOREIGN KEY (fkAluno) REFERENCES UsuarioAluno(idAluno)
+);
+CREATE TABLE ociosidade (
+idOciosidade int primary key auto_increment,
+hora time,
+fkAluno int,
+FOREIGN KEY (fkAluno) REFERENCES UsuarioAluno(idAluno),
+fkInstituicao int,
+FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
 );
 
+CREATE TABLE programas(
+idProgramas int primary key,
+nome varchar(45),
+fkAluno int,
+FOREIGN KEY (fkAluno) REFERENCES UsuarioAluno(idAluno),
+fkInstituicao int,
+FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
+);
+CREATE TABLE Sala(
+idSala INT PRIMARY KEY AUTO_INCREMENT,
+Numero INT,
+Andar INT,
+fkInstituicao INT,
+FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
+);
+CREATE TABLE Turma(
+idTurma INT PRIMARY KEY auto_increment,
+nomeTurma VARCHAR(50),
+ano varchar(45)
+);
+CREATE TABLE Horario(
+idHorario INT PRIMARY KEY auto_increment,
+Inicio varchar(50),
+Fim varchar(50),
+fkTurma INT,
+FOREIGN KEY (fkTurma) REFERENCES Turma(idTurma)
+);
 CREATE TABLE Maquinas(
 idMaquinas INT PRIMARY KEY AUTO_INCREMENT,
 IP INT NOT NULL,
-Marca VARCHAR(50) NOT NULL,
-Modelo VARCHAR(50) NOT NULL,
 SistemaOperacional VARCHAR(50) NOT NULL,
 Processador VARCHAR(50) NOT NULL,
 RAM INT NOT NULL,
 Disco INT NOT NULL,
 fkInstituicao INT,
-FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino)
+FOREIGN KEY (fkInstituicao) REFERENCES InstituicaoEnsino(idInstituicaoEnsino),
+fkSala INT,
+FOREIGN KEY (fkSala) REFERENCES Sala(idSala)
 );
-/*insert into Maquinas Values(default, 1111111111, 'Dell', 'Inpiron15', 'Windows 11', 'Ryzen 5', '8', '500');*/
 
 CREATE TABLE registroMaquina(
 idRegistroMaquina INT PRIMARY KEY AUTO_INCREMENT,
-TemperaturaProcessador INT NOT NULL,
-usoRam INT NOT NULL,
-usoProcessador INT NOT NULL,
-usoDisco INT NOT NULL,
-usoRede INT NOT NULL,
-dtHora DATETIME,
+TemperaturaProcessador varchar(50),
+usoRam varchar(50),
+usoProcessador varchar(50),
+usoDisco varchar(50),
+downloadRede varchar(50),
+dispositivosUSB varchar(50),
+dtHora TIMESTAMP NOT NULL default current_timestamp,
+fkMaquinas INT,
+FOREIGN KEY (fkMaquinas) REFERENCES Maquinas(idMaquinas)
+);
+CREATE TABLE Alertas(
+idAlerta INT PRIMARY KEY AUTO_INCREMENT,
+dataHora DATETIME,
 fkMaquinas INT,
 FOREIGN KEY (fkMaquinas) REFERENCES Maquinas(idMaquinas)
 );
 
-CREATE TABLE tbLogMaquina(
-fkMaquinas INT,
-fkUsuario INT,
-dtHora DATETIME PRIMARY KEY NOT NULL,
-FOREIGN KEY (fkMaquinas) REFERENCES Maquinas(idMaquinas),
-FOREIGN KEY (fkUsuario) REFERENCES Usuario(idUsuario)
-);
-
-select * from Usuario inner join InstituicaoEnsino;
+select * from registroMaquina;
 
 /*
 comandos para criar usuário em banco de dados azure, sqlserver,

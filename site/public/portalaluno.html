@@ -283,9 +283,9 @@
         <div class="container" style=" background-color: #F8F5EE; border-radius: 8vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5vh;">
             <img class="logo" src="./assets/img/logo pay horizontal.png">
 
-            <input type="email" placeholder="E-mail*">
-            <input type="password" placeholder="Senha*">
-            <button onclick="sucesso()" class="botao"
+            <input type="email" placeholder="E-mail*" id="email_input">
+            <input type="password" placeholder="Senha*" id="senha_input">
+            <button onclick="sucessoAluno()" class="botao"
             style="
             background-color: transparent;
             border-radius: 100px;
@@ -301,11 +301,5 @@
     <img style="z-index: -1" src="./assets/img/vemelho amarelo.png" width="40%">
    </section> 
 </body>
-
 </html>
-
-<script>
-    function sucesso(){
-        window.location.href = './painelaluno/painelaluno.html';
-}
-</script>
+<script src="./js/login.js"></script>
