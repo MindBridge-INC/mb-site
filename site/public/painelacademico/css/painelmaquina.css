@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+    color: rgb(32, 32, 32);
+}
+
+body {
+    background-color: rgb(248, 245, 238);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    padding: 3vh;
+}
+
+/* MENU LATERAL */
+
+.menuLateral {
+    display: flex;
+    justify-content: center;
+    max-width: 175px;
+    width: 100%;
+    padding: 0vh 2vw 0vh 2vw;
+}
+
+.menuLateral .alinharIcone {
+    display: flex;
+    justify-content: center;
+}
+
+#logoHorizontal {
+    width: 100px;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+#icon {
+    width: 30px;
+    /* margin-bottom: 3vh; */
+}
+
+#iconDash {
+    width: 40px;
+}
+
+.dash {
+    background-color: rgba(158, 124, 96, 0.158);
+}
+
+.hover {
+    /* background-color: rgb(137, 123, 111); */
+    border-radius: 10vh;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 3vh;
+    transition: background ease-out .3s;
+}
+
+.hover:hover {
+    background-color: rgba(158, 124, 96, 0.158);
+    /* border-radius: 10vh;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 3vh; */
+}
+
+#iconLogout {
+    width: 40px;
+    /* margin-top: 10vh; */
+}
+
+#icon,#iconLogout:hover {
+    cursor: pointer;
+}
+
+/* DASHBOARDS */
+
+.painel {
+    display: block;
+    width: 100%;
+    padding: 4vh 7vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+}
+
+/* DASHBOARDS - HEADER: TÍTULO, SELEÇÕES, USUÁRIO */
+
+.painel .header {
+    display: flex;
+    align-items: start;
+    /* background-color: blueviolet; */
+    width: 100%;
+}
+
+.painel .header .titulo {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 5vh; 
+}
+
+.painel .header .selecao {
+    display: flex;
+    align-items: center;
+    font-size: 2.5vh;
+    width: 100%;
+}
+
+.painel .header .selecao .custom-select{
+    border: solid rgb(207, 198, 174) 0.7vh;
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 200px;
+}
+
+.painel .header .usuario {
+    display: flex;
+    justify-content: end;
+    font-size: 6vh;
+    width: 50%;
+    /* background-color: aquamarine; */
+}
+
+.painel .header .usuario .ident {
+    display: flex;
+    font-size: 3vh;
+    align-items: center;
+    margin-right: 2vh;
+
+}
+
+.painel .header .usuario .ident div {
+    margin-left: 2vh;
+}
+
+#pfp {
+    width: 60px;
+    border-radius: 5vh;
+}
+
+#divIdentidade {
+    margin-left: 0px;
+}
+
+/* GRÁFICOS */
+
+.conteudo {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 1vh;
+}
+
+/* Adaptar CSS para cada conteúdo inserido */
+
+.card-visaoGeral {
+    height: auto;
+    width: auto;
+    /* background-color: rgba(0, 0, 0, 0.498)  ; */
+}
+
+.tituloGraf {
+    margin-top: 2.2vh;
+    margin-bottom: 2.5vh;
+}
+
+.card {
+    border: solid rgb(207, 198, 174) 0.7vh;
+    border-radius: 5vh;
+    /* display: flex; */
+    /* align-items: center; */
+    justify-content: center;
+    height: 250px;
+    width: 480px;
+   
+}
+
+.conteudo-card{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+
+   /* flex-direction: column; */
+}
+
+.card .descricao{
+    font-weight: bold;
+    font-size: 16px;
+    /* height: 60px;
+    width: 90px; */
+    margin-left: 25px;  
+}
+
+.card .detalhe{
+    margin-bottom: 10px ;
+    font-size: 16px;
+    /* height: 60px;
+    width: 100%; */
+    text-align: left;
+   
+}
+
+
+.cardAlerta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo {
+    border-radius: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
+    width: 170px;
+}
+
+.alerta {
+    border: solid rgb(162, 177, 193) 2.3vh;
+
+}
+
+.velocidadeRede {
+    border: solid rgb(87, 118, 154) 2.3vh;
+}
+
+.tituloGrafRede {
+    margin-top: 2.2vh;
+}
+
+.valor {
+    font-size: 5vh;
+    font-weight: 900;
+}
+
+.cardArmazenamento {
+    display: flex;
+    justify-content: center;
+}
+
+.margin {
+    margin-bottom: 2.5vh;
+}
+
+button {
+    margin-top: 2.5vh;
+    padding: 1vh 3vh;
+    border: solid rgb(207, 198, 174) 0.5vh;
+    border-radius: 2vh;
+    background-color: transparent;
+    transition: background ease-in .3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(158, 124, 96, 0.225);
+}
