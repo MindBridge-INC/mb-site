@@ -73,11 +73,13 @@ body {
 /* DASHBOARDS */
 
 .painel {
-    display: block;
+    display: flex;
     width: 75%;
     padding: 3vh 7vh;
     background-color: rgb(255, 253, 248);
     border-radius: 5vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .painel2 {

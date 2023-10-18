@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="./css/chat.css">
+    <link rel="stylesheet" href="./css/cadastros.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/site/public/assets/img/favicon.png" type="image/x-icon">
@@ -18,6 +18,78 @@ a:hover {
     transition: .3s;
     transform: scale(1.05);
 }
+
+
+.fundocad{
+    width: 60%;
+    height: 500px;
+    background-color: #fbf9f2;
+    border-radius: 40px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 7vh;
+    flex-direction: column;
+    display: flex;
+
+}
+
+input{
+    height: 45px;
+    width: 100%;
+    padding: 0 20px;
+    border: 0;
+    background-color: rgb(241, 233, 216);
+    border-radius: 30px;
+    outline: none;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arimo;
+    color: #727272;
+}
+
+select{
+    height: 45px;
+    width: 50%;
+    padding: 0 20px;
+    border: 0;
+    background-color: rgb(241, 233, 216);
+    border-radius: 30px;
+    outline: none;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arimo;
+    color: #727272;
+}
+
+button{
+    background-color: transparent;
+    margin: 20px 0px 0px 0px;
+    height: 42px;
+    width: 130px;
+    border: 3.5px solid #D2C6AE;
+    border-radius: 100px;
+    padding: 10px;
+    transition: all .3s ease-in;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.dados{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+option{
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arimo;
+    color: #2e2d2d;
+}
+
 </style>
 <body>
 
@@ -59,103 +131,44 @@ a:hover {
 
         <div class="painel">
 
-            <div class="header">
+        
+            <div class="fundocad">
+                <div>
+                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Cadastro Máquina</span><br>
+                </div>
 
-                <div class="titulo" style="margin-top: 3vh; width: 50%;">
-
-                    <div>
-                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Aluno</span><br>
+                <div class="dados">
+                    <div style="display: flex; gap:2vh ">
+                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="IP">
                     </div>
-
-
+                    <div style="display: flex; gap:2vh ">
+                        <input type="text" placeholder="Sistema Operacional">
+                        <input type="text" placeholder="Processador">
+                    </div>
+                    <div style="display: flex; gap:2vh ">
+                        <input type="text" placeholder="RAM">
+                        <input type="text" placeholder="Armazenamento">
+                    </div>
+                    <div style="display: flex; gap:2vh ">
+                        <select name="" id="" style="width: 100%;">
+                            <option disabled selected value="">Instituição</option>
+                            <option value="">Colégio Santo André</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap:2vh ">
+                        <select name="" id="" style="width: 50%;">
+                            <option disabled selected value="">Sala</option>
+                            <option value="">14B</option>
+                        </select>
+                    </div>
                 </div>
 
-                    <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
-                        <a style="display: none;
-                        width: 40%;
-                        height: 40px;
-                        border-radius: 35px;
-                        border: 3.5px solid #D2C6AE;
-                        background-color: transparent;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        font-family: Arimo;
-                        font-size: 2vh;
-                        font-weight: 700;
-                        color: #585858;
-                        cursor: pointer;
-                        text-decoration: none;
-                        " href="./cadastroTurma.html">
-                            Cadastrar Turma
-                        </a>
-
-                        <a style="display: none;
-                        width: 40%;
-                        height: 40px;
-                        border-radius: 35px;
-                        border: 3.5px solid #D2C6AE;
-                        background-color: transparent;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        font-family: Arimo;
-                        font-size: 2vh;
-                        font-weight: 700;
-                        color: #585858;
-                        cursor: pointer;
-                        text-decoration: none;
-                        " href="./cadastroAluno.html">
-                            Cadastrar Aluno
-                        </a>
+                <div>
+                    <button>Cadastrar</button>
                 </div>
-
             </div>
-            
-
-            <div class="colunas" style="display: flex; align-items: start; justify-content: start; width: 100%;">
-
                 
-                <div class="nome" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
-                    <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="/site/public/assets/img/thaisailustracao.png" width="15%">
-                        <span class="dadosCadastrados">Thaisa Nobrega</span>
-                    </div>
-                </div>
-
-
-                <div class="email" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Matricula</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">01231070</span>
-                </div>
-
-
-                <div class="permissao" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Turma</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">2EM2023A</span>
-
-                </div>
-
-                <div class="permissao" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">E-mail</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
-
-                </div>
-
-                <div class="ação" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ação</span>
-                    <div>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="/site/public/assets/img/icone_editar.png" width="20%">
-                        <img src="/site/public/assets/img/icone_lixeira.png" width="20%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
 
             
 

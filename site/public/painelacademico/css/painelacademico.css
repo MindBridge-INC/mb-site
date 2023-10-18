@@ -41,29 +41,29 @@ body {
 }
 
 #icon1 {
-    width: 35px;
+    width: 30px;
     margin-bottom: 3vh;
 }
 
 #icon2 {
-    width: 35px;
+    width: 30px;
     margin-bottom: 3vh;
 }
 
 #icon3 {
-    width: 40px;
+    width: 35px;
     margin-bottom: 3vh;
 }
 
 #icon4 {
-    width: 32px;
+    width: 30px;
     margin-bottom: 3vh;
 }
 
 
 #iconLogout {
-    width: 35px;
-    margin-top: 0vh;
+    width: 33px;
+    margin-top: 25vh;
 }
 
 #icon,#iconLogout:hover {
