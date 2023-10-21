@@ -37,33 +37,50 @@ body {
 #logoHorizontal {
     width: 60px;
     margin-top: 2vh;
-    margin-bottom: 10vh;
+    margin-bottom: 7vh;
 }
 
-#icon1 {
+#icon {
     width: 30px;
-    margin-bottom: 3vh;
+    /* margin-bottom: 3vh; */
 }
 
-#icon2 {
-    width: 30px;
-    margin-bottom: 3vh;
+#iconDash {
+    width: 40px;
 }
 
-#icon3 {
-    width: 35px;
-    margin-bottom: 3vh;
+.dash {
+    background-color: rgba(158, 124, 96, 0.074);
 }
 
-#icon4 {
-    width: 30px;
-    margin-bottom: 3vh;
+.hover {
+    /* background-color: rgb(137, 123, 111); */
+    border-radius: 10vh;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 1.5vh;
+    transition: background ease-out .3s;
 }
 
+.hover:hover {
+    background-color: rgba(158, 124, 96, 0.047);
+    /* border-radius: 10vh;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 3vh; */
+}
 
 #iconLogout {
     width: 33px;
-    margin-top: 25vh;
+    /* margin-top: 20vh; */
+}
+
+.logout{
+    margin-top: 10vh !important;
 }
 
 #icon,#iconLogout:hover {
@@ -74,7 +91,7 @@ body {
 
 .painel {
     display: block;
-    width: 90%;
+    width: 100%;
     padding: 3vh 7vh;
     background-color: rgb(255, 253, 248);
     border-radius: 5vh;

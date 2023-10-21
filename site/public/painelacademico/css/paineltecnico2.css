@@ -37,50 +37,33 @@ body {
 #logoHorizontal {
     width: 60px;
     margin-top: 2vh;
-    margin-bottom: 7vh;
+    margin-bottom: 10vh;
 }
 
-#icon {
+#icon1 {
     width: 30px;
-    /* margin-bottom: 3vh; */
+    margin-bottom: 3vh;
 }
 
-#iconDash {
-    width: 40px;
+#icon2 {
+    width: 30px;
+    margin-bottom: 3vh;
 }
 
-.dash {
-    background-color: rgba(158, 124, 96, 0.074);
+#icon3 {
+    width: 35px;
+    margin-bottom: 3vh;
 }
 
-.hover {
-    /* background-color: rgb(137, 123, 111); */
-    border-radius: 10vh;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    width: 60px;
-    margin-bottom: 1.5vh;
-    transition: background ease-out .3s;
+#icon4 {
+    width: 30px;
+    margin-bottom: 3vh;
 }
 
-.hover:hover {
-    background-color: rgba(158, 124, 96, 0.047);
-    /* border-radius: 10vh;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    width: 60px;
-    margin-bottom: 3vh; */
-}
 
 #iconLogout {
     width: 33px;
-    /* margin-top: 20vh; */
-}
-
-.logout{
-    margin-top: 10vh !important;
+    margin-top: 25vh;
 }
 
 #icon,#iconLogout:hover {
@@ -91,80 +74,49 @@ body {
 
 .painel {
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 3vh 7vh;
     background-color: rgb(255, 253, 248);
     border-radius: 5vh;
+}
+
+.painel2 {
+    display: block;
+    width: 20%;
+    padding: 3vh 4vh;
+    background-color: rgb(255, 253, 248);
+    border-radius: 5vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
 }
 
 /* DASHBOARDS - HEADER: TÍTULO, SELEÇÕES, USUÁRIO */
 
 .painel .header {
     display: flex;
-    align-items: start;
-    /* background-color: blueviolet; */
     width: 100%;
-}
-
-.painel .header .titulo {
-    display: flex;
     align-items: center;
-    width: 70%;
-    /* margin-bottom: 5vh; */
 }
 
-.painel .header .selecao {
-    display: flex;
-    align-items: center;
-    font-size: 2.5vh;
-    width: 100%;
-}
-
-.painel .header .usuario {
-    display: flex;
-    justify-content: end;
-    font-size: 6vh;
-    width: 50%;
-    /* background-color: aquamarine; */
-}
-
-.painel .header .usuario .ident {
-    display: flex;
-    font-size: 3vh;
-    align-items: center;
-    margin-right: 2vh;
-
-}
-
-.painel .header .usuario .ident div {
-    margin-left: 2vh;
-}
-
-#pfp {
-    width: 60px;
-    border-radius: 5vh;
-}
-
-#divIdentidade {
-    margin-left: 0px;
+option{
+    font-family: Arimo;
 }
 
 /* GRÁFICOS */
 
 .conteudo {
     display: flex;
-    justify-content: center;
-    align-items: start;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 100%;
     margin-top: 1vh;
-    flex-direction: column;
 }
 
 /* Adaptar CSS para cada conteúdo inserido */
 
 .graficos {
     height: auto;
-    width: 100%;
+    width: auto;
     /* background-color: rgba(0, 0, 0, 0.498)  ; */
 }
 
@@ -179,8 +131,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
-    width: 220px;
+    height: 170px;
+    width: 260px;
 }
 
 .card2 {
@@ -189,7 +141,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 69px;
+    height: 77px;
     width: 260px;
     margin: 0vh 0vh 2vh 2vh;
 }
@@ -205,17 +157,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150px;
-    width: 150px;
+    height: 170px;
+    width: 170px;
 }
 
 .alerta {
-    border: solid rgb(162, 177, 193) 2.5vh;
+    border: solid rgb(162, 177, 193) 2.3vh;
 
 }
 
 .velocidadeRede {
-    border: solid rgb(87, 118, 154) 2.5vh;
+    border: solid rgb(87, 118, 154) 2.3vh;
 }
 
 .tituloGrafRede {
@@ -223,27 +175,11 @@ body {
 }
 
 .valor {
-    font-size: 6vh;
-    font-weight: 700;
+    font-size: 5vh;
+    font-weight: 900;
 }
 
 .cardArmazenamento {
     display: flex;
     justify-content: center;
 }
-
-
-
-/* button {
-    margin-top: 2.5vh;
-    padding: 1vh 3vh;
-    border: solid rgb(207, 198, 174) 0.5vh;
-    border-radius: 2vh;
-    background-color: transparent;
-    transition: background ease-in .3s;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: rgba(158, 124, 96, 0.225);
-} */

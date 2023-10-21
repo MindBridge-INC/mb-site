@@ -24,9 +24,9 @@ body {
 .menuLateral {
     display: flex;
     justify-content: center;
-    max-width: 175px;
+    max-width: 115px;
     width: 100%;
-    padding: 0vh 2vw 0vh 2vw;
+    padding: 3vh 2vw 0vh 2vw;
 }
 
 .menuLateral .alinharIcone {
@@ -35,9 +35,9 @@ body {
 }
 
 #logoHorizontal {
-    width: 100px;
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+    width: 60px;
+    margin-top: 2vh;
+    margin-bottom: 7vh;
 }
 
 #icon {
@@ -50,7 +50,7 @@ body {
 }
 
 .dash {
-    background-color: rgba(158, 124, 96, 0.158);
+    background-color: rgba(158, 124, 96, 0.074);
 }
 
 .hover {
@@ -60,12 +60,12 @@ body {
     justify-content: center;
     height: 60px;
     width: 60px;
-    margin-bottom: 3vh;
+    margin-bottom: 1.5vh;
     transition: background ease-out .3s;
 }
 
 .hover:hover {
-    background-color: rgba(158, 124, 96, 0.158);
+    background-color: rgba(158, 124, 96, 0.047);
     /* border-radius: 10vh;
     align-items: center;
     justify-content: center;
@@ -75,8 +75,12 @@ body {
 }
 
 #iconLogout {
-    width: 40px;
-    /* margin-top: 10vh; */
+    width: 33px;
+    /* margin-top: 20vh; */
+}
+
+.logout{
+    margin-top: 10vh !important;
 }
 
 #icon,#iconLogout:hover {
@@ -97,9 +101,8 @@ body {
 
 .painel .header {
     display: flex;
-    align-items: start;
-    /* background-color: blueviolet; */
     width: 100%;
+    height: 80px;
 }
 
 .painel .header .titulo {
@@ -184,9 +187,9 @@ body {
     /* display: flex; */
     /* align-items: center; */
     justify-content: center;
-    height: 250px;
+    height: 150px;
     width: 480px;
-   
+   padding-right: 4vh;
 }
 
 .conteudo-card{
@@ -198,7 +201,7 @@ body {
 }
 
 .card .descricao{
-    font-weight: bold;
+    font-weight: 600;
     font-size: 16px;
     /* height: 60px;
     width: 90px; */
@@ -207,11 +210,12 @@ body {
 
 .card .detalhe{
     margin-bottom: 10px ;
-    font-size: 16px;
+    font-size: 13px;
     /* height: 60px;
     width: 100%; */
     text-align: left;
-   
+    font-family: Arimo;
+    font-weight: 700;
 }
 
 
@@ -226,21 +230,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 170px;
-    width: 170px;
+    height: 140px;
+    width: 140px;
 }
 
 .alerta {
-    border: solid rgb(162, 177, 193) 2.3vh;
+    border: solid rgb(162, 177, 193) 2.5vh;
 
 }
 
 .velocidadeRede {
-    border: solid rgb(87, 118, 154) 2.3vh;
+    border: solid rgb(87, 118, 154) 2.5vh;
 }
 
 .tituloGrafRede {
     margin-top: 2.2vh;
+
 }
 
 .valor {
@@ -251,6 +256,7 @@ body {
 .cardArmazenamento {
     display: flex;
     justify-content: center;
+    margin-top: 3vh;
 }
 
 .margin {
@@ -269,4 +275,8 @@ button {
 button:hover {
     cursor: pointer;
     background-color: rgba(158, 124, 96, 0.225);
+}
+
+option{
+    font-family: Arimo;
 }

@@ -20,34 +20,34 @@
                 </div>
 
                 <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="./paineltecnico.html"><img id="icon" src="../assets/img/grafico.png" alt=""></a>
+                    </div>
+                </div>
+
+
+                <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone dash hover">
-                        <a href="#"><img id="icon" src="../assets/img/grafico.png" alt=""></a>
-                    </div>
-                </div>
-
-
-                <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover">
-                        <a href="#"><img id="icon" src="../assets/img/icone_maquina.png" alt=""></a>
+                        <a href="./painelmaquina.html"><img id="icon" src="../assets/img/icone_maquina.png" alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover">
-                        <a href="#"><img id="icon" src="../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover" >
+                        <a href="./painelacademico.html"><img style="width: 33px;" id="icon" src="../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover">
-                        <a href="#"><img id="icon" src="../assets/img/login.png" alt=""></a>
+                        <a href="./usuario/usuario.html"><img id="icon" src="../assets/img/login.png" alt=""></a>
                     </div>
                 </div>
 
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover">
-                        <a href="#"><img id="icon" src="../assets/img/sair.png" alt=""></a>
+                    <div class="alinharIcone hover logout">
+                        <a href="../portalacademico.html"><img id="iconLogout" src="../assets/img/sair.png" alt=""></a>
                     </div>
                 </div>
 
@@ -58,59 +58,79 @@
 
         <div class="painel">
 
-            <div class="header">
+            <div class="header" >
 
-                <div class="titulo">
+                <div class="titulo" style="margin-top: 3vh; width: 22%; ">
 
                     <div>
-                        <span style="font-size: 5.4vh; font-weight: 600;">Painel Máquina</span><br>
-                        <span style="font-size: 1.8vh; font-weight: 400;">08/10/2023 - 14:28</span>
+                        <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Máquina</span><br>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
+                            14:28</span>
                     </div>
 
 
                 </div>
 
-               
-                <div class="selecao">
+                <div style="width: 16%;">
+                    <select name="" id="" style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3.5px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #585858;
+                    padding-left: 2vh;
+                    margin-top: 2vh;
                     
-                    <div class="custom-select">
-                        <span>Ambiente</span>
-                        <select name="sltAmbiente" id="sltAmbiente">
-                            <option value="1">LAB01</option>
-                            <option value="2">LAB02</option>
-                            <option value="3">LAB03</option>
-                        </select>
-                    </div>
-
-                    <div class="custom-select">
-                        <span>Máquina</span>
-                        <select name="sltmaquina" id="sltmaquina">
-                            <option value="1">LAB01</option>
-                            <option value="2">LAB02</option>
-                            <option value="3">LAB03</option>
-                        </select>
-                    </div>
-
+                    ">
+                        <option disabled selected>Ambiente</option>
+                        <option value="">14A</option>
+                        <option value="">15A</option>
+                        <option value="">16A</option>
+                    </select>
                 </div>
-          
 
-                <div class="usuario">
+                <div style="width: 50%;">
+                    <select name="" id="" style="display: none;
+                    width: 30%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3.5px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #585858;
+                    padding-left: 2vh;
+                    margin-top: 2vh;
+                    
+                    ">
+                        <option disabled selected>Máquina</option>
+                        <option value="">DESKTOP-FK0BTMT</option>
+                        <option value="">DESKTOP-FK0BTMT</option>
+                        <option value="">DESKTOP-FK0BTMT</option>
+                    </select>
+                </div>
 
-                    <div class="ident">
-                        <div id="divPfp">
-                            <img id="pfp" src="../assets/img/lilien.png" alt="">
-                        </div>
-
-                        <div id="divIdentidade">
-                            <div>
-                                <span style="font-size:3vh;font-weight: 600;">Lilien</span>
-                            </div>
-                            <div>
-                                <span style="font-size: 2vh; font-weight: 400;">Administrador</span>
-                            </div>
-                        </div>
+                <div style="width: 20%;display: flex; align-items: start; justify-content: center; margin-top:2vh">
+                    <div style="width: 30%">
+                        <img src="../assets/img/thaisailustracao.png" width="80%">
                     </div>
-
+                    <div style="display: flex; width: 70%; flex-direction: column;">
+                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
+                            Nobrega</span>
+                        <span
+                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Administrador</span>
+                    </div>
                 </div>
 
             </div>
@@ -187,16 +207,16 @@
                 </div>
 
                 <!-- Segundo conjunto de informações | Número total de alertas -->
-                <div class="card-visaoGeral" style="width: 300px;">
+                <div class="card-visaoGeral" style="width: 270px;">
 
                     <!-- Título do conteúdo -->
                     <div class="tituloGraf">
                         <div style="display: flex; justify-content: space-between; align-items: end;">
                             <div>
-                                <span style="font-size: 3vh; font-weight: 600;">Dispositivos USB</span>
+                                <span style=" font-size: 3vh; font-weight: 600;">Dispositivos USB</span>
                             </div>
                             <div>
-                                <span style="font-size: 1.7vh; font-weight: 300; text-align: end;">Conectados</span>
+                                <span style="font-family: Arimo;font-size: 2vh; font-weight: 300; text-align: end;">Conectados</span>
                             </div>
                         </div>
                     </div>
@@ -218,12 +238,12 @@
                     <!-- Título do conteúdo -->
                     <div class="tituloGrafRede">
                         <div>
-                            <div style="display: flex; justify-content: space-between; align-items: end;">
-                                <div>
+                            <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2vh;">
+                                <div >
                                     <span style="font-size: 3vh; font-weight: 600;">Velocidade da rede</span>
                                 </div>
                                 <div>
-                                    <span style="font-size: 1.7vh; font-weight: 300; text-align: end;">
+                                    <span style="font-family: Arimo;font-size: 2vh; font-weight: 300; text-align: end;">
                                         kbps</span>
                                 </div>
                             </div>
@@ -254,7 +274,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: end;">
                                 <div>
                                     <span style="font-size: 3vh; font-weight: 600;">Armazenamento</span>
-                                    <span style="font-size: 1.7vh; font-weight: 300;">(%)</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
                                 </div>
                             </div>
                         </div>
@@ -266,12 +286,12 @@
                         <div>
                             <div>
                                 <canvas id="myChartArmazenamento"
-                                    style="position: relative; max-height: 200px; max-width: 260px;"></canvas>
+                                    style="position: relative; max-height: 180px; max-width: 260px;"></canvas>
                             </div>
 
-                            <div style="display: flex; justify-content: center;">
+                            <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -288,7 +308,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: end;">
                                 <div>
                                     <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
-                                    <span style="font-size: 1.7vh; font-weight: 300;">GB</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">GB</span>
                                 </div>
                             </div>     
                         </div>
@@ -300,12 +320,12 @@
                         <div>
                             <div>
                                 <canvas id="myChartRAM"
-                                    style="position: relative; height: 200px; max-width: 400px;"></canvas>
+                                    style="position: relative; height: 190px; max-width: 400px;"></canvas>
                             </div>
 
-                            <div style="display: flex; justify-content: center;">
+                            <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -322,7 +342,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: end;">
                                 <div>
                                     <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
-                                    <span style="font-size: 1.7vh; font-weight: 300;">(%)</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
                                 </div>
                                
                             </div>
@@ -335,12 +355,12 @@
                         <div>
                             <div>
                                 <canvas id="myChartCPU"
-                                    style="position: relative; height: 200px; max-width: 400px;"></canvas>
+                                    style="position: relative; height: 190px; max-width: 400px;"></canvas>
                             </div>
 
-                            <div style="display: flex; justify-content: center;">
+                            <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
-                            </div>
+                            </div> -->
                         </div>
 
 
