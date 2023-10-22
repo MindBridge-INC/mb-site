@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="./css/chat.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/site/public/assets/img/favicon.png" type="image/x-icon">
-    <title>Painel do Aluno</title>
+    <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
+    <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <style>
@@ -28,28 +28,39 @@ a:hover {
             <div>
 
                 <div class="alinharIcone">
-                    <img id="logoHorizontal" src="/site/public/assets/img/logo pay quadrado.png">
+                    <img id="logoHorizontal" src="../../assets/img/logo pay quadrado.png" alt="">
                 </div>
 
-                <div class="alinharIcone">
-                    <a href="../paineltecnico.html"><img id="icon1" src="/site/public/assets/img/grafico.png" alt=""></a>
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone  hover">
+                        <a href="../painelacademico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
+                    </div>
                 </div>
 
-                <div class="alinharIcone">
-                    <a href="../painelmaquina.html"><img id="icon2" src="/site/public/assets/img/icone_maquina.png" alt=""></a>
 
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover">
+                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
+                    </div>
                 </div>
 
-                <div class="alinharIcone">
-                    <a href="../painelacademico.html"><img id="icon3" src="/site/public/assets/img/icone_chapeu.png" alt=""></a>
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover" >
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
+                    </div>
                 </div>
 
-                <div class="alinharIcone">
-                    <a href="./usuario.html"><img id="icon4" src="/site/public/assets/img/icone_user.png" alt=""></a>
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone dash hover">
+                        <a href="../usuario/usuario.html"><img id="icon" src="../../assets/img/login.png" alt=""></a>
+                    </div>
                 </div>
 
-                <div class="alinharIcone">
-                    <a href="/site/public/portalacademico.html"><img id="iconLogout" src="/site/public/assets/img/sair.png" alt=""></a>
+
+                <div style="display: flex; justify-content: center;">
+                    <div class="alinharIcone hover logout">
+                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
+                    </div>
                 </div>
 
             </div>
@@ -98,12 +109,19 @@ a:hover {
 
                 
                 <div class="nome" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 500; color: #2e2d2d;">Nome</span>
+                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
                         <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
                             <img src="/site/public/assets/img/thaisailustracao.png" width="15%">
                             <span class="dadosCadastrados">Thaisa Nobrega</span>
                         </div>
-
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <img src="/site/public/assets/img/professora.png" width="15%">
+                            <span class="dadosCadastrados">Luciana Marques</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <img src="/site/public/assets/img/professor.png" width="15%">
+                            <span class="dadosCadastrados">Francisco Quieiroz</span>
+                        </div>
                         
                         
                 </div>
@@ -112,12 +130,18 @@ a:hover {
                 <div class="email" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">E-mail</span>
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
+                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">luciana.com@gmail.com</span>
+                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">francisco.com@gmail.com</span>
+                
+                
                 </div>
 
 
                 <div class="permissao" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Permissão</span>
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Administrador</span>
+                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Coordenação</span>
+                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Suporte de T.I.</span>
 
                 </div>
 
@@ -128,6 +152,14 @@ a:hover {
                         <img src="/site/public/assets/img/icone_editar.png" width="20%">
                         <img src="/site/public/assets/img/icone_lixeira.png" width="20%">
                         </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <img src="/site/public/assets/img/icone_editar.png" width="20%">
+                            <img src="/site/public/assets/img/icone_lixeira.png" width="20%">
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                                <img src="/site/public/assets/img/icone_editar.png" width="20%">
+                                <img src="/site/public/assets/img/icone_lixeira.png" width="20%">
+                                </div>
 
                     </div>
 
@@ -146,8 +178,7 @@ a:hover {
             <div style="display: flex;
             align-items: center;
             justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                    Nóbrega</span>
+                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa Nóbrega</span>
             </div>
             <div style="display: flex;
             align-items: center;
@@ -158,7 +189,7 @@ a:hover {
 
             <div style="margin-top: 5vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="/site/public/assets/img/icone_user.png" width="14%">
+                    <img src="/site/public/assets/img/icone_user.png" width="13%">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
@@ -168,7 +199,7 @@ a:hover {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    font-family: Fredoka;
+                    font-family: Arimo;
                     font-size: 2vh;
                     font-weight: 700;
                     color: #2e2d2d;
@@ -176,7 +207,7 @@ a:hover {
                     text-decoration: none;" href="./usuario.html">Usuário</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="/site/public/assets/img/icone_maquina.png" width="15%">
+                    <img src="/site/public/assets/img/icone_maquina.png" width="14%">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
@@ -186,7 +217,7 @@ a:hover {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    font-family: Fredoka;
+                    font-family: Arimo;
                     font-size: 2vh;
                     font-weight: 700;
                     color: #2e2d2d;
@@ -194,7 +225,7 @@ a:hover {
                     text-decoration: none;" href="./máquina.html">Máquina</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="/site/public/assets/img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
+                    <img src="/site/public/assets/img/icone_chapeu.png" width="17%" style="margin-left: -3px;">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
@@ -204,7 +235,7 @@ a:hover {
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    font-family: Fredoka;
+                    font-family: Arimo;
                     font-size: 2vh;
                     font-weight: 700;
                     color: #2e2d2d;

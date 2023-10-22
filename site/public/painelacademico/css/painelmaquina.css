@@ -41,8 +41,7 @@ body {
 }
 
 #icon {
-    width: 30px;
-    /* margin-bottom: 3vh; */
+    width: 25px;
 }
 
 #iconDash {
@@ -60,7 +59,7 @@ body {
     justify-content: center;
     height: 60px;
     width: 60px;
-    margin-bottom: 1.5vh;
+    margin-bottom: 1vh;
     transition: background ease-out .3s;
 }
 
@@ -75,7 +74,7 @@ body {
 }
 
 #iconLogout {
-    width: 33px;
+    width: 30px;
     /* margin-top: 20vh; */
 }
 
@@ -86,6 +85,7 @@ body {
 #icon,#iconLogout:hover {
     cursor: pointer;
 }
+
 
 /* DASHBOARDS */
 
@@ -235,12 +235,12 @@ body {
 }
 
 .alerta {
-    border: solid rgb(162, 177, 193) 2.5vh;
+    border: solid #cfc6ae 2.5vh;
 
 }
 
 .velocidadeRede {
-    border: solid rgb(87, 118, 154) 2.5vh;
+    border: solid #57769a 2.5vh;
 }
 
 .tituloGrafRede {

@@ -36,7 +36,7 @@ transport.sendMail({
     </p>
     <p style="color: black" >Abraços, MindBridge</p>
     <div style="display: flex; align-items: center;">
-    <img src="https://raw.githubusercontent.com/MindBridge-INC/mb-site-thaisa/main/mindbridge/vetores/mind%20bridge%20-%20identidade%20visual.jpg" width="300px">
+    
     </div>
     `
 })

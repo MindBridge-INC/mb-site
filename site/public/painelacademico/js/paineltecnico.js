@@ -6,7 +6,7 @@ new Chart(ctxArmazenamento, {
         labels: ['Não afetadas', 'Afetadas'],
         datasets: [{
             label: 'Máquinas',
-            data: [240, 25],
+            data: [98, 12],
             backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
             borderColor: '#ffffff',
             borderWidth: 0,
@@ -32,8 +32,8 @@ new Chart(ctxRAM, {
         labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
         datasets: [{
             label: 'Máquinas',
-            data: [40, 50, 80, 60, 30],
-            backgroundColor: 'rgb(87, 118, 154)',
+            data: [10, 14, 16, 11,9],
+            backgroundColor: '#17395c',
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
@@ -73,8 +73,8 @@ new Chart(ctxCPU, {
         labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
         datasets: [{
             label: 'Máquinas',
-            data: [40, 50, 80, 60, 30],
-            backgroundColor: 'rgb(23, 57, 92)',
+            data: [10, 14, 16, 11,9],
+            backgroundColor: '#17395c',
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,

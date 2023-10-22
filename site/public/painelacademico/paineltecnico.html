@@ -10,14 +10,87 @@
 
     <title>Painel Técnico | PayAttention!</title>
 </head>
+<style>
+    html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+        width: 8px;
+        height: 3px; 
+    }
+      
+    body::-webkit-scrollbar-track {
+        background: #f3eee3ff;
+        padding: 2px;
+    }
+      
+    body::-webkit-scrollbar-thumb {
+        background-color: #d2c6aeff;
+    }
+a {
+    transition: all 0.2s linear;
+}
+
+a:hover {
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+.legenda{
+    transition: all 0.2s linear;
+}
+
+.legenda:hover{
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+.backgroundBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; 
+    display: none;
+    backdrop-filter: blur(1px);
+}
+
+.alinhamento{
+position: fixed; 
+z-index: 9999; 
+display: flex;
+align-items: center;
+justify-content: center;
+top: 50%; 
+left: 50%;
+transform: translate(-50%, -50%); 
+}
+
+.paineisLogin{
+background-color: #f8f5eeff;
+width: 80vh;
+height: 45vh;
+border-radius: 8vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 5vh;
+}
+</style>
 
 <body>
+    <div class="backgroundBlur" id="backgroundBlur"></div>
+    <div id="aparecerLogin"></div>
 
     <div class="container">
 
         <div class="menuLateral">
 
-            <div>
+            <div >
 
                 <div class="alinharIcone">
                     <img id="logoHorizontal" src="../assets/img/logo pay quadrado.png" alt="">
@@ -63,12 +136,14 @@
 
             <div class="header" style="margin-bottom: 2vh;">
 
-                <div class="titulo" style="margin-top: 3vh; width: 22%; ">
+                <div class="titulo" style="margin-top: 3vh; width: 29%; ">
 
                     <div>
-                        <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Técnico</span><br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
-                            14:28</span>
+                        <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Técnico</span>
+                        <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button>
+                        <br>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">23/10/2023 -
+                            20:27</span>
                     </div>
 
 
@@ -111,13 +186,13 @@
                         <div class="card">
                             <div style="display: flex;">
                                 <div class="card1">
-                                    <span class="valor">265</span>
+                                    <span class="valor">130</span>
                                 </div>
 
                                 <div>
                                     <div class="card2">
                                         <div>
-                                            <span class="valor" style="font-size: 5vh;">14</span>
+                                            <span class="valor" style="font-size: 5vh;">15</span>
                                         </div>
                                         <div style="display: flex; align-items: start; justify-content: center; flex-direction: column;">
                                             <span style="margin-left: 2vh; font-family: Arimo; font-size: 2.3vh; font-weight: 700;">Ligadas</span>
@@ -127,7 +202,7 @@
                                     </div>
                                     <div class="card2">
                                         <div>
-                                            <span class="valor" style="font-size: 5vh;">65</span>
+                                            <span class="valor" style="font-size: 5vh;">20</span>
                                         </div>
                                         <div style="display: flex; align-items: start; justify-content: center; flex-direction: column;">
                                             <span style="margin-left: 2vh; font-family: Arimo; font-size: 2.3vh; font-weight: 700;">Desligadas</span>
@@ -151,7 +226,7 @@
                                     <span style="font-size: 3vh; font-weight: 600;">Número de alertas</span>
                                 </div>
                                 <div>
-                                    <span style="font-family: Arimo; font-size: 2vh; font-weight: 300; text-align: end;">Dia</span>
+                                    <span style="font-family: Arimo; font-size: 1.7vh; font-weight: 300; text-align: end;">Dia</span>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +235,7 @@
                         <div class="cardAlerta">
 
                             <div class="circulo alerta">
-                                <span class="valor">54</span>
+                                <span class="valor">12</span>
                             </div>
 
                         </div>
@@ -168,7 +243,7 @@
                     </div>
 
                     <!-- Terceiro conjunto de informações | Número de máquinas com velocidade da rede abaixo de 100 kbps -->
-                    <div style="width: 230px;">
+                    <div style="width: 250px;">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
@@ -178,13 +253,13 @@
                                         <span style="font-size: 3vh; font-weight: 600;">Velocidade da rede</span>
                                     </div>
                                     <div>
-                                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 300; text-align: end;">
-                                            100 kbps</span>
+                                        <span style="font-family: Arimo; font-size: 1.7vh; font-weight: 300; text-align: end;">
+                                            Menor 500 kbps</span>
                                     </div>
                                 </div>
 
                                 <div>
-                                    <span style="font-family: Arimo;font-size: 2vh; font-weight: 300;">Número de máquinas</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">N° de máquinas</span>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +268,7 @@
                         <div class="cardAlerta">
 
                             <div class="circulo velocidadeRede">
-                                <span class="valor">23</span>
+                                <span class="valor">2</span>
                             </div>
 
                         </div>
@@ -208,14 +283,16 @@
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
                             <div>
-                                <div style="display: flex; justify-content: space-between; align-items: end;">
+                                <div style="display: flex; justify-content: space-between; align-items: end; gap: 2vh;">
                                     <div>
                                         <span style="font-size: 3vh; font-weight: 600;">Armazenamento Crítico</span>
+                                        <span style="font-family: Arimo ; font-size: 1.7vh; font-weight: 500;">Maior que 70%</span>
+
                                     </div>
                                 </div>
 
                                 <div>
-                                    <span style="font-family: Arimo; font-size: 2vh; font-weight: 300;">Maior que 70%</span>
+                                    <span style="font-family: Arimo; font-size: 1.7vh; font-weight: 300;">N° de Máquinas / Hoje</span>
                                 </div>
                             </div>
                         </div>
@@ -249,13 +326,13 @@
                                     <div>
                                         <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
                                     </div>
-                                    <div style="font-family: Arimo; font-size: 2vh; font-weight: 300;">
+                                    <div style="font-family: Arimo; font-size: 1.7vh; font-weight: 300;">
                                         Maior que 80%
                                     </div>
                                 </div>
 
                                 <div>
-                                    <span style="font-family: Arimo;font-size: 2vh; font-weight: 300;">Número de máquinas / dia</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">N° de máquinas / Semana</span>
                                 </div>
                             </div>
                         </div>
@@ -289,13 +366,13 @@
                                     <div>
                                         <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
                                     </div>
-                                    <div style="font-family: Arimo; font-size: 2vh; font-weight: 300;">
+                                    <div style="font-family: Arimo; font-size: 1.7vh; font-weight: 300;">
                                         Maior que 60%
                                     </div>
                                 </div>
 
                                 <div>
-                                    <span style="font-family: Arimo;font-size: 2vh; font-weight: 300;">Número de máquinas / dia</span>
+                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">N° de máquinas / Semana</span>
                                 </div>
                             </div>
                         </div>
@@ -332,3 +409,28 @@
 </html>
 
 <script src="./js/paineltecnico.js"></script>
+
+<script>
+    function abrirLogin() {
+    document.getElementById('backgroundBlur').style.display = 'block';
+    aparecerLogin.innerHTML = `
+    <section class="alinhamento">
+        <section class="paineisLogin" >
+            <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+                <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
+            </section>
+
+            <section style="display: flex; align-items: center; justify-content: center;">
+                <img src="../assets/img/legendas painel academico.png" width="85%">
+            </section>
+        </section>
+    </section>
+    ` ;
+}
+
+function fecharLogin() {
+    document.getElementById('backgroundBlur').style.display = 'none';
+    aparecerLogin.innerHTML = "";
+}
+</script>

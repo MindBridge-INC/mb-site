@@ -10,7 +10,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <style>
-    a {
+     html {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+        width: 8px;
+        height: 3px; 
+    }
+      
+    body::-webkit-scrollbar-track {
+        background: #f3eee3ff;
+        padding: 2px;
+    }
+      
+    body::-webkit-scrollbar-thumb {
+        background-color: #d2c6aeff;
+    }
+a {
     transition: all 0.2s linear;
 }
 
@@ -18,9 +36,53 @@ a:hover {
     transition: .3s;
     transform: scale(1.05);
 }
+
+.legenda{
+    transition: all 0.2s linear;
+}
+
+.legenda:hover{
+    transition: .3s;
+    transform: scale(1.05);
+}
+
+.backgroundBlur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; 
+    display: none;
+    backdrop-filter: blur(1px);
+}
+
+.alinhamento{
+position: fixed; 
+z-index: 9999; 
+display: flex;
+align-items: center;
+justify-content: center;
+top: 50%; 
+left: 50%;
+transform: translate(-50%, -50%); 
+}
+
+.paineisLogin{
+background-color: #f8f5eeff;
+width: 80vh;
+height: 45vh;
+border-radius: 8vh;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 5vh;
+}
 </style>
 <body>
-
+    <div class="backgroundBlur" id="backgroundBlur"></div>
+    <div id="aparecerLogin"></div>
     <div class="container">
 
         <div class="menuLateral">
@@ -60,7 +122,9 @@ a:hover {
                 <div class="titulo" style="margin-top: 3vh;">
 
                     <div>
-                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Conquistas</span><br>
+                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Conquistas</span>
+                        <!-- <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button> -->
+                        <br>
                         <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
                             14:28</span>
                     </div>
@@ -85,6 +149,7 @@ a:hover {
                 <div class="emblema" style=" width: 50%;">
                     <div>
                         <span style="font-size: 3.5vh; font-weight: 600; color: #2e2d2d" >Emblemas</span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 600; color: #2e2d2d" ></span>
                     </div>
     
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 5vh;">
@@ -163,3 +228,28 @@ a:hover {
 </body>
 
 </html>
+
+<script>
+    function abrirLogin() {
+    document.getElementById('backgroundBlur').style.display = 'block';
+    aparecerLogin.innerHTML = `
+    <section class="alinhamento">
+        <section class="paineisLogin" >
+            <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+                <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
+            </section>
+
+            <section style="display: flex; align-items: center; justify-content: center;">
+                <img src="../assets/img/legendas painel aluno.png" width="85%">
+            </section>
+        </section>
+    </section>
+    ` ;
+}
+
+function fecharLogin() {
+    document.getElementById('backgroundBlur').style.display = 'none';
+    aparecerLogin.innerHTML = "";
+}
+</script>
