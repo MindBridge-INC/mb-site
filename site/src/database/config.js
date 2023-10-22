@@ -22,7 +22,7 @@ var mySqlConfig = {
     host: "localhost",
     database: "Mindbridge",
     user: "root",
-    password: "1999",
+    password: "26122002Tn",
 };
 
 function executar(instrucao) {

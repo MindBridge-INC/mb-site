@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="./css/login.css">
     <script src="./js/login.js"></script>
     <title>MindBridge</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<style>
+     body{
+        font-family: Fredoka;
+    }
+</style>
 
 <body>
     <div class="backgroundBlur" id="backgroundBlur"></div>
@@ -167,9 +173,23 @@
       .then((response) => {
         if (response.ok) {
           // Aqui, você pode realizar ações após o envio bem-sucedido, se desejar
-          alert('Email enviado com sucesso!');
+          Swal.fire({
+      title: 'E-mail enviado com sucesso!',
+      icon: 'success',
+      timer: 10000, // Tempo de exibição do toast em milissegundos
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false
+    })
         } else {
-          alert('Erro ao enviar o email.');
+            Swal.fire({
+      title: 'Houve um erro ao enviar o e-mail!',
+      icon: 'error',
+      timer: 3000, // Tempo de exibição do toast em milissegundos
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false
+  })
         }
       })
       .catch((error) => {
