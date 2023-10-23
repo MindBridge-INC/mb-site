@@ -25,7 +25,14 @@ function sucessoAdmin(){
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            alert('Por favor, preencha todos os campos.');
+            Swal.fire({
+                title: 'Preecha todos os campos!',
+                icon: 'error',
+                timer: 3000, // Tempo de exibição do toast em milissegundos
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false
+            })
             return false;
         }
         else {
@@ -58,9 +65,16 @@ function sucessoAdmin(){
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    Swal.fire({
+                        title: 'Login Efetuado!',
+                        icon: 'success',
+                        timer: 10000, // Tempo de exibição do toast em milissegundos
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false
+                      })
                     setTimeout(function () {
-                        alert('Login efetuado com sucesso !!!')
-                        window.location = "./painelacademico/painelacademico.html";
+                        window.location = "./painelacademico/paineltecnico.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -86,7 +100,14 @@ function sucessoAluno(){
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "") {
-        alert('Por favor, preencha todos os campos.');
+        Swal.fire({
+            title: 'Preecha todos os campos!',
+            icon: 'error',
+            timer: 3000, // Tempo de exibição do toast em milissegundos
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false
+        })
         return false;
     }
     else {
@@ -119,8 +140,15 @@ function sucessoAluno(){
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
+                Swal.fire({
+                    title: 'Login Efetuado!',
+                    icon: 'success',
+                    timer: 10000, // Tempo de exibição do toast em milissegundos
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false
+                  })
                 setTimeout(function () {
-                    alert('Login efetuado com sucesso !!!')
                     window.location = "./painelaluno/painelaluno.html";
                 }, 1000); // apenas para exibir o loading
 
