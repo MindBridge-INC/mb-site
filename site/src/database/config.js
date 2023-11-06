@@ -21,8 +21,8 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     database: "Mindbridge",
-    user: "root",
-    password: "26122002Tn",
+    user: "admin",
+    password: "admin",
 };
 
 function executar(instrucao) {

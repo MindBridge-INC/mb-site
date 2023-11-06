@@ -61,9 +61,11 @@ function sucessoAdmin(){
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.ID_USUARIO = json.idUser;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
+                    sessionStorage.TIPO_USUARIO = json.tipo;
+                    sessionStorage.ID_INST = json.idInst;
 
                     Swal.fire({
                         title: 'Login Efetuado!',
@@ -80,6 +82,14 @@ function sucessoAdmin(){
                 });
 
             } else {
+                Swal.fire({
+                    title: 'Houve um erro ao realizar login:<br>E-mail ou senha incorreto',
+                    icon: 'error',
+                    timer: 10000, // Tempo de exibição do toast em milissegundos
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false
+                  })
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -136,9 +146,11 @@ function sucessoAluno(){
                 console.log(json);
                 console.log(JSON.stringify(json));
 
-                sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
+                sessionStorage.ID_USUARIO = json.idAluno;
+                sessionStorage.TURMA = json.idTurma;
+                sessionStorage.ID_INST = json.fkInstituicao;
 
                 Swal.fire({
                     title: 'Login Efetuado!',
@@ -155,6 +167,14 @@ function sucessoAluno(){
             });
 
         } else {
+            Swal.fire({
+                title: 'Houve um erro ao realizar login:<br>E-mail ou senha incorreto',
+                icon: 'error',
+                timer: 10000, // Tempo de exibição do toast em milissegundos
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false
+              })
 
             console.log("Houve um erro ao tentar realizar o login!");
 

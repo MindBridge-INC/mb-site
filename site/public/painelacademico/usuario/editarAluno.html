@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastrar aluno | PayAttention!</title>
+    <title>Editar aluno | PayAttention!</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="aluno.js"></script>
@@ -32,7 +32,6 @@
         padding: 7vh;
         flex-direction: column;
         display: flex;
-
     }
 
     input {
@@ -92,7 +91,7 @@
     }
 </style>
 
-<body onload="listarTurmas()">
+<body onload="trazerDados(sessionStorage.GUARDAR_ID_ALUNO), listarTurmas()">
 
     <div class="container">
 
@@ -149,7 +148,7 @@
 
             <div class="fundocad">
                 <div>
-                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Cadastro Aluno</span><br>
+                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Editar Aluno</span><br>
                 </div>
 
                 <div class="dados">
@@ -158,10 +157,10 @@
                         <input id="iptSobrenome" type="text" placeholder="Sobrenome">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select id="selTurma" name="" id="">
+                        <select id="selTurma" name="">
                             <option disabled selected value="">Turma</option>
                         </select>
-                        <input id="iptMatricula" type="text" placeholder="Matricula">
+                        <input disabled id="iptMatricula" type="text" placeholder="Matricula">
                     </div>
                     <!-- <div style="display: flex; gap:2vh ">
                         <select name="" id="" style="width: 100%;">
@@ -172,13 +171,13 @@
                     <div style="display: flex; gap:2vh ">
                         <input id="iptEmail" type="email" placeholder="E-mail">
                     </div>
-                    <div style="display: flex; gap:2vh ">
+                    <!-- <div style="display: flex; gap:2vh ">
                         <input id="iptSenha" type="password" placeholder="Senha">
-                    </div>
+                    </div> -->
                 </div>
 
                 <div>
-                    <button onclick="cadastrar()">Cadastrar</button>
+                    <button onclick="editar()">Atualizar</button>
                 </div>
             </div>
 
@@ -271,3 +270,7 @@
 </body>
 
 </html>
+
+<script>
+    
+</script>

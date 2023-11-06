@@ -334,27 +334,29 @@ gap: 5vh;
         }
     });
 
+//     function abrirLogin() {
+//     document.getElementById('backgroundBlur').style.display = 'block';
+//     aparecerLogin.innerHTML = `
+//     <section class="alinhamento">
+//         <section class="paineisLogin" >
+//             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
+//                 <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+//                 <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
+//             </section>
 
-    function abrirLogin() {
-    document.getElementById('backgroundBlur').style.display = 'block';
-    aparecerLogin.innerHTML = `
-    <section class="alinhamento">
-        <section class="paineisLogin" >
-            <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
-                <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
-            </section>
+//             <section style="display: flex; align-items: center; justify-content: center;">
+//                 <img src="../assets/img/legendas painel aluno.png" width="85%">
+//             </section>
+//         </section>
+//     </section>
+//     ` ;
+// }
 
-            <section style="display: flex; align-items: center; justify-content: center;">
-                <img src="../assets/img/legendas painel aluno.png" width="85%">
-            </section>
-        </section>
-    </section>
-    ` ;
-}
+// function fecharLogin() {
+//     document.getElementById('backgroundBlur').style.display = 'none';
+//     aparecerLogin.innerHTML = "";
+// }
 
-function fecharLogin() {
-    document.getElementById('backgroundBlur').style.display = 'none';
-    aparecerLogin.innerHTML = "";
-}
+var idAluno = sessionStorage.ID_USUARIO;
+
 </script>

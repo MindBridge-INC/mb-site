@@ -6,20 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
+    <title>Exibir alunos | PayAttention!</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="aluno.js"></script>
 </head>
 <style>
     a {
-    transition: all 0.2s linear;
-}
+        transition: all 0.2s linear;
+    }
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 </style>
-<body>
+
+<body onload="listarTurmas(), visualizarAlunos()">
 
     <div class="container">
 
@@ -45,8 +47,9 @@ a:hover {
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover" >
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="./img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover">
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="./img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -73,16 +76,35 @@ a:hover {
             <div class="header">
 
                 <div class="titulo" style="margin-top: 3vh; width: 50%;">
-
                     <div>
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Aluno</span><br>
                     </div>
-
-
                 </div>
 
-                    <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
-                        <a style="display: none;
+                <!-- SELECT DE TURMAS -->
+                <div style="width: 55%;">
+                    <select name="" id="selTurma" style="display: none;
+                    width: 30%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3.5px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #585858;
+                    padding-left: 2vh;
+                    margin-top: 2vh;   
+                    ">
+                        <option disabled selected hidden>Turma</option>
+                    </select>
+                </div>
+
+                <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
+                    <a style="display: none;
                         width: 40%;
                         height: 40px;
                         border-radius: 35px;
@@ -98,10 +120,10 @@ a:hover {
                         cursor: pointer;
                         text-decoration: none;
                         " href="./cadastroTurma.html">
-                            Cadastrar Turma
-                        </a>
+                        Cadastrar Turma
+                    </a>
 
-                        <a style="display: none;
+                    <a style="display: none;
                         width: 40%;
                         height: 40px;
                         border-radius: 35px;
@@ -117,77 +139,66 @@ a:hover {
                         cursor: pointer;
                         text-decoration: none;
                         " href="./cadastroAluno.html">
-                            Cadastrar Aluno
-                        </a>
+                        Cadastrar Aluno
+                    </a>
                 </div>
 
             </div>
-            
+
 
             <div class="colunas" style="display: flex; align-items: start; justify-content: start; width: 100%;">
 
-                
-                <div class="nome" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
-                    <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="./img/thaisailustracao.png" width="15%">
-                        <span class="dadosCadastrados">Thaisa Nobrega</span>
-                    </div>
-                    <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="./img/esparso.png" width="15%">
-                        <span class="dadosCadastrados">Kaue Mesquita</span>
-                    </div>
+                <div id="divNome" class="nome"
+                    style="width: 50%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">
+                        Nome
+                    </span>
+                    <!-- function visualizar -->
                 </div>
 
-
-                <div class="email" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div id="divMatricula" class="email"
+                    style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Matricula</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">01231070</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">01231668</span>
-            
+                    <!-- function visualizar -->
                 </div>
 
 
-                <div class="permissao" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div id="divTurma" class="permissao"
+                    style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Turma</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">2EM2023A</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">2EM2023A</span>
-
+                    <!-- function visualizar -->
                 </div>
 
-                <div class="permissao" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div id="divEmail" class="permissao"
+                    style="width: 40%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">E-mail</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">kauemesquita.com@gmail.com</span>
-
-
+                    <!-- function visualizar -->
                 </div>
 
-                <div class="ação" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div id="divStatus" class="permissao"
+                    style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
+                    <!-- function visualizar -->
+                </div>
+
+                <div id="divAcao" class="ação"
+                    style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ação</span>
-                    <div>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="./img/icone_editar.png" width="20%">
-                        <img src="./img/icone_lixeira.png" width="20%">
-                        </div>
-
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/icone_editar.png" width="20%">
-                            <img src="./img/icone_lixeira.png" width="20%">
-                            </div>
-
+                    <div id="divAcaoBotoes">
+                        <!-- function visualizar -->
                     </div>
 
                 </div>
 
             </div>
 
-            
+
 
         </div>
 
         <div class="painel2">
-            <div style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
+            <div
+                style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
                 <img src="./img/thaisailustracao.png" width="80%">
             </div>
             <div style="display: flex;
@@ -203,7 +214,8 @@ a:hover {
                 </span>
             </div>
 
-            <div style="margin-top: 5vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+            <div
+                style="margin-top: 5vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_user.png" width="14%">
                     <a style="display: none;
@@ -258,12 +270,10 @@ a:hover {
                     cursor: pointer;
                     text-decoration: none;" href="./aluno.html">Aluno</a>
                 </div>
-
-
             </div>
 
 
-            
+
         </div>
 
     </div>

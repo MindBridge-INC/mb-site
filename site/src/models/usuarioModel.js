@@ -3,15 +3,20 @@ var database = require("../database/config")
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-    select idAdmin, nome, senha from UsuarioInstituicao WHERE email = '${email}' AND senha = '${senha}';
+    SELECT userInst.id idUser, userInst.nome, userInst.sobrenome, userInst.tipo, userInst.fkInstituicao idInst FROM usuarioinstituicao userInst
+    WHERE userInst.email = '${email}' AND userInst.senha = '${senha}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 function autenticar2(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-    select idALuno, nome, senha from UsuarioAluno WHERE email = '${email}' AND senha = '${senha}';
+    SELECT aluno.id idAluno,aluno.nome,aluno.sobrenome,turma.id idTurma,turma.fkInstituicao,turma.ano FROM UsuarioAluno aluno
+    JOIN Turma on aluno.fkTurma = Turma.id
+    WHERE aluno.email = '${email}' AND aluno.senha = '${senha}';
+
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
