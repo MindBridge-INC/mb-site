@@ -30,39 +30,38 @@
             <div>
 
                 <div class="alinharIcone">
-                    <img id="logoHorizontal" src="./img/logo pay quadrado.png" alt="">
+                    <img id="logoHorizontal" src="../../assets/img/logo pay quadrado.png" alt="">
                 </div>
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone  hover">
-                        <a href="../painelacademico.html"><img id="icon" src="./img/grafico.png" alt=""></a>
+                        <a href="../painelacademico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
                     </div>
                 </div>
 
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="./img/icone_maquina.png" alt=""></a>
+                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover">
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
-                                src="./img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover" >
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone dash hover">
-                        <a href="../usuario/usuario.html"><img id="icon" src="./img/login.png" alt=""></a>
+                        <a href="../usuario/usuario.html"><img id="icon" src="../../assets/img/config.png" alt=""></a>
                     </div>
                 </div>
 
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="./img/sair.png" alt=""></a>
+                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
                     </div>
                 </div>
 
@@ -73,18 +72,18 @@
 
         <div class="painel">
 
-            <div class="header">
+            <div class="header" style="display: flex; align-items: center; justify-content: center;">
 
-                <div class="titulo" style="margin-top: 3vh; width: 50%;">
+                <div class="titulo" style="margin-top: 3vh; width: 30%;">
                     <div>
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Aluno</span><br>
                     </div>
                 </div>
 
                 <!-- SELECT DE TURMAS -->
-                <div style="width: 55%;">
+                <div style="width: 30%;">
                     <select name="" onchange="mudarTurma()" id="selTurma" style="display: none;
-                    width: 30%;
+                    width: 70%;
                     height: 40px;
                     border-radius: 35px;
                     border: 3.5px solid #D2C6AE;
@@ -97,14 +96,13 @@
                     font-weight: 700;
                     color: #585858;
                     padding-left: 2vh;
-                    margin-top: 2vh;   
                     ">
                         <option disabled selected hidden>Turma</option>
                     </select>
                 </div>
 
                 <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
-                    <a style="display: none;
+                    <!-- <a style="display: none;
                         width: 40%;
                         height: 40px;
                         border-radius: 35px;
@@ -121,7 +119,7 @@
                         text-decoration: none;
                         " href="./cadastroTurma.html">
                         Cadastrar Turma
-                    </a>
+                    </a> -->
 
                     <a style="display: none;
                         width: 40%;
@@ -195,7 +193,8 @@
                     </div>
                 </div>
 
-                <div id="divAcao" class="ação" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div id="divAcao" class="ação"
+                    style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ação</span>
                     <div id="divAcaoBotoes">
                         <!-- function visualizar -->
@@ -228,14 +227,14 @@
             </div>
 
             <div
-                style="margin-top: 5vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+                style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_user.png" width="14%">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -253,7 +252,7 @@
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -266,12 +265,30 @@
                     text-decoration: none;" href="./máquina.html">Máquina</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/icone_maquina.png" width="15%">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./máquina.html">Sala</a>
+                </div>
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -282,6 +299,42 @@
                     color: #2e2d2d;
                     cursor: pointer;
                     text-decoration: none;" href="./aluno.html">Aluno</a>
+                </div>
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./aluno.html">Turma</a>
+                </div>
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/config.png" width="18%" style="margin-left: -3px;">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./aluno.html">Limites</a>
                 </div>
             </div>
 

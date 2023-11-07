@@ -52,7 +52,7 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone dash hover">
-                        <a href="../usuario/usuario.html"><img id="icon" src="../../assets/img/login.png" alt=""></a>
+                        <a href="../usuario/usuario.html"><img id="icon" src="../../assets/img/config.png" alt=""></a>
                     </div>
                 </div>
 
@@ -70,9 +70,9 @@ a:hover {
 
         <div class="painel">
 
-            <div class="header">
+            <div class="header" >
 
-                <div class="titulo" style="margin-top: 3vh; width: 50%;">
+                <div class="titulo" style="margin-top: 3vh; width: 20%;">
 
                     <div>
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Máquina</span><br>
@@ -81,7 +81,28 @@ a:hover {
 
                 </div>
 
-                    <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
+                <!-- SELECT DE SALAS -->
+                <div style="width: 70%;">
+                    <select name="" id="selTurma" style="display: none;
+                    width: 25%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3.5px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #585858;
+                    padding-left: 2vh;
+                    ">
+                        <option disabled selected hidden>Sala</option>
+                    </select>
+                </div>
+
+                    <!-- <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
                         <a style="display: none;
                         width: 40%;
                         height: 40px;
@@ -119,7 +140,7 @@ a:hover {
                         " href="./cadastroMáquina.html">
                             Cadastrar Máquina
                         </a>
-                </div>
+                </div> -->
 
             </div>
             
@@ -141,30 +162,47 @@ a:hover {
                 </div>
 
 
-                <div class="permissao" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="permissao" style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Sala</span>
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">14A</span>
 
                 </div>
 
-                <div class="permissao" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="permissao" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Instituição</span>
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Colégio Santo André</span>
 
                 </div>
 
-                <div class="ação" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ação</span>
-                    <div>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                        <img src="./img/icone_editar.png" width="20%">
-                        <img src="./img/icone_lixeira.png" width="20%">
-                        </div>
-
-                    </div>
-
+                <div class="ação" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
+                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
                 </div>
 
+                <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
+                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
+    
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <a style="display: none;
+                            width: 90px;
+                            height: 35px;
+                            border-radius: 35px;
+                            border: 3.5px solid #57769a;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            font-family: Arimo;
+                            font-size: 1.8vh;
+                            font-weight: 700;
+                            color: #2e2d2d;
+                            cursor: pointer;
+                            text-decoration: none;
+                            " href="./editarMaquina.html">
+                                Editar
+                            </a>
+                        </div>
+                </div>
             </div>
 
             
@@ -188,14 +226,14 @@ a:hover {
                 </span>
             </div>
 
-            <div style="margin-top: 5vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+            <div style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_user.png" width="14%">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -213,7 +251,7 @@ a:hover {
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -226,12 +264,30 @@ a:hover {
                     text-decoration: none;" href="./máquina.html">Máquina</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/icone_maquina.png" width="15%">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./máquina.html">Sala</a>
+                </div>
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
                     <a style="display: none;
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
-                    border: 2.5px solid #D2C6AE;
+                    border: 3px solid #D2C6AE;
                     background-color: transparent;
                     display: flex;
                     align-items: center;
@@ -243,7 +299,42 @@ a:hover {
                     cursor: pointer;
                     text-decoration: none;" href="./aluno.html">Aluno</a>
                 </div>
-
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./aluno.html">Turma</a>
+                </div>
+                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
+                    <img src="./img/config.png" width="18%" style="margin-left: -3px;">
+                    <a style="display: none;
+                    width: 90%;
+                    height: 40px;
+                    border-radius: 35px;
+                    border: 3px solid #D2C6AE;
+                    background-color: transparent;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    font-family: Arimo;
+                    font-size: 2vh;
+                    font-weight: 700;
+                    color: #2e2d2d;
+                    cursor: pointer;
+                    text-decoration: none;" href="./aluno.html">Limites</a>
+                </div>
 
             </div>
 
