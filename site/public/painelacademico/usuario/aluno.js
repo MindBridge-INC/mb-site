@@ -31,9 +31,9 @@ function listarTurmas() {
         });
 }
 
-function visualizarAlunos() {
+function visualizarAlunos(idTurma) {
 
-    fetch(`/crudAlunos/visualizar/1`,).then(function (response) {
+    fetch(`/crudAlunos/visualizar/${idTurma}`,).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
@@ -79,7 +79,7 @@ function visualizarAlunos() {
                             `
                         }
 
-                        divAcao.innerHTML += `
+                        divAcaoBotoes.innerHTML += `
                             <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
                                 <a href="./editarAluno.html" onclick="guardarIdAluno(${alunoAtual.id})"><img src="./img/icone_editar.png" width="20%"></a>
                             </div>
@@ -170,6 +170,12 @@ function cadastrar() {
                 showConfirmButton: false
             })
 
+            iptNome.value = "";
+            iptSobrenome.value = "";
+            iptMatricula.value = "";
+            iptEmail.value = "";
+            iptSenha.value = "";
+
         }
         else {
             Swal.fire({
@@ -232,6 +238,9 @@ function editar() {
                 showConfirmButton: false
             })
 
+            setTimeout(function () {
+                window.location = "./aluno.html";
+            }, 1500);
         }
         else {
             Swal.fire({
@@ -248,4 +257,16 @@ function editar() {
         console.log(`#ERRO ${erro}`)
     })
 
-} 
+}
+
+function mudarTurma() {
+    var selectBox = document.getElementById("selTurma");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    divNome.innerHTML = "";
+    divMatricula.innerHTML = "";
+    divTurma.innerHTML = "";
+    divEmail.innerHTML = "";
+    divStatus.innerHTML = "";
+    divAcaoBotoes.innerHTML = "";
+    visualizarAlunos(selectedValue);
+}
