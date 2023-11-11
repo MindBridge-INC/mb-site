@@ -12,75 +12,76 @@
 </head>
 
 <style>
-   html {
+    html {
         scroll-behavior: smooth;
         overflow-x: hidden;
     }
 
     body::-webkit-scrollbar {
         width: 8px;
-        height: 3px; 
+        height: 3px;
     }
-      
+
     body::-webkit-scrollbar-track {
         background: #f3eee3ff;
         padding: 2px;
     }
-      
+
     body::-webkit-scrollbar-thumb {
         background-color: #d2c6aeff;
     }
-a {
-    transition: all 0.2s linear;
-}
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a {
+        transition: all 0.2s linear;
+    }
 
-.legenda{
-    transition: all 0.2s linear;
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 
-.legenda:hover{
-    transition: .3s;
-    transform: scale(1.05);
-}
+    .legenda {
+        transition: all 0.2s linear;
+    }
 
-.backgroundBlur {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999; 
-    display: none;
-    backdrop-filter: blur(1px);
-}
+    .legenda:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 
-.alinhamento{
-position: fixed; 
-z-index: 9999; 
-display: flex;
-align-items: center;
-justify-content: center;
-top: 50%; 
-left: 50%;
-transform: translate(-50%, -50%); 
-}
+    .backgroundBlur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        display: none;
+        backdrop-filter: blur(1px);
+    }
 
-.paineisLogin{
-background-color: #f8f5eeff;
-width: 80vh;
-height: 45vh;
-border-radius: 8vh;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-gap: 5vh;
-}
+    .alinhamento {
+        position: fixed;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .paineisLogin {
+        background-color: #f8f5eeff;
+        width: 80vh;
+        height: 45vh;
+        border-radius: 8vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5vh;
+    }
 </style>
 
 <body>
@@ -110,8 +111,9 @@ gap: 5vh;
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone dash hover" >
-                        <a href="./painelacademico.html"><img style="width: 33px;" id="icon" src="../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone dash hover">
+                        <a href="./painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -141,7 +143,10 @@ gap: 5vh;
 
                     <div>
                         <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Acadêmico</span>
-                        <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button>
+                        <button onclick="abrirLogin()"
+                            style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img
+                                class="legenda" style="transition: all 0.2s linear;"
+                                src="../assets/img/legenda icone.png" width="20vh"></button>
                         <br>
                         <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">23/10/2023 -
                             20:27</span>
@@ -239,25 +244,29 @@ gap: 5vh;
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">2°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft Word</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
+                                        Word</span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">3°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft Power Point</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
+                                        Power Point</span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">4°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft Excel</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
+                                        Excel</span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">5°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft Edge</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
+                                        Edge</span>
                                 </div>
                             </div>
                         </div>
@@ -305,8 +314,8 @@ gap: 5vh;
                             <div style=" display: flex;align-items: end;justify-content: space-between; width: 100%;">
                                 <span style="font-size: 3vh; font-weight: 600; color: #2e2d2d">Picos de
                                     Ociosidade</span>
-                                <span
-                                    style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Essa semana</span>
+                                <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Essa
+                                    semana</span>
                             </div>
                             <div>
                                 <canvas id="myChart2" style="position: relative; height: 30vh; width: 60vh;"></canvas>
@@ -321,7 +330,8 @@ gap: 5vh;
 
 
 
-                <div style="margin-left: 5px; width: 30%; display: flex; flex-direction: column; gap: 2vh; align-items: center;">
+                <div
+                    style="margin-left: 5px; width: 30%; display: flex; flex-direction: column; gap: 2vh; align-items: center;">
                     <div style=" display: flex;align-items: end;justify-content: space-between; width: 100%;">
                         <span style="font-size: 3vh; font-weight: 600; color: #2e2d2d">Lista de Alunos</span>
                     </div>
@@ -338,28 +348,53 @@ gap: 5vh;
                     padding-top: 3vh;
 
                     ">
-                        <div style="width: 60%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                            <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Nome</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Thaisa Nobrega</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Kaue Mesquita</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Maria Costa</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Pedro Oliveira</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Carolina Pereira</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">João Sousa</span>
-                            <span style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Beatriz Ferreira</span>
-                        
-                        
+                        <div
+                            style="width: 60%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                            <span
+                                style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Nome</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Thaisa
+                                Nobrega</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Kaue
+                                Mesquita</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Maria
+                                Costa</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Pedro
+                                Oliveira</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Carolina
+                                Pereira</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">João
+                                Sousa</span>
+                            <span
+                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Beatriz
+                                Ferreira</span>
+
+
                         </div>
-                        <div style="width: 40%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                            <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Pontos</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1254</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">865</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2569</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1789</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">811</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2111</span>
-                            <span style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1999</span>
-                            
+                        <div
+                            style="width: 40%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                            <span
+                                style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Pontos</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1254</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">865</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2569</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1789</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">811</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2111</span>
+                            <span
+                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1999</span>
+
                         </div>
                     </div>
 
@@ -446,8 +481,8 @@ gap: 5vh;
     });
 
     function abrirLogin() {
-    document.getElementById('backgroundBlur').style.display = 'block';
-    aparecerLogin.innerHTML = `
+        document.getElementById('backgroundBlur').style.display = 'block';
+        aparecerLogin.innerHTML = `
     <section class="alinhamento">
         <section class="paineisLogin" >
             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
@@ -461,10 +496,10 @@ gap: 5vh;
         </section>
     </section>
     ` ;
-}
+    }
 
-function fecharLogin() {
-    document.getElementById('backgroundBlur').style.display = 'none';
-    aparecerLogin.innerHTML = "";
-}
+    function fecharLogin() {
+        document.getElementById('backgroundBlur').style.display = 'none';
+        aparecerLogin.innerHTML = "";
+    }
 </script>

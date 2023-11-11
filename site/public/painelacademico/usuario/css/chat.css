@@ -19,6 +19,20 @@ body {
     padding: 3vh;
 }
 
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 3px; 
+}
+  
+body::-webkit-scrollbar-track {
+    background: #f3eee3ff;
+    padding: 2px;
+}
+  
+body::-webkit-scrollbar-thumb {
+    background-color: #d2c6aeff;
+}
+
 /* MENU LATERAL */
 
 .menuLateral {

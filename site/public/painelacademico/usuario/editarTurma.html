@@ -62,13 +62,6 @@ select{
     color: #727272;
 }
 
-option{
-    font-size: 12px;
-    font-weight: 600;
-    font-family: Arimo;
-    color: #2e2d2d;
-}
-
 button{
     background-color: transparent;
     margin: 20px 0px 0px 0px;
@@ -89,6 +82,14 @@ button{
     flex-direction: column;
     gap: 2vh;
 }
+
+option{
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arimo;
+    color: #2e2d2d;
+}
+
 </style>
 <body>
 
@@ -144,54 +145,36 @@ button{
         
             <div class="fundocad">
                 <div>
-                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Cadastrar Usuário</span><br>
+                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Editar Turma</span><br>
                 </div>
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
                         <input type="text" required placeholder="Nome">
-                        <input type="text" required placeholder="Sobrenome">
-                    </div>
-                    <div style="display: flex; gap:2vh ">
-                        <input type="email" required placeholder="E-mail">
-                    </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select>
-                            <option disabled selected value="">Permissão</option>
-                            <option value="">Administrador</option>
-                            <option value="">Coordenação</option>
-                            <option value="">Suporte de T.I.</option>
-                        </select>
+                        <input type="text" required placeholder="Ano Letivo">
                     </div>
                     <div style="display: flex; gap:2vh ">
                         <select style="width: 100%;">
                             <option disabled selected value="">Instituição</option>
+                            <option value="">Colégio Santo André</option>
                         </select>
                     </div>
-                    <div style="display: flex; gap:2vh; width: 100%;">
-                        <div style="display: flex; width: 100%; gap: 50px;">
-                            <select style="width: 40%;">
-                                <option  selected  value="">Ativo</option>
-                                <option  value="">Inativo</option>
-                            </select>
-
-                            <select style="width: 50%;">
-                                <option  selected disabled value="">Foto de Perfil</option>
-                                <option  value="">Lápis</option>
-                                <option  value="">Maça</option>
-                                <option  value="">Régua</option>
-                                <option  value="">Livros</option>
-                                <option  value="">Notebook</option>
-                                <option  value="">Ferrementa</option>
-                            </select>
-                        </div>
+                    <div style="display: flex; gap:2vh ">
+                        <select required name="" id="">
+                            <option disabled selected value="">Período</option>
+                            <option value="">Manhã</option>
+                            <option value="">Tarde</option>
+                            <option value="">Noite</option>
+                        </select>
                     </div>
-                   
-                    
+                    <div style="display: flex; gap:2vh ">
+                        <input required type="time" placeholder="Horário Inicio">
+                        <input required type="time" placeholder="Horário Fim">
+                    </div>
                 </div>
 
                 <div>
-                    <button>Cadastrar</button>
+                    <button>Salvar</button>
                 </div>
             </div>
                 

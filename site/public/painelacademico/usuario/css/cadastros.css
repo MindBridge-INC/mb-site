@@ -13,6 +13,19 @@ body {
     background-color: rgb(248, 245, 238);
 }
 
+body::-webkit-scrollbar {
+        width: 8px;
+        height: 3px; 
+    }
+      
+    body::-webkit-scrollbar-track {
+        background: #f3eee3ff;
+        padding: 2px;
+    }
+      
+    body::-webkit-scrollbar-thumb {
+        background-color: #d2c6aeff;
+    }
 .container {
     display: flex;
     min-height: 100vh;

@@ -62,13 +62,6 @@ select{
     color: #727272;
 }
 
-option{
-    font-size: 12px;
-    font-weight: 600;
-    font-family: Arimo;
-    color: #2e2d2d;
-}
-
 button{
     background-color: transparent;
     margin: 20px 0px 0px 0px;
@@ -89,6 +82,14 @@ button{
     flex-direction: column;
     gap: 2vh;
 }
+
+option{
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Arimo;
+    color: #2e2d2d;
+}
+
 </style>
 <body>
 
@@ -144,54 +145,31 @@ button{
         
             <div class="fundocad">
                 <div>
-                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Cadastrar Usuário</span><br>
+                    <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Limites dos Alertas</span><br>
                 </div>
 
-                <div class="dados">
-                    <div style="display: flex; gap:2vh ">
-                        <input type="text" required placeholder="Nome">
-                        <input type="text" required placeholder="Sobrenome">
+                <div class="dados" style="width: 100%;">
+                    <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
+                        <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">CPU</span>
+                        <input type="text" >
                     </div>
-                    <div style="display: flex; gap:2vh ">
-                        <input type="email" required placeholder="E-mail">
+                    <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
+                        <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">RAM</span>
+                        <input type="text" >
                     </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select>
-                            <option disabled selected value="">Permissão</option>
-                            <option value="">Administrador</option>
-                            <option value="">Coordenação</option>
-                            <option value="">Suporte de T.I.</option>
-                        </select>
+                    <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
+                        <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">Disco</span>
+                        <input type="text" >
                     </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                        </select>
+                    <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
+                        <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">Rede</span>
+                        <input type="text" >
                     </div>
-                    <div style="display: flex; gap:2vh; width: 100%;">
-                        <div style="display: flex; width: 100%; gap: 50px;">
-                            <select style="width: 40%;">
-                                <option  selected  value="">Ativo</option>
-                                <option  value="">Inativo</option>
-                            </select>
-
-                            <select style="width: 50%;">
-                                <option  selected disabled value="">Foto de Perfil</option>
-                                <option  value="">Lápis</option>
-                                <option  value="">Maça</option>
-                                <option  value="">Régua</option>
-                                <option  value="">Livros</option>
-                                <option  value="">Notebook</option>
-                                <option  value="">Ferrementa</option>
-                            </select>
-                        </div>
-                    </div>
-                   
                     
                 </div>
 
-                <div>
-                    <button>Cadastrar</button>
+                <div style="width: 100%; display: flex; align-items: center;justify-content: center;">
+                    <button>Salvar</button>
                 </div>
             </div>
                 
@@ -207,8 +185,7 @@ button{
             <div style="display: flex;
             align-items: center;
             justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                    Nóbrega</span>
+                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa Nóbrega</span>
             </div>
             <div style="display: flex;
             align-items: center;
@@ -270,7 +247,7 @@ button{
                     font-weight: 700;
                     color: #2e2d2d;
                     cursor: pointer;
-                    text-decoration: none;" href="./máquina.html">Sala</a>
+                    text-decoration: none;" href="./sala.html">Sala</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
@@ -306,7 +283,7 @@ button{
                     font-weight: 700;
                     color: #2e2d2d;
                     cursor: pointer;
-                    text-decoration: none;" href="./aluno.html">Turma</a>
+                    text-decoration: none;" href="./turma.html">Turma</a>
                 </div>
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/config.png" width="18%" style="margin-left: -3px;">
@@ -324,7 +301,7 @@ button{
                     font-weight: 700;
                     color: #2e2d2d;
                     cursor: pointer;
-                    text-decoration: none;" href="./aluno.html">Limites</a>
+                    text-decoration: none;" href="./limites.html">Limites</a>
                 </div>
 
 
