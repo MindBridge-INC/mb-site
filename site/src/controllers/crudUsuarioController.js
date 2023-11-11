@@ -1,9 +1,9 @@
-var crudTurmaModel = require("../models/crudTurmaModel");
+var crudUsuarioModel = require("../models/crudUsuarioModel");
 
-function listarTurmas(req, res) {
+function listarUsuario(req, res) {
     var idInst = req.params.idInst;
 
-    crudTurmaModel.listarTurmas(idInst)
+    crudUsuarioModel.listarUsuario(idInst)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -26,28 +26,29 @@ function listarTurmas(req, res) {
 }
 
 function cadastrar(req, res) {
+    nome, sobrenome, email, senha, tipo, idInst
     var nome = req.body.nomeServer;
-    var ano = req.body.anoServer;
-    var periodo = req.body.periodoServer;
-    var inicio = req.body.inicioServer;
-    var fim = req.body.fimServer;
+    var sobrenome = req.body.sobrenomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var tipo = req.body.tipoServer;
     var idInst = req.body.idInstServer;
 
     if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
-    } else if (ano == undefined) {
-        res.status(400).send("ano está undefined!");
-    } else if (periodo == undefined) {
-        res.status(400).send("periodo está undefined!");
-    } else if (inicio == undefined) {
-        res.status(400).send("inicio está undefined!");
-    } else if (fim == undefined) {
-        res.status(400).send("fim está undefined!");
+    } else if (sobrenome == undefined) {
+        res.status(400).send("sobrenome está undefined!");
+    } else if (email == undefined){
+        res.status(400).send("email está undefined!");
+    } else if(senha == undefined){
+        res.status(400).send("senha está undefined!")
+    } else if(tipo = undefined){
+        res.status(400).send(" tipo está undefined!")
     } else if (idInst == undefined) {
         res.status(400).send("idInst está undefined!");
     }
 
-    crudTurmaModel.cadastrar(nome, ano, periodo, inicio, fim, idInst)
+    crudSalaModel.cadastrar(nome, sobrenome, email, senha, tipo, idInst)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -56,7 +57,7 @@ function cadastrar(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "\nHouve um erro ao realizar o cadastro da turma! Erro: ",
+                    "\nHouve um erro ao realizar o cadastro da sala! Erro: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);
@@ -66,9 +67,9 @@ function cadastrar(req, res) {
 
 
 function trazerDados(req, res) {
-    var idTurma = req.params.idTurma;
+    var idUsuario = req.params.idUsuario;
 
-    crudTurmaModel.trazerDados(idAluno)
+    crudSalaModel.trazerDados(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -92,24 +93,25 @@ function trazerDados(req, res) {
 
 function editar(req, res) {
     var nome = req.body.nomeServer;
-    var ano = req.body.anoServer;
-    var periodo = req.body.periodoServer;
-    var inicio = req.body.inicioServer;
-    var fim = req.body.fimServer;
+    var sobrenome = req.body.sobrenomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var tipo = req.tipoServer;
 
+    
     if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
-    } else if (ano == undefined) {
-        res.status(400).send("ano está undefined!");
-    } else if (periodo == undefined) {
-        res.status(400).send("periodo está undefined!");
-    } else if (inicio == undefined) {
-        res.status(400).send("inicio está undefined!");
-    } else if(fim == undefined){
-        res.status(400).send("fim está undefined!")
+    } else if (sobrenome == undefined) {
+        res.status(400).send("sobrenome está undefined!");
+    } else if(email == undefined){
+        res.status(400).send(" email está undefined!");
+    } else if (senha == undefined){
+        res.status(400).send("senha está undefined!");
+    } else if (tipo == undefined){
+        res.status(400).send("tipo está undefined!");
     }
 
-    crudTurmaModel.editar(nome, ano, periodo, inicio,fim)
+    crudUsuarioModel.editar(nome, sobrenome,email,senha,tipo)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -118,7 +120,7 @@ function editar(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "\nHouve um erro ao realizar o cadastro do aluno! Erro: ",
+                    "\nHouve um erro ao realizar o cadastro da Sala! Erro: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);
@@ -127,7 +129,7 @@ function editar(req, res) {
 }
 
 module.exports = {
-    listarTurmas,
+    listarUsuario,
     cadastrar,
     trazerDados,
     editar
