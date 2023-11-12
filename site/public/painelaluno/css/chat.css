@@ -13,6 +13,20 @@ body {
     background-color: rgb(248, 245, 238);
 }
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d2c6ae;
+    border-radius: 20px;
+}
+
 .container {
     display: flex;
     min-height: 100vh;
@@ -70,7 +84,7 @@ body {
 .painel {
     display: block;
     width: 75%;
-    padding: 3vh 7vh;
+    padding: 0vh 7vh;
     background-color: rgb(255, 253, 248);
     border-radius: 5vh;
 }
@@ -96,7 +110,7 @@ body {
     display: flex;
     align-items: center;
     width: 70%;
-    margin-bottom: 5vh;
+    margin-bottom: 1.5vh;
 }
 
 .painel .header .selecao {
@@ -145,3 +159,67 @@ body {
     gap: 1vh;
     
 }
+
+.containerChat {
+    /* background-color:brown; */
+    height: 70vh;
+    padding: 1vh;
+    border-radius: 2vh;
+    overflow-y: scroll;
+    /* scroll-behavior: smooth; */
+}
+
+.containerMsg {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 50%;
+    margin-bottom: 1vh;
+    /* justify-content: end; */
+    /* width: auto; */
+}
+
+.abc {
+    border: 1px solid #d2c6ae;
+    border-radius: 1.3vh;
+    padding: 1vh;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+.username {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8vh;
+    font-weight: 600;
+    min-width: 50%;
+}
+
+.username span {
+    color: #eeb758;
+    margin-right: 5vh;
+}
+
+.msgHorario span {
+    font-size: 1.5vh;
+    margin-right: 0vh;
+    color: #b1a48d;
+    font-weight: 400;
+}
+
+.msg, .msg span {
+    /* background-color: aqua; */
+    line-height: 1;
+    font-size: 2vh;
+    color: #5e523b;
+}
+
+/* #username {
+    font-size: 1.8vh;
+    font-weight: 700;
+    min-width: 50%;
+}
+
+#msg {
+    background-color: aqua;
+    min-width: 50%;
+} */

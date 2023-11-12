@@ -149,8 +149,10 @@ function sucessoAluno(){
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
                 sessionStorage.ID_USUARIO = json.idAluno;
-                sessionStorage.TURMA = json.idTurma;
+                sessionStorage.ID_TURMA = json.idTurma;
                 sessionStorage.ID_INST = json.fkInstituicao;
+                sessionStorage.MATRICULA = json.matricula;
+                sessionStorage.NOME_TURMA = json.nomeTurma;
 
                 Swal.fire({
                     title: 'Login Efetuado!',

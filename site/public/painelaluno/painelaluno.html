@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     <title>Painel do Aluno</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/painelAluno.js"></script>
 </head>
 
 <style>
@@ -82,7 +83,7 @@ gap: 5vh;
 }
 </style>
 
-<body>
+<body onload="carregarInfoAluno()">
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
 
@@ -269,13 +270,13 @@ gap: 5vh;
             <div style="display: flex;
             align-items: center;
             justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                    Nóbrega</span>
+                <span id="spanNomeAluno" style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">
+                </span>
             </div>
             <div style="display: flex;
             align-items: center;
             justify-content: center; margin-top: 0.5vh">
-                <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">01231070 - 2EM2023
+                <span id="spanMatricula" style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">
                 </span>
             </div>
 

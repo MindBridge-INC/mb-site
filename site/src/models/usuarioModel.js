@@ -13,7 +13,7 @@ function autenticar(email, senha) {
 function autenticar2(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-    SELECT aluno.id idAluno,aluno.nome,aluno.sobrenome,turma.id idTurma,turma.fkInstituicao,turma.ano FROM UsuarioAluno aluno
+    SELECT aluno.id idAluno,aluno.nome,aluno.sobrenome,aluno.matricula,turma.id idTurma,turma.fkInstituicao,turma.ano,turma.nome nomeTurma FROM UsuarioAluno aluno
     JOIN Turma on aluno.fkTurma = Turma.id
     WHERE aluno.email = '${email}' AND aluno.senha = '${senha}';
 
