@@ -84,14 +84,17 @@ function trazerDados(req, res) {
 function editar(req, res) {
     var nome = req.body.nomeServer;
     var andar = req.body.andarServer;
+    var idSala = req.body.idSalaServer;
     
     if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
     } else if (andar == undefined) {
         res.status(400).send("andar está undefined!");
+    } else if (idSala == undefined) {
+        res.status(400).send("idSala está undefined!");
     }
 
-    crudSalaModel.editar(nome, andar)
+    crudSalaModel.editar(nome, andar, idSala)
         .then(
             function (resultado) {
                 res.json(resultado);

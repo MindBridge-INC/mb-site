@@ -68,7 +68,7 @@ function cadastrar(req, res) {
 function trazerDados(req, res) {
     var idTurma = req.params.idTurma;
 
-    crudTurmaModel.trazerDados(idAluno)
+    crudTurmaModel.trazerDados(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -91,13 +91,17 @@ function trazerDados(req, res) {
 }
 
 function editar(req, res) {
+    var idTurma = req.body.idTurmaServer;
     var nome = req.body.nomeServer;
     var ano = req.body.anoServer;
     var periodo = req.body.periodoServer;
     var inicio = req.body.inicioServer;
     var fim = req.body.fimServer;
 
-    if (nome == undefined) {
+    if (idTurma == undefined) {
+        res.status(400).send("idTurma está undefined!");
+
+    } else if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
     } else if (ano == undefined) {
         res.status(400).send("ano está undefined!");
@@ -105,11 +109,11 @@ function editar(req, res) {
         res.status(400).send("periodo está undefined!");
     } else if (inicio == undefined) {
         res.status(400).send("inicio está undefined!");
-    } else if(fim == undefined){
+    } else if (fim == undefined) {
         res.status(400).send("fim está undefined!")
     }
 
-    crudTurmaModel.editar(nome, ano, periodo, inicio,fim)
+    crudTurmaModel.editar(nome, ano, periodo, inicio, fim, idTurma)
         .then(
             function (resultado) {
                 res.json(resultado);

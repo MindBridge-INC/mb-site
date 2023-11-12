@@ -6,8 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Salas | PayAttention!</title>
     <script src="sala.js"></script>
 </head>
 <style>
@@ -144,7 +143,7 @@ a:hover {
 
                 <div class="andar" style="width: 35%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Andar</span>
                     </div>
                     <div id="divAndar">
                         <!-- function visualizar -->
@@ -154,7 +153,7 @@ a:hover {
 
                 <div class="status" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
                     </div>
                     <div id="divStatus">
                         <!-- function visualizar -->
@@ -163,29 +162,15 @@ a:hover {
                 </div>
 
             
-                <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
+                <div id="divAcao" class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
+                    </div>
+
+                    <div id="divAcaoBotoes">
+                        <!-- function visualizar -->
+                    </div>
     
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <a style="display: none;
-                            width: 90px;
-                            height: 35px;
-                            border-radius: 35px;
-                            border: 3.5px solid #57769a;
-                            background-color: transparent;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-around;
-                            font-family: Arimo;
-                            font-size: 1.8vh;
-                            font-weight: 700;
-                            color: #2e2d2d;
-                            cursor: pointer;
-                            text-decoration: none;
-                            " href="./editarSala.html">
-                                Editar
-                            </a>
-                        </div>
                 </div>
             </div>
 

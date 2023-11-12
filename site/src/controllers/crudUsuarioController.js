@@ -26,7 +26,6 @@ function listarUsuario(req, res) {
 }
 
 function cadastrar(req, res) {
-    nome, sobrenome, email, senha, tipo, idInst
     var nome = req.body.nomeServer;
     var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
@@ -48,7 +47,7 @@ function cadastrar(req, res) {
         res.status(400).send("idInst está undefined!");
     }
 
-    crudSalaModel.cadastrar(nome, sobrenome, email, senha, tipo, idInst)
+    crudUsuarioModel.cadastrar(nome, sobrenome, email, senha, tipo, idInst)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -69,7 +68,7 @@ function cadastrar(req, res) {
 function trazerDados(req, res) {
     var idUsuario = req.params.idUsuario;
 
-    crudSalaModel.trazerDados(idUsuario)
+    crudUsuarioModel.trazerDados(idUsuario)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {

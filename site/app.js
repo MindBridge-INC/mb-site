@@ -14,7 +14,7 @@ var emailRouter = require("./src/routes/email");
 var crudAlunosRouter = require("./src/routes/crudAlunos");
 var crudSalaRouter = require("./src/routes/crudSala");
 var crudTurmaRouter = require("./src/routes/crudTurma");
-var crudUsuarioRouter = require("./src/routes/crudUsuario");
+// var crudUsuarioRouter = require("./src/routes/crudUsuario");
 var painelAlunoRouter = require("./src/routes/painelAluno")
 
 app.use(express.json());
@@ -29,7 +29,7 @@ app.use("/email", emailRouter);
 app.use("/crudAlunos", crudAlunosRouter);
 app.use("/crudSala", crudSalaRouter);
 app.use("/crudTurma", crudTurmaRouter);
-app.use("/crudUsuario", crudUsuarioRouter);
+// app.use("/crudUsuario", crudUsuarioRouter);
 app.use("/painelAluno", painelAlunoRouter);
 
 app.listen(PORTA, function () {

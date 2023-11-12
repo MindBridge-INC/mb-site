@@ -1,7 +1,6 @@
 var idTurmas = [];
 var listaTurmas = [];
 
-
 function listarTurmas() {
     var idInst = sessionStorage.ID_INST
 
@@ -26,17 +25,17 @@ function listarTurmas() {
                                 ${turmaAtual.ano}
                             </span>
                             `
-                            divPeriodo.innerHTML += `
+                        divPeriodo.innerHTML += `
                             <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
                                 ${turmaAtual.periodo}
                             </span>
                             `
-                            divInicio.innerHTML += `
+                        divInicio.innerHTML += `
                             <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
                                 ${turmaAtual.inicio}
                             </span>
                             `
-                            divFim.innerHTML += `
+                        divFim.innerHTML += `
                             <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
                                 ${turmaAtual.fim}
                             </span>
@@ -56,9 +55,26 @@ function listarTurmas() {
                         }
 
                         divAcaoBotoes.innerHTML += `
-                            <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <a href="./editarTurma.html" onclick="guardarIdSala(${salaAtual.id})"><img src="./img/icone_editar.png" width="20%"></a>
-                            </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <a onclick="guardarIdTurma(${turmaAtual.id})" style="display: none;
+                            width: 90px;
+                            height: 35px;
+                            border-radius: 35px;
+                            border: 3.5px solid #57769a;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            font-family: Arimo;
+                            font-size: 1.8vh;
+                            font-weight: 700;
+                            color: #2e2d2d;
+                            cursor: pointer;
+                            text-decoration: none;
+                            " href="./editarTurma.html">
+                                Editar
+                            </a>
+                        </div>
                             `
                     }
                 }
@@ -85,13 +101,11 @@ function trazerDados(id) {
 
                 iptNome.value = resposta[0].nome;
                 iptAno.value = resposta[0].ano;
-                iptPeriodo.value = resposta[0].periodo;
+                // iptPeriodo.value = resposta[0].periodo;
                 iptInicio.value = resposta[0].inicio;
                 iptFim.value = resposta[0].fim;
-                iptStatus.value = resposta[0].status;
-                setTimeout(() => {
-                    document.getElementById('selTurma').value = 1;
-                }, "500")
+                // iptStatus.value = resposta[0].status;
+                document.getElementById('selPeriodo').value = resposta[0].periodo;
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -105,12 +119,11 @@ function trazerDados(id) {
 function cadastrar() {
     var nome = iptNome.value;
     var ano = iptAno.value
-    var periodo = iptPeriodo.value
-    var inicio = iptInicio.value
-    var fim = iptFim.value
-    var status = iptStatus
-    
-    if (nome == "" || ano == "" || periodo == "" || inicio == "" || fim == "" || status == "") {
+    var periodo = document.getElementById("selPeriodo").value;
+    var inicio = iptInicio.value;
+    var fim = iptFim.value;
+
+    if (idInst = "" || nome == "" || ano == "" || periodo == "" || inicio == "" || fim == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -128,12 +141,12 @@ function cadastrar() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            idInstServer: sessionStorage.ID_INST,
             nomeServer: nome,
             anoServer: ano,
-            periodoServer:periodo,
+            periodoServer: periodo,
             inicioServer: inicio,
-            fimServer:fim,
-            statusServer:status
+            fimServer: fim,
         })
     }).then(function (resultado) {
         console.log("resposta:", resultado);
@@ -153,7 +166,7 @@ function cadastrar() {
             iptPeriodo.value = "";
             iptInicio.value = "";
             iptFim.value = "";
-            iptStatus.value = "";
+            // iptStatus.value = "";
 
         }
         else {
@@ -176,13 +189,13 @@ function cadastrar() {
 function editar() {
     var idTurma = sessionStorage.GUARDAR_ID_TURMA;
     var nome = iptNome.value;
-    var ano = iptAno.value
-    var periodo = iptPeriodo.value
-    var inicio = iptInicio.value
-    var fim = iptFim.value
-    var status = iptStatus.value
+    var ano = iptAno.value;
+    var periodo = document.getElementById("selPeriodo").value;
+    var inicio = iptInicio.value;
+    var fim = iptFim.value;
+    // var status = iptStatus.value
 
-    if (idTurma == "" || nome == "" || ano == "" || periodo == "" || inicio == "" || fim == "" || status == "") {
+    if (idTurma == "" || nome == "" || ano == "" || periodo == "" || inicio == "" || fim == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -200,12 +213,13 @@ function editar() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            idTurmaServer: idTurma,
             nomeServer: nome,
             anoServer: ano,
             periodoServer: periodo,
             inicioServer: inicio,
             fimServer: fim,
-            statusServer: status
+            // statusServer: status
         })
     }).then(function (resultado) {
         console.log("resposta:", resultado);
@@ -221,7 +235,7 @@ function editar() {
             })
 
             setTimeout(function () {
-                window.location = "./aluno.html";
+                window.location = "./turma.html";
             }, 1500);
         }
         else {

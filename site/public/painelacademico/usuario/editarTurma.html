@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="turma.js"></script>
 </head>
 <style>
     a {
@@ -91,7 +93,7 @@ option{
 }
 
 </style>
-<body>
+<body onload="trazerDados(sessionStorage.GUARDAR_ID_TURMA)">
 
     <div class="container">
 
@@ -150,31 +152,25 @@ option{
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" required placeholder="Nome">
-                        <input type="text" required placeholder="Ano Letivo">
+                        <input id="iptNome" type="text" required placeholder="Nome">
+                        <input id="iptAno" type="text" required placeholder="Ano Letivo">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                            <option value="">Colégio Santo André</option>
-                        </select>
-                    </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select required name="" id="">
+                        <select id="selPeriodo" required name="" id="">
                             <option disabled selected value="">Período</option>
-                            <option value="">Manhã</option>
-                            <option value="">Tarde</option>
-                            <option value="">Noite</option>
+                            <option value="MATUTINO">MATUTINO</option>
+                            <option value="VESPERTINO">VESPERTINO</option>
+                            <option value="NOTURNO">NOTURNO</option>
                         </select>
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <input required type="time" placeholder="Horário Inicio">
-                        <input required type="time" placeholder="Horário Fim">
+                        <input id="iptInicio" required type="time" placeholder="Horário Inicio">
+                        <input id="iptFim" required type="time" placeholder="Horário Fim">
                     </div>
                 </div>
 
                 <div>
-                    <button>Salvar</button>
+                    <button onclick="editar()">Salvar</button>
                 </div>
             </div>
                 

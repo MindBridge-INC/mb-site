@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Cadastro Sala | PayAttention!</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sala.js"></script>
 </head>
 <style>
     a {
@@ -150,20 +151,13 @@ option{
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" placeholder="Número">
-                        <input type="text" placeholder="Andar">
+                        <input id="iptNome" type="text" placeholder="Nome">
+                        <input id="iptAndar" type="text" placeholder="Andar">
                     </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                            <option value="">Colégio Santo André</option>
-                        </select>
-                    </div>
-                    
                 </div>
 
                 <div>
-                    <button>Cadastrar</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
                 </div>
             </div>
                 

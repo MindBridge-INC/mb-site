@@ -80,9 +80,25 @@ function visualizarAlunos(idTurma) {
                         }
 
                         divAcaoBotoes.innerHTML += `
-                            <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <a href="./editarAluno.html" onclick="guardarIdAluno(${alunoAtual.id})"><img src="./img/icone_editar.png" width="20%"></a>
-                            </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <a onclick="guardarIdAluno(${alunoAtual.id})" style="display: none;
+                            width: 90px;
+                            height: 35px;
+                            border-radius: 35px;
+                            border: 3.5px solid #57769a;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            font-family: Arimo;
+                            font-size: 1.8vh;
+                            font-weight: 700;
+                            color: #2e2d2d;
+                            cursor: pointer;
+                            text-decoration: none;
+                            " href="./editarAluno.html">
+                                Editar
+                            </a>
                             `
                     }
                 }
@@ -112,7 +128,7 @@ function trazerDados(id) {
                 iptMatricula.value = resposta[0].matricula;
                 iptEmail.value = resposta[0].email;
                 setTimeout(() => {
-                    document.getElementById('selTurma').value = 1;
+                    document.getElementById('selTurma').value = resposta[0].fkTurma;
                 }, "500")
             });
         } else {

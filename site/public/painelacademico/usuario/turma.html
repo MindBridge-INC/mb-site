@@ -8,17 +8,19 @@
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="turma.js"></script>
 </head>
 <style>
     a {
-    transition: all 0.2s linear;
-}
+        transition: all 0.2s linear;
+    }
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 </style>
+
 <body onload="listarTurmas()">
 
     <div class="container">
@@ -40,13 +42,15 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
+                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png"
+                                alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover" >
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover">
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -59,7 +63,8 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
+                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png"
+                                alt=""></a>
                     </div>
                 </div>
 
@@ -70,7 +75,7 @@ a:hover {
 
         <div class="painel">
 
-            <div class="header" >
+            <div class="header">
 
                 <div class="titulo" style="margin-top: 3vh; width: 20%;">
 
@@ -102,10 +107,10 @@ a:hover {
                     </select>
                 </div> -->
 
-                    <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
-                        
+                <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
 
-                        <a style="display: none;
+
+                    <a style="display: none;
                         width: 40%;
                         height: 40px;
                         border-radius: 35px;
@@ -121,17 +126,18 @@ a:hover {
                         cursor: pointer;
                         text-decoration: none;
                         " href="./cadastroTurma.html">
-                            Cadastrar Turma
-                        </a>
+                        Cadastrar Turma
+                    </a>
                 </div>
 
             </div>
-            
+
 
             <div class="colunas" style="display: flex; align-items: start; justify-content: start; width: 100%;">
 
-                
-                <div class="nome" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+
+                <div class="nome"
+                    style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
                         <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
                     </div>
@@ -141,9 +147,10 @@ a:hover {
                 </div>
 
 
-                <div class="ano" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="ano"
+                    style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ano</span>
                     </div>
                     <div id="divAno">
                         <!-- function visualizar -->
@@ -151,9 +158,10 @@ a:hover {
                 </div>
 
 
-                <div class="periodo" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="periodo"
+                    style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Periodo</span>
                     </div>
                     <div id="divPeriodo">
                         <!-- function visualizar -->
@@ -161,9 +169,10 @@ a:hover {
 
                 </div>
 
-                <div class="inicio" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="inicio"
+                    style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Início</span>
                     </div>
                     <div id="divInicio">
                         <!-- function visualizar -->
@@ -171,56 +180,46 @@ a:hover {
 
                 </div>
 
-                <div class="fim" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="fim"
+                    style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Fim</span>
                     </div>
                     <div id="divFim">
                         <!-- function visualizar -->
                     </div>
                 </div>
 
-                <div class="Status" style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="Status"
+                    style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
                     </div>
                     <div id="divStatus">
                         <!-- function visualizar -->
                     </div>
                 </div>
 
-                <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
-    
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <a style="display: none;
-                            width: 90px;
-                            height: 35px;
-                            border-radius: 35px;
-                            border: 3.5px solid #57769a;
-                            background-color: transparent;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-around;
-                            font-family: Arimo;
-                            font-size: 1.8vh;
-                            font-weight: 700;
-                            color: #2e2d2d;
-                            cursor: pointer;
-                            text-decoration: none;
-                            " href="./editarTurma.html">
-                                Editar
-                            </a>
-                        </div>
+                <div id="divAcao" class="ação"
+                    style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
+                    </div>
+
+                    <div id="divAcaoBotoes">
+
+                    </div>
                 </div>
+
             </div>
 
-            
+
 
         </div>
 
         <div class="painel2">
-            <div style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
+            <div
+                style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
                 <img src="./img/thaisailustracao.png" width="80%">
             </div>
             <div style="display: flex;
@@ -236,7 +235,8 @@ a:hover {
                 </span>
             </div>
 
-            <div style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+            <div
+                style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_user.png" width="14%">
                     <a style="display: none;
@@ -349,7 +349,7 @@ a:hover {
             </div>
 
 
-            
+
         </div>
 
     </div>

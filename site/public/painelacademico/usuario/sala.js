@@ -9,7 +9,7 @@ function listarSala() {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log('Resposta listarSala ', JSON.stringify(resposta));
+                // console.log('Resposta listarSala ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
 
@@ -42,9 +42,26 @@ function listarSala() {
                         }
 
                         divAcaoBotoes.innerHTML += `
-                            <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <a href="./editarSala.html" onclick="guardarIdSala(${salaAtual.id})"><img src="./img/icone_editar.png" width="20%"></a>
-                            </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <a onclick="guardarIdSala(${salaAtual.id})" style="display: none;
+                            width: 90px;
+                            height: 35px;
+                            border-radius: 35px;
+                            border: 3.5px solid #57769a;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            font-family: Arimo;
+                            font-size: 1.8vh;
+                            font-weight: 700;
+                            color: #2e2d2d;
+                            cursor: pointer;
+                            text-decoration: none;
+                            " href="./editarSala.html">
+                                Editar
+                            </a>
+                        </div>
                             `
                     }
                 }
@@ -67,14 +84,14 @@ function trazerDados(id) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log('Resposta trazerDados', JSON.stringify(resposta));
+                // console.log('Resposta trazerDados', JSON.stringify(resposta));
 
                 iptNome.value = resposta[0].nome;
                 iptAndar.value = resposta[0].andar;
-                iptStatus.value = resposta[0].status;
-                setTimeout(() => {
-                    document.getElementById('selSala').value = 1;
-                }, "500")
+                // iptStatus.value = resposta[0].status;
+                // setTimeout(() => {
+                //     document.getElementById('selSala').value = 1;
+                // }, "500")
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -88,9 +105,9 @@ function trazerDados(id) {
 function cadastrar() {
     var nome = iptNome.value;
     var andar = iptAndar.value
-    var status = iptStatus
-    
-    if (nome == "" || andar == "" || status == "") {
+    var idInst = sessionStorage.ID_INST;
+
+    if (nome == "" || andar == "" || idInst == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -110,10 +127,10 @@ function cadastrar() {
         body: JSON.stringify({
             nomeServer: nome,
             andarServer: andar,
-            statusServer:status
+            idInstServer: idInst
         })
     }).then(function (resultado) {
-        console.log("resposta:", resultado);
+        // console.log("resposta:", resultado);
 
         if (resultado.ok) {
             Swal.fire({
@@ -127,7 +144,7 @@ function cadastrar() {
 
             iptNome.value = "";
             iptAndar.value = "";
-            iptStatus.value = "";
+            // iptStatus.value = "";
 
         }
         else {
@@ -148,12 +165,12 @@ function cadastrar() {
 }
 
 function editar() {
-    var idTurma = sessionStorage.GUARDAR_ID_SALA;
+    var idSala = sessionStorage.GUARDAR_ID_SALA;
     var nome = iptNome.value;
     var andar = iptAndar.value
-    var status = iptStatus.value
+    // var status = iptStatus.value
 
-    if (nome == "" || andar == "" || status == "") {
+    if (nome == "" || andar == ""  || idSala == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -173,10 +190,11 @@ function editar() {
         body: JSON.stringify({
             nomeServer: nome,
             andarServer: andar,
-            statusServer: status
+            idSalaServer: idSala
+            // statusServer: status
         })
     }).then(function (resultado) {
-        console.log("resposta:", resultado);
+        // console.log("resposta:", resultado);
 
         if (resultado.ok) {
             Swal.fire({
@@ -189,7 +207,7 @@ function editar() {
             })
 
             setTimeout(function () {
-                window.location = "./aluno.html";
+                window.location = "./sala.html";
             }, 1500);
         }
         else {
