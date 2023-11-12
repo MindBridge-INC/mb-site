@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="sala.js"></script>
 </head>
 <style>
     a {
@@ -19,7 +20,7 @@ a:hover {
     transform: scale(1.05);
 }
 </style>
-<body>
+<body onload="listarSala()">
 
     <div class="container">
 
@@ -132,27 +133,36 @@ a:hover {
 
                 
                 <div class="nome" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <span class="dadosCadastrados">14A</span>
-                        </div>
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divNome">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
 
-                <div class="email" style="width: 35%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Andar</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">4</span>
+                <div class="andar" style="width: 35%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divAndar">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
 
-                <div class="permissao" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
+                <div class="status" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divStatus">
+                        <!-- function visualizar -->
+                    </div>
 
                 </div>
 
-                
-
+            
                 <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
     

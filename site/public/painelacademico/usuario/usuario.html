@@ -19,7 +19,7 @@ a:hover {
     transform: scale(1.05);
 }
 </style>
-<body>
+<body onload="listarUsuario()">
 
     <div class="container">
 
@@ -112,54 +112,49 @@ a:hover {
                     <div>
                         <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
                     </div>
-
                     <div id="divNome">
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/thaisailustracao.png" width="15%">
-                            <span class="dadosCadastrados">Thaisa Nobrega</span>
-                        </div>
+                        <!-- function visualizar -->
                     </div>
-                    <div id="divNome">
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/thaisailustracao.png" width="15%">
-                            <span class="dadosCadastrados">Thaisa Nobrega</span>
-                        </div>
-                    </div>
-                    <div id="divNome">
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/thaisailustracao.png" width="15%">
-                            <span class="dadosCadastrados">Thaisa Nobrega</span>
-                        </div>
-                    </div>
-                        <!-- <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/professora.png" width="15%">
-                            <span class="dadosCadastrados">Luciana Marques</span>
-                        </div>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <img src="./img/professor.png" width="15%">
-                            <span class="dadosCadastrados">Francisco Quieiroz</span>
-                        </div> -->
+                      
                 </div>
 
+                <div class="sobrenome" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Sobrenome</span>
+                    </div>
+                    <div id="divSobrenome">
+                        <!-- function visualizar -->
+                    </div>
+                      
+                </div>
 
                 <div class="email" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
                         <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">E-mail</span>
                     </div>
                     <div id="divEmail">
-                        <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
-                        <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
-                        <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">thaisanobrega.com@gmail.com</span>
-                    
+                        <!-- function visualizar -->
                     </div>
                 </div>
 
-
-                <div class="permissao" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                <div class="senha" style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
                     <div>
-                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Permissão</span>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Senha</span>
+                    </div>
+                    <div id="divSenha">
+                        <!-- function visualizar -->
+                    </div>
+                </div>
+            
+
+                <div class="tipo" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Tipo</span>
                     </div>
 
+                    <div id="divTipo">
+                        <!-- function visualizar -->
+                    </div>
 
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Administrador</span>
                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Coordenação</span>
@@ -167,15 +162,7 @@ a:hover {
 
                 </div>
 
-                <div class="ação" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Inativo</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
-
-
-
-                </div>
+              
 
                 <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
                     <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>

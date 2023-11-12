@@ -19,7 +19,7 @@ a:hover {
     transform: scale(1.05);
 }
 </style>
-<body>
+<body onload="listarTurmas()">
 
     <div class="container">
 
@@ -132,39 +132,61 @@ a:hover {
 
                 
                 <div class="nome" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <span class="dadosCadastrados">2EM</span>
-                        </div>
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divNome">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
 
-                <div class="email" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Ano</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">2023</span>
+                <div class="ano" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divAno">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
 
-                <div class="permissao" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Período</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Manhã</span>
+                <div class="periodo" style="width: 20%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divPeriodo">
+                        <!-- function visualizar -->
+                    </div>
 
                 </div>
 
-                <div class="permissao" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Inicio</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">07:00</span>
+                <div class="inicio" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divInicio">
+                        <!-- function visualizar -->
+                    </div>
 
                 </div>
 
-                <div class="ação" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Fim</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">12:30</span>
+                <div class="fim" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divFim">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
-                <div class="ação" style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
+                <div class="Status" style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divStatus">
+                        <!-- function visualizar -->
+                    </div>
                 </div>
 
                 <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
