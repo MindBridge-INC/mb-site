@@ -7,90 +7,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="usuario.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     a {
-    transition: all 0.2s linear;
-}
+        transition: all 0.2s linear;
+    }
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 
 
-.fundocad{
-    width: 60%;
-    height: 500px;
-    background-color: #fbf9f2;
-    border-radius: 40px;
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    padding: 7vh;
-    flex-direction: column;
-    display: flex;
+    .fundocad {
+        width: 60%;
+        height: 500px;
+        background-color: #fbf9f2;
+        border-radius: 40px;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        padding: 7vh;
+        flex-direction: column;
+        display: flex;
 
-}
+    }
 
-input{
-    height: 45px;
-    width: 100%;
-    padding: 0 20px;
-    border: 0;
-    background-color: rgb(241, 233, 216);
-    border-radius: 30px;
-    outline: none;
-    font-size: 12px;
-    font-weight: 600;
-    font-family: Arimo;
-    color: #727272;
-}
+    input {
+        height: 45px;
+        width: 100%;
+        padding: 0 20px;
+        border: 0;
+        background-color: rgb(241, 233, 216);
+        border-radius: 30px;
+        outline: none;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: Arimo;
+        color: #727272;
+    }
 
-select{
-    height: 45px;
-    width: 50%;
-    padding: 0 20px;
-    border: 0;
-    background-color: rgb(241, 233, 216);
-    border-radius: 30px;
-    outline: none;
-    font-size: 12px;
-    font-weight: 600;
-    font-family: Arimo;
-    color: #727272;
-}
+    select {
+        height: 45px;
+        width: 50%;
+        padding: 0 20px;
+        border: 0;
+        background-color: rgb(241, 233, 216);
+        border-radius: 30px;
+        outline: none;
+        font-size: 12px;
+        font-weight: 600;
+        font-family: Arimo;
+        color: #727272;
+    }
 
-option{
-    font-size: 12px;
-    font-weight: 600;
-    font-family: Arimo;
-    color: #2e2d2d;
-}
+    option {
+        font-size: 12px;
+        font-weight: 600;
+        font-family: Arimo;
+        color: #2e2d2d;
+    }
 
-button{
-    background-color: transparent;
-    margin: 20px 0px 0px 0px;
-    height: 42px;
-    width: 130px;
-    border: 3.5px solid #D2C6AE;
-    border-radius: 100px;
-    padding: 10px;
-    transition: all .3s ease-in;
-    font-family: 'Arimo', sans-serif;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-}
+    button {
+        background-color: transparent;
+        margin: 20px 0px 0px 0px;
+        height: 42px;
+        width: 130px;
+        border: 3.5px solid #D2C6AE;
+        border-radius: 100px;
+        padding: 10px;
+        transition: all .3s ease-in;
+        font-family: 'Arimo', sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        cursor: pointer;
+    }
 
-.dados{
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-}
+    .dados {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+    }
 </style>
-<body>
+
+<body onload="trazerDados(sessionStorage.GUARDAR_ID_USUARIO)">
 
     <div class="container">
 
@@ -111,13 +113,15 @@ button{
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
+                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png"
+                                alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover" >
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover">
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -130,7 +134,8 @@ button{
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
+                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png"
+                                alt=""></a>
                     </div>
                 </div>
 
@@ -141,7 +146,7 @@ button{
 
         <div class="painel">
 
-        
+
             <div class="fundocad">
                 <div>
                     <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Editar Usuário</span><br>
@@ -149,26 +154,25 @@ button{
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" required placeholder="Nome">
-                        <input type="text" required placeholder="Sobrenome">
+                        <input id="iptNome" type="text" required placeholder="Nome">
+                        <input id="iptSobrenome" type="text" required placeholder="Sobrenome">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <input type="email" required placeholder="E-mail">
+                        <input id="iptEmail" type="email" required placeholder="E-mail">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select>
+                        <select id="selPermissao">
                             <option disabled selected value="">Permissão</option>
-                            <option value="">Administrador</option>
-                            <option value="">Coordenação</option>
-                            <option value="">Suporte de T.I.</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Coordenação">Coordenação</option>
+                            <option value="Técnico">Técnico</option>
                         </select>
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                        </select>
+                        <input id="iptSenha" type="password" required placeholder="Senha">
                     </div>
-                    <div style="display: flex; gap:2vh; width: 100%;">
+
+                    <!-- <div style="display: flex; gap:2vh; width: 100%;">
                         <div style="display: flex; width: 100%; gap: 50px;">
                             <select style="width: 40%;">
                                 <option  selected  value="">Ativo</option>
@@ -185,23 +189,23 @@ button{
                                 <option  value="">Ferrementa</option>
                             </select>
                         </div>
-                    </div>
-                   
-                    
+                    </div> -->
+
                 </div>
 
                 <div>
-                    <button>Salvar</button>
+                    <button onclick="editar()">Salvar</button>
                 </div>
             </div>
-                
 
-            
+
+
 
         </div>
 
         <div class="painel2">
-            <div style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
+            <div
+                style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
                 <img src="./img/thaisailustracao.png" width="80%">
             </div>
             <div style="display: flex;
@@ -217,7 +221,8 @@ button{
                 </span>
             </div>
 
-            <div style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+            <div
+                style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
                 <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
                     <img src="./img/icone_user.png" width="14%">
                     <a style="display: none;
@@ -331,7 +336,7 @@ button{
             </div>
 
 
-            
+
         </div>
 
     </div>

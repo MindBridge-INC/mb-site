@@ -1,9 +1,9 @@
 var crudUsuarioModel = require("../models/crudUsuarioModel");
 
-function listarUsuario(req, res) {
+function visualizar(req, res) {
     var idInst = req.params.idInst;
 
-    crudUsuarioModel.listarUsuario(idInst)
+    crudUsuarioModel.visualizar(idInst)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -36,13 +36,13 @@ function cadastrar(req, res) {
     if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
     } else if (sobrenome == undefined) {
-        res.status(400).send("sobrenome está undefined!");
-    } else if (email == undefined){
-        res.status(400).send("email está undefined!");
-    } else if(senha == undefined){
-        res.status(400).send("senha está undefined!")
-    } else if(tipo = undefined){
-        res.status(400).send(" tipo está undefined!")
+        res.status(400).send("Sobrenome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Email está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Senha está undefined!");
+    } else if (tipo == undefined) {
+        res.status(400).send("Tipo está undefined!");
     } else if (idInst == undefined) {
         res.status(400).send("idInst está undefined!");
     }
@@ -66,9 +66,9 @@ function cadastrar(req, res) {
 
 
 function trazerDados(req, res) {
-    var idUsuario = req.params.idUsuario;
+    var idUsuarioInst = req.params.idUsuarioInst;
 
-    crudUsuarioModel.trazerDados(idUsuario)
+    crudUsuarioModel.trazerDados(idUsuarioInst)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -95,22 +95,24 @@ function editar(req, res) {
     var sobrenome = req.body.sobrenomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var tipo = req.tipoServer;
+    var tipo = req.body.tipoServer;
+    var idUsuarioInst = req.body.idUsuarioInstServer;
 
-    
     if (nome == undefined) {
         res.status(400).send("Nome está undefined!");
     } else if (sobrenome == undefined) {
-        res.status(400).send("sobrenome está undefined!");
-    } else if(email == undefined){
-        res.status(400).send(" email está undefined!");
-    } else if (senha == undefined){
-        res.status(400).send("senha está undefined!");
-    } else if (tipo == undefined){
-        res.status(400).send("tipo está undefined!");
+        res.status(400).send("Sobrenome está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("Email está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Senha está undefined!");
+    } else if (tipo == undefined) {
+        res.status(400).send("Tipo está undefined!");
+    } else if (idUsuarioInst == undefined) {
+        res.status(400).send("idInst está undefined!");
     }
 
-    crudUsuarioModel.editar(nome, sobrenome,email,senha,tipo)
+    crudUsuarioModel.editar(nome, sobrenome, email, senha, tipo, idUsuarioInst)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -128,7 +130,7 @@ function editar(req, res) {
 }
 
 module.exports = {
-    listarUsuario,
+    visualizar,
     cadastrar,
     trazerDados,
     editar

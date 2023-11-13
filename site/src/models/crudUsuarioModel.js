@@ -1,41 +1,46 @@
 var database = require("../database/config")
 
-function listarUsuario(idInst) {
+// function listarTurmas(idInst) {
+//     var instrucao = `
+//     SELECT * FROM UsuarioInstituicao WHERE fkInstituicao = ${idInst};
+//     `
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
+
+function visualizar(idTurma) {
     var instrucao = `
-    SELECT * FROM UsuarioInstituicao WHERE fkInstituicao = ${idInst};
+    SELECT * FROM UsuarioInstituicao WHERE fkInstituicao = ${idTurma};
     `
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-
-function cadastrar(nome,sobrenome,email,senha,tipo,idInst) {
+function cadastrar(nome, sobrenome, email, senha, tipo, idInst) {
     var instrucao = `
-    INSERT INTO UsuarioInstituicao  (nome,sobrenome,email,senha,tipo,fkInstituicao) VALUES
-    ('${nome}','${sobrenome}', '${email}','${senha}','${tipo}'${idInst});
+    INSERT INTO UsuarioInstituicao (nome, sobrenome, email, senha, tipo, statSist, fkInstituicao) VALUES
+    ('${nome}','${sobrenome}','${email}','${senha}','${tipo}',1,${idInst});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
-
-function trazerDados(id){
+function trazerDados(id) {
     var instrucao = `
     SELECT * FROM UsuarioInstituicao WHERE id = ${id}
     `
     return database.executar(instrucao);
 }
 
-function editar(nome, sobrenome, email, senha, tipo, idInst) {
+function editar(nome, sobrenome, email, senha, tipo, idUsuarioInst) {
     var instrucao = `
-    UPDATE Sala SET nome = '${nome}', sobrenome = '${sobrenome}', email = '${email}', senha = '${senha}', tipo = '${tipo}', 
-    idInst = '${idInst}' WHERE id = ${idUsuario};
+    UPDATE UsuarioInstituicao SET nome = '${nome}', sobrenome = '${sobrenome}', email = '${email}', senha = '${senha}', tipo = '${tipo}' WHERE id = ${idUsuarioInst};
     `
     return database.executar(instrucao);
 }
 
 module.exports = {
-    listarUsuario,
+    visualizar,
     cadastrar,
     trazerDados,
     editar

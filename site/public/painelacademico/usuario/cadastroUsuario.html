@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="usuario.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Cadastro Usuário | PayAttention!</title>
 </head>
 <style>
     a {
@@ -149,26 +150,25 @@ button{
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" required placeholder="Nome">
-                        <input type="text" required placeholder="Sobrenome">
+                        <input id="iptNome" type="text" required placeholder="Nome">
+                        <input id="iptSobrenome" type="text" required placeholder="Sobrenome">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <input type="email" required placeholder="E-mail">
+                        <input id="iptEmail" type="email" required placeholder="E-mail">
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select>
+                        <select id="selPermissao">
                             <option disabled selected value="">Permissão</option>
-                            <option value="">Administrador</option>
-                            <option value="">Coordenação</option>
-                            <option value="">Suporte de T.I.</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Coordenação">Coordenação</option>
+                            <option value="Técnico">Técnico</option>
                         </select>
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                        </select>
+                        <input type="password" id="iptSenha" required placeholder="Senha">
                     </div>
-                    <div style="display: flex; gap:2vh; width: 100%;">
+
+                    <!-- <div style="display: flex; gap:2vh; width: 100%;">
                         <div style="display: flex; width: 100%; gap: 50px;">
                             <select style="width: 40%;">
                                 <option  selected  value="">Ativo</option>
@@ -185,13 +185,12 @@ button{
                                 <option  value="">Ferrementa</option>
                             </select>
                         </div>
-                    </div>
-                   
-                    
+                    </div> -->
+                           
                 </div>
 
                 <div>
-                    <button>Cadastrar</button>
+                    <button onclick="cadastrar()">Cadastrar</button>
                 </div>
             </div>
                 

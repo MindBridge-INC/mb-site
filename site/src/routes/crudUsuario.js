@@ -1,13 +1,16 @@
 var express = require("express");
 var router = express.Router();
 
-var crudUsuarioController = require("..controllers/crudUsuarioController");
+var crudUsuarioController = require("../controllers/crudUsuarioController");
 
-router.get("/listarUsuario/:idInst", function (req, res) {
-    crudUsuarioController.listarUsuario(req, res);
+// router.get("/listarTurmas/:idInst", function (req, res) {
+//     crudUsuarioController.listarTurmas(req, res);
+// })
+
+router.get("/visualizar/:idInst", function (req, res) {
+    crudUsuarioController.visualizar(req, res);
 })
-
-router.get("/trazerDados/:idUsuario", function(req, res) {
+router.get("/trazerDados/:idUsuarioInst", function(req, res) {
     crudUsuarioController.trazerDados(req, res);
 })
 router.post("/cadastrar/", function (req, res) {

@@ -99,6 +99,7 @@ function visualizarAlunos(idTurma) {
                             " href="./editarAluno.html">
                                 Editar
                             </a>
+                        </div>
                             `
                     }
                 }

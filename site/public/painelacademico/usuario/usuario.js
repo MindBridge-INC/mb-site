@@ -5,11 +5,11 @@ var listaUsuarios = [];
 function listarUsuario() {
     var idInst = sessionStorage.ID_INST
 
-    fetch(`/crudSala/listarUsuario/${idInst}`,).then(function (response) {
+    fetch(`/crudUsuario/visualizar/${idInst}`,).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log('Resposta listarUsuario ', JSON.stringify(resposta));
+                // console.log('Resposta listarUsuario ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
 
@@ -18,34 +18,55 @@ function listarUsuario() {
 
                         divNome.innerHTML += `
                             <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <span class="dadosCadastrados">${usuarioAtual.nome}</span>
+                                <span class="dadosCadastrados">${usuarioAtual.nome} ${usuarioAtual.sobrenome}</span>
                             </div>
                             `
-                        divSobrenome.innerHTML += `
-                            <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
-                                ${usuarioAtual.sobrenome}
-                            </span>
-                            `
-                            divEmail.innerHTML += `
+                        divEmail.innerHTML += `
                             <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
                                 ${usuarioAtual.email}
                             </span>
                             `
-                            divSenha.innerHTML += `
-                            <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
-                                ${usuarioAtual.senha}
-                            </span>
-                            `
-                            divTipo.innerHTML += `
+                        divTipo.innerHTML += `
                             <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
                                 ${usuarioAtual.tipo}
                             </span>
                             `
-                     
+
+                        if (usuarioAtual.statSist == 1) {
+                            divStatus.innerHTML += `
+                                <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
+                                    Ativo
+                                </span>
+                            `
+                        } else {
+                            divStatus.innerHTML += `
+                                <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">
+                                    Inativo
+                                </span>
+                            `
+                        }
+
                         divAcaoBotoes.innerHTML += `
-                            <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <a href="./editarUsuario.html" onclick="guardarIdUsuario(${usuarioAtual.id})"><img src="./img/icone_editar.png" width="20%"></a>
-                            </div>
+                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
+                            <a onclick="guardarIdUsuario(${usuarioAtual.id})" style="display: none;
+                            width: 90px;
+                            height: 35px;
+                            border-radius: 35px;
+                            border: 3.5px solid #57769a;
+                            background-color: transparent;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-around;
+                            font-family: Arimo;
+                            font-size: 1.8vh;
+                            font-weight: 700;
+                            color: #2e2d2d;
+                            cursor: pointer;
+                            text-decoration: none;
+                            " href="./editarUsuario.html">
+                                Editar
+                            </a>
+                        </div>
                             `
                     }
                 }
@@ -68,16 +89,12 @@ function trazerDados(id) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log('Resposta trazerDados', JSON.stringify(resposta));
 
+                console.log('Resposta trazerDados', JSON.stringify(resposta));
                 iptNome.value = resposta[0].nome;
-                iptSobrenome = response[0].sobrenome;
-                iptEmail = response[0].email;
-                iptSenha = response[0].senha;
-                iptTipo = response[0].tipo;
-                setTimeout(() => {
-                    document.getElementById('selSala').value = 1;
-                }, "500")
+                iptSobrenome.value = resposta[0].sobrenome;
+                iptEmail.value = resposta[0].email;
+                document.getElementById("selPermissao").value = resposta[0].tipo;
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -90,12 +107,13 @@ function trazerDados(id) {
 
 function cadastrar() {
     var nome = iptNome.value;
-    var sobrenome = iptSobrenome;
-    var email = iptEmail;
-    var senha = iptSenha;
-    var tipo = iptTipo;
-    
-    if (nome == "" || sobrenome == "" || email == "" || senha == "" || tipo == "") {
+    var sobrenome = iptSobrenome.value;
+    var email = iptEmail.value;
+    var senha = iptSenha.value;
+    var tipo = document.getElementById("selPermissao").value;
+    var idInst = sessionStorage.ID_INST
+
+    if (nome == "" || sobrenome == "" || email == "" || senha == "" || tipo == "" || idInst == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -117,10 +135,11 @@ function cadastrar() {
             sobrenomeServer: sobrenome,
             emailServer: email,
             senhaServer: senha,
-            tipoServer: tipo
+            tipoServer: tipo,
+            idInstServer: idInst
         })
     }).then(function (resultado) {
-        console.log("resposta:", resultado);
+        // console.log("resposta:", resultado);
 
         if (resultado.ok) {
             Swal.fire({
@@ -134,9 +153,9 @@ function cadastrar() {
 
             iptNome.value = "";
             iptSobrenome.value = "";
-            iptEmail .value = "";
+            iptEmail.value = "";
             iptSenha.value = "";
-            iptTipo.value = "";
+            document.getElementById("selPermissao").value = "";
 
         }
         else {
@@ -162,9 +181,9 @@ function editar() {
     var sobrenome = iptSobrenome.value;
     var email = iptEmail.value;
     var senha = iptSenha.value;
-    var tipo = iptTipo.value;
+    var tipo = document.getElementById("selPermissao").value;
 
-    if (nome == "" || sobrenome == "" || email == "" || senha == "" || tipo == "") {
+    if (nome == "" || sobrenome == "" || email == "" || senha == "" || tipo == "" || idUsuario == "") {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -175,13 +194,14 @@ function editar() {
         })
         return false;
     }
-
+    console.log("bhdhasjdkasd;as " + sessionStorage.GUARDAR_ID_USUARIO)
     fetch("/crudUsuario/editar", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
+            idUsuarioInstServer: sessionStorage.GUARDAR_ID_USUARIO,
             nomeServer: nome,
             sobrenomeServer: sobrenome,
             emailServer: email,
@@ -202,7 +222,7 @@ function editar() {
             })
 
             setTimeout(function () {
-                window.location = "./aluno.html";
+                window.location = "./usuario.html";
             }, 1500);
         }
         else {
