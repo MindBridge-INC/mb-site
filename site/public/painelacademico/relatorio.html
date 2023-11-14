@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&display=swap');
+    
+
+    body{
+        background-color: #f8f5ee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container{
+        width: 42vw;
+        height: 137vh;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        padding: 10vh 15vh 10vh 18vh;
+        flex-direction: column;
+       
+    }
+
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 5vh;
+        
+    }
+
+    .dadosEscola{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40vh;
+        margin-top: 4vh;
+        width: 100%;
+    }
+
+    .dadosGerais{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2vh;
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+    .info{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .caixa{
+        width: 20vh;
+        height: 20vh;
+        background-color: transparent;
+        border: 5px solid #CBBFA5; 
+        border-radius: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2vh;
+    }
+
+    .alertasTitulo{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin-top: 10vh;
+    }
+
+    .dados{
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        width: 100%;
+        margin-top: 2vh;
+       
+    }
+
+
+</style>
+<body onload="gerarPDF()">
+    <div id="conteudo" class="container">
+        <div class="header">
+            <img src="../assets/img/logo pay quadrado.png" width="90vh">
+            <span style="font-family:'Fredoka'; font-size: 4vh; font-weight: 700; color: #2e2d2d; margin-left: 12vh" >Relatório Técnico</span>
+        </div>
+
+        <div class="dadosEscola">
+            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; ">Colégio Santo André</span>
+            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; ">10/11/2023 - 21:55:09</span>
+        </div>
+
+        <div class="dadosGerais">
+            <div class="info">
+                <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Armazenamento</span>
+                <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
+                <div class="caixa">
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" >19</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Consumo de RAM</span>
+                <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
+                <div class="caixa">
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" >10</span>
+                </div>
+            </div>
+
+            <div class="info">
+                <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Consumo de CPU</span>
+                <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
+                <div class="caixa">
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" >5</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alertasTitulo">
+            <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Alertas</span>
+        </div>
+        
+        <div class="dados">
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 30%; flex-direction:column">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Máquina</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 20%; flex-direction:column">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Ocorrência</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >CPU</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >CPU</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Classificação</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Atenção</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Atenção</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Data/Hora</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+            </div>
+        </div>
+        
+    </div>
+
+
+    
+</body>
+</html>
+<script>
+    function BuscarData(){
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        return day + month + year;
+    }
+     function gerarPDF() {
+            var titulo = BuscarData();
+           var element = document.getElementById('conteudo');
+            var opt = {
+            margin:       0,
+            filename:     `relatório${titulo}`,
+            image:        { type: 'png', quality: 5 },
+            html2canvas:  { scale: 1 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            // New Promise-based usage:
+            html2pdf().set(opt).from(element).save();
+            
+            
+            setTimeout(() => {
+                window.location.href = "paineltecnico.html";
+            }, 8000);
+           
+        }
+
+        
+</script>
+
+
+
