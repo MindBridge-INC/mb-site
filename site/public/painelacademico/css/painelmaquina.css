@@ -78,11 +78,12 @@ body {
     /* margin-top: 20vh; */
 }
 
-.logout{
+.logout {
     margin-top: 10vh !important;
 }
 
-#icon,#iconLogout:hover {
+#icon,
+#iconLogout:hover {
     cursor: pointer;
 }
 
@@ -109,7 +110,7 @@ body {
     display: flex;
     align-items: center;
     width: 70%;
-    margin-bottom: 5vh; 
+    margin-bottom: 5vh;
 }
 
 .painel .header .selecao {
@@ -119,7 +120,7 @@ body {
     width: 100%;
 }
 
-.painel .header .selecao .custom-select{
+.painel .header .selecao .custom-select {
     border: solid rgb(207, 198, 174) 0.7vh;
     border-radius: 5vh;
     display: flex;
@@ -161,11 +162,16 @@ body {
 /* GRÁFICOS */
 
 .conteudo {
-    display: flex;
-    justify-content: space-around;
+    /* display: flex; */
+    /* justify-content: space-around; */
     flex-wrap: wrap;
     width: 100%;
     margin-top: 1vh;
+}
+
+#myCharArmazenamento {
+    margin: 0;
+    padding: 0;
 }
 
 /* Adaptar CSS para cada conteúdo inserido */
@@ -187,29 +193,29 @@ body {
     /* display: flex; */
     /* align-items: center; */
     justify-content: center;
-    height: 150px;
-    width: 480px;
-   padding-right: 4vh;
+    height: 20vh;
+    width: 35vw;
+    padding-right: 4vh;
 }
 
-.conteudo-card{
-    margin-top: 20px;
+.conteudo-card {
+    margin-top: 1.8vh;
     justify-content: center;
     align-items: center;
 
-   /* flex-direction: column; */
+    /* flex-direction: column; */
 }
 
-.card .descricao{
+.card .descricao {
     font-weight: 600;
     font-size: 16px;
     /* height: 60px;
     width: 90px; */
-    margin-left: 25px;  
+    margin-left: 25px;
 }
 
-.card .detalhe{
-    margin-bottom: 10px ;
+.card .detalhe {
+    margin-bottom: 10px;
     font-size: 13px;
     /* height: 60px;
     width: 100%; */
@@ -277,6 +283,6 @@ button:hover {
     background-color: rgba(158, 124, 96, 0.225);
 }
 
-option{
+option {
     font-family: Arimo;
 }

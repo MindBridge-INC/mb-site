@@ -1,11 +1,11 @@
 const ctxArmazenamento = document.getElementById("myChartArmazenamento");
 
 new Chart(ctxArmazenamento, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
         labels: ['Usado', 'Livre'],
         datasets: [{
-            label: 'Máquinas',
+            label: 'Armazenamento',
             data: [54, 46],
             backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
             borderColor: '#ffffff',
@@ -17,8 +17,7 @@ new Chart(ctxArmazenamento, {
         responsive: true,
         plugins: {
             legend: {
-                display: false,
-                // position: 'right'
+                display: true
             }
         }
     }
@@ -37,7 +36,7 @@ new Chart(ctxRAM, {
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 30
+            barThickness: 35
         }]
     },
     options: {
@@ -78,7 +77,7 @@ new Chart(ctxCPU, {
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 30
+            barThickness: 35
         }]
     },
     options: {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <link rel="stylesheet" href="./css/painelmaquina.css">
     <meta charset="UTF-8">
@@ -16,69 +17,71 @@
 
     body::-webkit-scrollbar {
         width: 8px;
-        height: 3px; 
+        height: 3px;
     }
-      
+
     body::-webkit-scrollbar-track {
         background: #f3eee3ff;
         padding: 2px;
     }
-      
+
     body::-webkit-scrollbar-thumb {
         background-color: #d2c6aeff;
     }
-a {
-    transition: all 0.2s linear;
-}
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a {
+        transition: all 0.2s linear;
+    }
 
-.legenda{
-    transition: all 0.2s linear;
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 
-.legenda:hover{
-    transition: .3s;
-    transform: scale(1.05);
-}
+    .legenda {
+        transition: all 0.2s linear;
+    }
 
-.backgroundBlur {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999; 
-    display: none;
-    backdrop-filter: blur(1px);
-}
+    .legenda:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 
-.alinhamento{
-position: fixed; 
-z-index: 9999; 
-display: flex;
-align-items: center;
-justify-content: center;
-top: 50%; 
-left: 50%;
-transform: translate(-50%, -50%); 
-}
+    .backgroundBlur {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        display: none;
+        backdrop-filter: blur(1px);
+    }
 
-.paineisLogin{
-background-color: #f8f5eeff;
-width: 80vh;
-height: 45vh;
-border-radius: 8vh;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-gap: 5vh;
-}
+    .alinhamento {
+        position: fixed;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .paineisLogin {
+        background-color: #f8f5eeff;
+        width: 80vh;
+        height: 45vh;
+        border-radius: 8vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5vh;
+    }
 </style>
+
 <body>
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
@@ -107,8 +110,9 @@ gap: 5vh;
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover" >
-                        <a href="./painelacademico.html"><img style="width: 33px;" id="icon" src="../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover">
+                        <a href="./painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -132,7 +136,7 @@ gap: 5vh;
 
         <div class="painel">
 
-            <div class="header" >
+            <div class="header">
 
                 <div class="titulo" style="margin-top: 3vh; width: 30%; ">
 
@@ -214,78 +218,72 @@ gap: 5vh;
             <!-- Por aqui serão inseridos todos os conteúdos relevantes: gráficos, listas, CRUDs -->
             <div class="conteudo">
 
-                <!-- Primeiro conjunto de informações | Máquinas ativa -->
-                <div class="card-visaoGeral">
+                <div style="display: flex;">
+                    <!-- Primeiro conjunto de informações | Máquinas ativa -->
+                    <div class="card-visaoGeral">
 
-                    <!-- Título do conteúdo -->
-                    <div class="tituloGraf">
-                        <span style="font-size:3vh; font-weight: 600;">Visão Geral</span>
+                        <!-- Título do conteúdo -->
+                        <div class="tituloGraf">
+                            <span style="font-size:3vh; font-weight: 600;">Visão Geral</span>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="card">
+                            <div class="conteudo-card">
+
+                                <div style="display: flex;">
+                                    <div style="width: 100%;">
+                                        <span class="descricao">Nome da Maquina</span>
+                                    </div>
+                                    <div style="width: 100%; text-align: right;">
+                                        <span id="nomeMaquina" class="detalhe">DESKTOP-FK0BTMT</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;">
+                                    <div style="width: 100%;">
+                                        <span class="descricao">Sistema Operacional</span>
+                                    </div>
+                                    <div style="width: 100%; text-align: right;">
+                                        <span id="sistOp" class="detalhe">Windows 11 Home</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;">
+                                    <div style="width: 100%;">
+                                        <span class="descricao">Processador</span>
+                                    </div>
+                                    <div style="width: 100%; text-align: right;">
+                                        <span id="processador" class="detalhe">Intel(R) Core(TM) i5-10210U</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;">
+                                    <div style="width: 100%;">
+                                        <span class="descricao">Armazenamento</span>
+                                    </div>
+                                    <div style="width: 100%; text-align: right;">
+                                        <span id="armazenamento" class="detalhe">931 GB</span>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;">
+                                    <div style="width: 100%;">
+                                        <span class="descricao">RAM</span>
+                                    </div>
+                                    <div style="width: 100%; text-align: right;">
+                                        <span id="ram" class="detalhe">8 GB</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Conteúdo -->
-                    <div class="card">
-                        <div class="conteudo-card">
-                            <div style="display: flex; margin-bottom: 1v;">
-                                
-                                <div style="width: 100%;"> 
-                                    <span class="descricao">Nome da Maquina</span>
-                                </div>
-                                <div style="width: 100%; text-align: right;">
-                                    <span class="detalhe">DESKTOP-FK0BTMT</span>
-                                </div>
-                              
-                            </div>
+                    <!-- Segundo conjunto de informações | Número total de alertas -->
+                    <!-- <div class="card-visaoGeral" style="width: 270px;">
 
-                            <div style="display: flex; margin-bottom: 1v;">
-                                <div style="width: 100%;">
-                                    <span class="descricao">Sistema Operacional</span>
-                                </div>
-                                <div style="width: 100%; text-align: right;">
-                                    <span class="detalhe">Windows 11 Home</span> 
-                                </div>
-                          
-                            </div>
-
-                            <div style="display: flex; margin-bottom: 1v;">
-                                <div style="width: 100%;">
-                                    <span class="descricao">Processador</span>
-                                </div>
-                                <div style="width: 100%; text-align: right;">
-                                    <span class="detalhe">Intel(R) Core(TM) i5-10210U</span> 
-                                </div>
-                            </div>
-        
-                            <div style="display: flex; margin-bottom: 1v;">
-                                <div style="width: 100%;">
-                                    <span class="descricao">Armazenamento</span>
-                                </div>
-                                <div style="width: 100%; text-align: right;">
-                                    <span class="detalhe">931 GB</span>
-                                </div>
-                              
-                            </div>
-            
-                            <div style="display: flex; margin-bottom: 1v;">
-
-                                <div style="width: 100%;">
-                                    <span class="descricao">RAM</span>
-                                </div>
-                                <div style="width: 100%; text-align: right;">
-                                    <span class="detalhe">8 GB</span> 
-                                </div>
-                               
-                            </div>
-                            
-                           
-
-                        </div>  
-                    </div>          
-                </div>
-
-                <!-- Segundo conjunto de informações | Número total de alertas -->
-                <div class="card-visaoGeral" style="width: 270px;">
-
-                    <!-- Título do conteúdo -->
+                    Título do conteúdo
                     <div class="tituloGraf">
                         <div style="display: flex; justify-content: space-between; align-items: end;">
                             <div>
@@ -297,7 +295,7 @@ gap: 5vh;
                         </div>
                     </div>
 
-                    <!-- Conteúdo -->
+                    Conteúdo
                     <div class="cardAlerta">
 
                         <div class="circulo alerta">
@@ -306,143 +304,143 @@ gap: 5vh;
 
                     </div>
 
-                </div>
+                </div> -->
 
-                <!-- Terceiro conjunto de informações | Número de máquinas com velocidade da rede abaixo de 100 kbps -->
-                <div class="card-visaoGeral" style="width: 300px;">
+                    <!-- Terceiro conjunto de informações | Número de alertas -->
+                    <div class="card-visaoGeral" style="width: 15vw;">
 
-                    <!-- Título do conteúdo -->
-                    <div class="tituloGrafRede">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: end; margin-bottom: 2vh;">
-                                <div >
-                                    <span style="font-size: 3vh; font-weight: 600;">Velocidade da rede</span>
-                                </div>
-                                <div>
-                                    <span style="font-family: Arimo;font-size: 2vh; font-weight: 300; text-align: end;">
-                                        kbps</span>
-                                </div>
-                            </div>
-
-                            <!-- <div>
-                                <span style="font-size: 1.7vh; font-weight: 300;">Número de máquinas</span>
-                            </div> -->
-                        </div>
-                    </div>
-
-                    <!-- Conteúdo -->
-                    <div class="cardAlerta">
-
-                        <div class="circulo velocidadeRede">
-                            <span class="valor">714</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Quarto conjunto de informações  | Armazenamento-->
-                <div class="card-visaoGeral" style="width: 300px;">
-
-                    <!-- Título do conteúdo -->
-                    <div class="tituloGrafRede">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: end;">
-                                <div>
-                                    <span style="font-size: 3vh; font-weight: 600;">Armazenamento</span>
-                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Conteúdo -->
-                    <div class="cardArmazenamento">
-
-                        <div>
+                        <!-- Título do conteúdo -->
+                        <div class="tituloGrafRede">
                             <div>
-                                <canvas id="myChartArmazenamento"
-                                    style="position: relative; max-height: 180px; max-width: 260px;"></canvas>
+                                <div
+                                    style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2vh;">
+                                    <div>
+                                        <span style="font-size: 3vh; font-weight: 600;">Número de alertas</span>
+                                    </div>
+                                    <div>
+                                        <span
+                                            style="font-family: Arimo;font-size: 2vh; font-weight: 300; text-align: end;">
+                                            Dia</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="cardAlerta">
+
+                            <div class="circulo velocidadeRede">
+                                <span class="valor">14</span>
                             </div>
 
-                            <!-- <div style="display: flex; justify-content: center;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div style="display: flex;">
+                    <!-- Quarto conjunto de informações  | Armazenamento-->
+                    <div class="card-visaoGeral" style="width: 20vw;">
+
+                        <!-- Título do conteúdo -->
+                        <div class="tituloGrafRede">
+                            <div>
+                                <div style="display: flex;">
+                                    <div>
+                                        <span style="font-size: 3vh; font-weight: 600;">Armazenamento</span>
+                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="cardArmazenamento">
+
+                            <div style="display: flex;">
+                                <div>
+                                    <canvas id="myChartArmazenamento"
+                                        style="position: relative; max-height: 28.5vh; max-width: 30vw;"></canvas>
+                                </div>
+                                <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
                             </div> -->
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-                <!-- Quinto conjunto de informações  | Memoria crit-->
-                <div class="card-visaoGeral" style="width: 400px;">
-
-                    <!-- Título do conteúdo -->
-                    <div class="tituloGrafRede">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: end;">
-                                <div>
-                                    <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
-                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">GB</span>
-                                </div>
-                            </div>     
-                        </div>
-                    </div>
-
-                    <!-- Conteúdo -->
-                    <div class="cardArmazenamento">
-
-                        <div>
-                            <div>
-                                <canvas id="myChartRAM"
-                                    style="position: relative; height: 190px; max-width: 400px;"></canvas>
                             </div>
 
-                            <!-- <div style="display: flex; justify-content: center;">
+                        </div>
+
+                    </div>
+                    <!-- Quinto conjunto de informações  | Memoria crit-->
+                    <div class="card-visaoGeral" style="width: 30vw;">
+
+                        <!-- Título do conteúdo -->
+                        <div class="tituloGrafRede">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; align-items: end;">
+                                    <div>
+                                        <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
+                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">GB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="cardArmazenamento">
+
+                            <div>
+                                <div>
+                                    <canvas id="myChartRAM"
+                                        style="position: relative; height: 190px; width: 30vw;"></canvas>
+                                </div>
+
+                                <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
                             </div> -->
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-                <!-- Sexto conjunto de informações  | CPU crit-->
-                <div class="card-visaoGeral" style="width: 400px;">
-
-                    <!-- Título do conteúdo -->
-                    <div class="tituloGrafRede">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; align-items: end;">
-                                <div>
-                                    <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
-                                    <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
-                                </div>
-                               
                             </div>
+
+
                         </div>
+
                     </div>
 
-                    <!-- Conteúdo -->
-                    <div class="cardArmazenamento">
+                    <!-- Sexto conjunto de informações  | CPU crit-->
+                    <div class="card-visaoGeral" style="width: 30vw;">
 
-                        <div>
+                        <!-- Título do conteúdo -->
+                        <div class="tituloGrafRede">
                             <div>
-                                <canvas id="myChartCPU"
-                                    style="position: relative; height: 190px; max-width: 400px;"></canvas>
-                            </div>
+                                <div style="display: flex; justify-content: space-between; align-items: end;">
+                                    <div>
+                                        <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
+                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
+                                    </div>
 
-                            <!-- <div style="display: flex; justify-content: center;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conteúdo -->
+                        <div class="cardArmazenamento">
+
+                            <div>
+                                <div>
+                                    <canvas id="myChartCPU"
+                                        style="position: relative; height: 190px; width: 30vw;"></canvas>
+                                </div>
+
+                                <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
                             </div> -->
+                            </div>
+
+
                         </div>
 
-
                     </div>
-
                 </div>
+
 
             </div>
 
@@ -450,8 +448,9 @@ gap: 5vh;
 
     </div>
 
-    
+
 </body>
+
 </html>
 <script src="./js/painelmaquina.js">
 
@@ -459,8 +458,8 @@ gap: 5vh;
 
 <script>
     function abrirLogin() {
-    document.getElementById('backgroundBlur').style.display = 'block';
-    aparecerLogin.innerHTML = `
+        document.getElementById('backgroundBlur').style.display = 'block';
+        aparecerLogin.innerHTML = `
     <section class="alinhamento">
         <section class="paineisLogin" >
             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
@@ -474,10 +473,10 @@ gap: 5vh;
         </section>
     </section>
     ` ;
-}
+    }
 
-function fecharLogin() {
-    document.getElementById('backgroundBlur').style.display = 'none';
-    aparecerLogin.innerHTML = "";
-}
+    function fecharLogin() {
+        document.getElementById('backgroundBlur').style.display = 'none';
+        aparecerLogin.innerHTML = "";
+    }
 </script>

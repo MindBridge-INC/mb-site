@@ -37,7 +37,7 @@ new Chart(ctxRAM, {
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 30
+            barThickness: 50
         }]
     },
     options: {
@@ -78,7 +78,7 @@ new Chart(ctxCPU, {
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 30
+            barThickness: 50
         }]
     },
     options: {

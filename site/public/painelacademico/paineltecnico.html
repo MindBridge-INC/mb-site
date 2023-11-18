@@ -243,9 +243,9 @@ gap: 5vh;
                     </div>
 
                     <!-- Terceiro conjunto de informações | Número de máquinas com velocidade da rede abaixo de 100 kbps -->
-                    <div style="width: 250px;">
+                    <!-- <div style="width: 250px;">
 
-                        <!-- Título do conteúdo -->
+                        Título do conteúdo
                         <div class="tituloGrafRede">
                             <div >
                                 <div style="display: flex; justify-content: space-between; align-items: end;">
@@ -264,7 +264,7 @@ gap: 5vh;
                             </div>
                         </div>
 
-                        <!-- Conteúdo -->
+                        Conteúdo
                         <div class="cardAlerta">
 
                             <div class="circulo velocidadeRede">
@@ -273,13 +273,10 @@ gap: 5vh;
 
                         </div>
 
-                    </div>
-                </div>
-
-                <div style="display: flex; align-items: center; justify-content: space-around; gap: 7vh;">
+                    </div> -->
                     <!-- Quarto conjunto de informações  | Armazenamento-->
                     <div class="graficos" style="width: 300px;">
-
+    
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
                             <div>
@@ -287,37 +284,40 @@ gap: 5vh;
                                     <div>
                                         <span style="font-size: 3vh; font-weight: 600;">Armazenamento Crítico</span>
                                         <span style="font-family: Arimo ; font-size: 1.7vh; font-weight: 500;">Maior que 70%</span>
-
+    
                                     </div>
                                 </div>
-
+    
                                 <div>
                                     <span style="font-family: Arimo; font-size: 1.7vh; font-weight: 300;">N° de Máquinas / Hoje</span>
                                 </div>
                             </div>
                         </div>
-
+    
                         <!-- Conteúdo -->
                         <div class="cardArmazenamento">
-
+    
                             <div>
                                 <div>
                                     <canvas id="myChartArmazenamento"
-                                        style="position: relative; max-height: 170px; max-width: 260px;"></canvas>
+                                        style="position: relative; max-height: 170px; max-width: 10vw;"></canvas>
                                 </div>
-<!-- 
+                                <!-- 
                                 <div style="display: flex; justify-content: center;">
                                     <button>Detalhes</button>
                                 </div> -->
                             </div>
-
-
+    
+    
                         </div>
-
+    
                     </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-around; gap: 7vh; margin-top: 3.8vh;">
 
                     <!-- Quinto conjunto de informações  | Memoria crit-->
-                    <div class="graficos" style="width: 350px;">
+                    <div class="graficos" style="width: 35vw;">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
@@ -343,7 +343,7 @@ gap: 5vh;
                             <div>
                                 <div>
                                     <canvas id="myChartRAM"
-                                        style="position: relative; height: 170px; max-width: 400px;"></canvas>
+                                        style="position: relative; height: 30vh; width: 35vw;"></canvas>
                                 </div>
 
                                 <!-- <div style="display: flex; justify-content: center;">
@@ -357,7 +357,7 @@ gap: 5vh;
                     </div>
 
                     <!-- Sexto conjunto de informações  | CPU crit-->
-                    <div class="graficos" style="width: 350px;">
+                    <div class="graficos" style="width: 35vw;">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
@@ -383,7 +383,7 @@ gap: 5vh;
                             <div>
                                 <div>
                                     <canvas id="myChartCPU"
-                                        style="position: relative; height: 170px; max-width: 400px;"></canvas>
+                                        style="position: relative; height: 30vh; width: 35vw;"></canvas>
                                 </div>
 
                                 <!-- <div style="display: flex; justify-content: center;">
@@ -391,13 +391,9 @@ gap: 5vh;
                                 </div> -->
                             </div>
 
-
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
 
         </div>
@@ -411,26 +407,26 @@ gap: 5vh;
 <script src="./js/paineltecnico.js"></script>
 
 <script>
-    function abrirLogin() {
-    document.getElementById('backgroundBlur').style.display = 'block';
-    aparecerLogin.innerHTML = `
-    <section class="alinhamento">
-        <section class="paineisLogin" >
-            <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
-                <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
-            </section>
+//     function abrirLogin() {
+//     document.getElementById('backgroundBlur').style.display = 'block';
+//     aparecerLogin.innerHTML = `
+//     <section class="alinhamento">
+//         <section class="paineisLogin" >
+//             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
+//                 <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+//                 <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
+//             </section>
 
-            <section style="display: flex; align-items: center; justify-content: center;">
-                <img src="../assets/img/legendas painel academico.png" width="85%">
-            </section>
-        </section>
-    </section>
-    ` ;
-}
+//             <section style="display: flex; align-items: center; justify-content: center;">
+//                 <img src="../assets/img/legendas painel academico.png" width="85%">
+//             </section>
+//         </section>
+//     </section>
+//     ` ;
+// }
 
-function fecharLogin() {
-    document.getElementById('backgroundBlur').style.display = 'none';
-    aparecerLogin.innerHTML = "";
-}
+// function fecharLogin() {
+//     document.getElementById('backgroundBlur').style.display = 'none';
+//     aparecerLogin.innerHTML = "";
+// }
 </script>
