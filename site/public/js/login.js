@@ -20,6 +20,8 @@ function fecharLogin() {
     aparecerLogin.innerHTML = "";
 }
 
+
+
 function sucessoAdmin(){
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
