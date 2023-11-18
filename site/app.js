@@ -41,26 +41,37 @@ app.listen(PORTA, function () {
 });
 
 const env = require('./.env')
-const Telegraf = require('telegraf')
+const Telegraf = require('telegraf');
+const { sendMail, sendMailTelegram, sendMailTelegramChamado } = require("./src/services/emailService");
 
    const bot = new Telegraf(env.token)
-  
 
+var clienteNome;
    bot.start(content => {
        const from = content.update.message.from
        console.log(from)
-
        content.reply(`Olá! Eu sou o Clemente, seu assistente!\n
        Digite:\n
        [1]Para saber mais sobre o PayAttention;\n
        [2]Para abrir um chamado\n`)
    })
-   setTimeout(function(){
-    bot.telegram.sendMessage('6923776271',`olá`)
-   },2000)
+//    setTimeout(function(){
+//     bot.telegram.sendMessage('6923776271',`olá`)
+//    },2000)
   
+   bot.hears('1', (ctx) => ctx.reply(`A solução PayAttention é um coletor de informações de hardware
+voltada exclusivamente para escolas!
+A educação e a tecnologia devem ser alidas, assim como nós!
+Digite [3] e entraremos em contato contigo\uD83D\uDE01`))
 
-   bot.hears('1', (ctx) => ctx.reply('vc apertou 1'))
+bot.hears('3',(ctx) =>{
+    ctx.reply(`
+Em breve um consultor @MindBridge ira entar em contato!`)
+ clienteId = ctx.message.chat.id
+ clienteNome = ctx.message.from.first_name
+ sendMailTelegram(clienteNome,clienteId)
+    
+})
    bot.hears('2', (ctx) => {
     ctx.reply(`Sinto muito pelo seu problema :( 
         Como posso ajudar?
@@ -69,10 +80,25 @@ const Telegraf = require('telegraf')
         [5]Para falhas ou instabilidades nos painéis`)
 
         console.log("o cliente quer abrir um chamado")
-
-        
+        bot.launch()
     } )
-    bot.hears('4',(ctx) => ctx.reply ("ok, verifique se o último relatório contem os dados durante o intervalo da interrupção"))
+    bot.hears('4',(ctx) => {
+        ctx.reply ("ok, descreva seu problema começando com a palavra [chamado]") 
+        bot.launch()
+        bot.command('chamado',(ctx) => ctx.reply('Hello'))
+        clienteId = ctx.message.chat.id
+        clienteNome = ctx.message.from.first_name
+        var probelma = ctx.message.text
+        console.log(probelma)
+        sendMailTelegramChamado(clienteNome,clienteId)  
+    })
+    bot.hears('%chamado%',(ctx) => {
+     clienteId = ctx.message.chat.id
+     clienteNome = ctx.message.from.first_name
+     var probelma = ctx.message.text
+     console.log(probelma)
+     sendMailTelegramChamado(clienteNome,clienteId)
+    })
 
        
    bot.on('text',(content,next) =>{
@@ -87,3 +113,4 @@ const Telegraf = require('telegraf')
    })
 
    bot.startPolling()
+
