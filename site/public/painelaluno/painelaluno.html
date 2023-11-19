@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     <title>Painel do Aluno</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/painelAluno.js"></script>
 </head>
 
@@ -83,7 +84,7 @@ gap: 5vh;
 }
 </style>
 
-<body onload="carregarInfoAluno()">
+<body onload=" carregarInfoAluno(), mostrarPontuacaoHoje(), mostrarPontuacaoSemana(), mostrarEstrelinhas(), desbloquearEmblemas(), plotarGrafico(), alertaMetaSemana()"   >
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
 
@@ -127,10 +128,9 @@ gap: 5vh;
 
                     <div>
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Painel Aluno</span>
-                        <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button>
+                        <button onclick="abrirLegenda()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button>
                         <br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
-                            14:28</span> 
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span> 
                     </div>
 
 
@@ -140,7 +140,7 @@ gap: 5vh;
             
                     <div class="moedasepontos">
                         <img src="../assets/img/estrela.png" width="18%">
-                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">8567</span>
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d" id="estrelinhas"></span>
                     </div>
 
                     <!-- <div class="moedasepontos">
@@ -171,8 +171,8 @@ gap: 5vh;
                     justify-content: center;
                     margin-left: 10vh;
                     margin-top: 3vh;
-                    ">
-                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d">26</span>
+                    " id="circuloPontuacaoHoje">
+                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d" id="pontuacaoHoje"></span>
                     </div>
                 </div>
 
@@ -193,8 +193,8 @@ gap: 5vh;
                     justify-content: center;
                     margin-left: 10vh;
                     margin-top: 3vh;
-                    ">
-                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d">32</span>
+                    " id="circuloPontuacaoSemana">
+                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d" id="pontuacaoSemana"></span>
                     </div>
                 </div>
 
@@ -203,7 +203,7 @@ gap: 5vh;
                     align-items: end;
                     justify-content: space-between; width: 100%;">
                         <span style="font-size: 3.5vh; font-weight: 600; color: #2e2d2d">Meta</span>
-                        <span style="font-family: Arimo;font-size: 2vh; font-weight: 400; color: #2e2d2d">Mês</span>
+                        <span style="font-family: Arimo;font-size: 2vh; font-weight: 400; color: #2e2d2d">Semana</span>
                     </div>
                     <div style="width: 150px;
                     height: 150px;
@@ -216,7 +216,7 @@ gap: 5vh;
                     margin-left: 10vh;
                     margin-top: 3vh;
                             ">
-                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d">95</span>
+                        <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d">350</span>
                     </div>
                 </div>
 
@@ -247,13 +247,13 @@ gap: 5vh;
                     </div>
                     <div style="display: flex; align-items: center;
                     justify-content: start; gap: 10px;">
-                        <img src="../assets/img/emblema_amarelo.png" width="100vh">
-                        <img src="../assets/img/emblema_vermelho.png" width="100vh">
-                        <img src="../assets/img/emblema_verde.png" width="100vh">
+                        <img src="../assets/img/emblema_amarelo.png" id="emblemaAmarelo"  width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/emblema_vermelho.png" id="emblemaVermelho" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/emblema_verde.png" id="emblemaVerde" width="100vh" style="opacity: 0.6;">
                     </div>
                     <div style="display: flex; align-items: center;
                     justify-content: start; width: 100%;">
-                        <img src="../assets/img/emblema_azul.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/emblema_azul.png"  width="100vh" id="emblemaAzul" style="opacity: 0.6;">
                     </div>
 
                 </div>
@@ -305,13 +305,14 @@ gap: 5vh;
 <script>
     const ctx = document.getElementById("myChart");
 
-    new Chart(ctx, {
+    setTimeout(() => {
+        new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
             datasets: [{
                 label: 'Pontos',
-                data: [60, 65, 40, 55, 26],
+                data: [`${pontoSegunda}`, `${pontoTerca}`, `${pontoQuarta}`, `${pontoQuinta}`, `${pontoSexta}`],
                 backgroundColor: '#EEB758',
                 borderColor: '#ffffff',
                 borderWidth: 0,
@@ -334,29 +335,32 @@ gap: 5vh;
             }
         }
     });
+      }, "1000");
 
-//     function abrirLogin() {
-//     document.getElementById('backgroundBlur').style.display = 'block';
-//     aparecerLogin.innerHTML = `
-//     <section class="alinhamento">
-//         <section class="paineisLogin" >
-//             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
-//                 <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
-//                 <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
-//             </section>
+    
 
-//             <section style="display: flex; align-items: center; justify-content: center;">
-//                 <img src="../assets/img/legendas painel aluno.png" width="85%">
-//             </section>
-//         </section>
-//     </section>
-//     ` ;
-// }
+    function abrirLegenda() {
+    document.getElementById('backgroundBlur').style.display = 'block';
+    aparecerLogin.innerHTML = `
+    <section class="alinhamento">
+        <section class="paineisLogin" >
+            <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+                <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
+            </section>
 
-// function fecharLogin() {
-//     document.getElementById('backgroundBlur').style.display = 'none';
-//     aparecerLogin.innerHTML = "";
-// }
+            <section style="display: flex; align-items: center; justify-content: center;">
+                <img src="../assets/img/legendas painel aluno.png" width="65%">
+            </section>
+        </section>
+    </section>
+    ` ;
+}
+
+function fecharLogin() {
+    document.getElementById('backgroundBlur').style.display = 'none';
+    aparecerLogin.innerHTML = "";
+}
 
 var idAluno = sessionStorage.ID_USUARIO;
 

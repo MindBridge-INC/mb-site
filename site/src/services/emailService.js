@@ -44,6 +44,7 @@ transport.sendMail({
 .catch((err) => console.log(err))
 }
 
+
 module.exports = {
     sendMail
 }

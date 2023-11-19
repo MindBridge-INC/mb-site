@@ -6,4 +6,6 @@ router.post('/sendmail', (req, res) => {
     emailController.sendMail(req, res);
 })
 
+
+
 module.exports = router;
