@@ -1,9 +1,8 @@
-var painelAlunoModel = require("../models/painelAlunoModel");
+var relatorioModel = require("../models/relatorioModel");
+function mostrarNomeInstituicao(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-function listarMensagens(req, res) {
-    var idTurma = req.params.idTurma;
-
-    painelAlunoModel.listarMensagens(idTurma)
+    relatorioModel.mostrarNomeInstituicao(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -25,11 +24,10 @@ function listarMensagens(req, res) {
         );
 }
 
-function enviarMensagem(req, res) {
-    var mensagem = req.body.mensagemServer;
-    var idAluno = req.body.idAlunoServer;
+function mostrarNumMaquinasArmazenamento80(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.enviarMensagem(mensagem, idAluno)
+    relatorioModel.mostrarNumMaquinasArmazenamento80(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -51,10 +49,10 @@ function enviarMensagem(req, res) {
         );
 }
 
-function mostrarPontuacaoHoje(req, res) {
-    var idUsuario = req.params.idUsuario;
+function mostrarMaquinasCPULimite(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoHoje(idUsuario)
+    relatorioModel.mostrarMaquinasCPULimite(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -76,10 +74,10 @@ function mostrarPontuacaoHoje(req, res) {
         );
 }
 
-function mostrarPontuacaoSemana(req, res) {
-    var idUsuario = req.params.idUsuario;
+function mostrarMaquinasRAMLimite(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoSemana(idUsuario)
+    relatorioModel.mostrarMaquinasRAMLimite(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -101,10 +99,10 @@ function mostrarPontuacaoSemana(req, res) {
         );
 }
 
-function mostrarEstrelinhas(req, res) {
-    var idUsuario = req.params.idUsuario;
+function visualizarAlertas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarEstrelinhas(idUsuario)
+    relatorioModel.visualizarAlertas(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -126,10 +124,10 @@ function mostrarEstrelinhas(req, res) {
         );
 }
 
-function plotarGrafico(req, res) {
-    var idUsuario = req.params.idUsuario;
+function visualizarAlertasArm(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.plotarGrafico(idUsuario)
+    relatorioModel.visualizarAlertasArm(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -150,13 +148,12 @@ function plotarGrafico(req, res) {
             }
         );
 }
-
-
 module.exports = {
-    listarMensagens,
-    enviarMensagem,
-    mostrarPontuacaoHoje,
-    mostrarPontuacaoSemana,
-    mostrarEstrelinhas,
-    plotarGrafico
+    mostrarNumMaquinasArmazenamento80,
+    mostrarNomeInstituicao,
+    mostrarMaquinasCPULimite,
+    mostrarMaquinasRAMLimite,
+    visualizarAlertas,
+    visualizarAlertasArm,
+
 }
