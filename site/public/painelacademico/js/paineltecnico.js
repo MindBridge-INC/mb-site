@@ -1,28 +1,31 @@
 const ctxArmazenamento = document.getElementById("myChartArmazenamento");
 
-new Chart(ctxArmazenamento, {
-    type: 'pie',
-    data: {
-        labels: ['Não afetadas', 'Afetadas'],
-        datasets: [{
-            label: 'Máquinas',
-            data: [98, 12],
-            backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
-            borderColor: '#ffffff',
-            borderWidth: 0,
-            // borderRadius: 80,
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: false,
-                // position: 'right'
+setTimeout(() => {
+    new Chart(ctxArmazenamento, {
+        type: 'pie',
+        data: {
+            labels: ['Não afetadas', 'Afetadas'],
+            datasets: [{
+                label: 'Máquinas',
+                data: [`${NmaquinasCadastradas - numMaquinasArmazenamento80}`, numMaquinasArmazenamento80],
+                backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
+                borderColor: '#ffffff',
+                borderWidth: 0,
+                // borderRadius: 80,
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false,
+                    // position: 'right'
+                }
             }
         }
-    }
-});
+    });
+  }, "2000");
+
 
 const ctxRAM = document.getElementById("myChartRAM");
 
@@ -32,12 +35,12 @@ new Chart(ctxRAM, {
         labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
         datasets: [{
             label: 'Máquinas',
-            data: [10, 14, 16, 11,9],
+            data: [],
             backgroundColor: '#17395c',
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 50
+            barThickness: 45
         }]
     },
     options: {
@@ -73,12 +76,12 @@ new Chart(ctxCPU, {
         labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
         datasets: [{
             label: 'Máquinas',
-            data: [10, 14, 16, 11,9],
+            data: [],
             backgroundColor: '#17395c',
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
-            barThickness: 50
+            barThickness: 45
         }]
     },
     options: {
@@ -105,3 +108,6 @@ new Chart(ctxCPU, {
         }
     }
 });
+
+
+

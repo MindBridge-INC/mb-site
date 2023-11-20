@@ -16,6 +16,7 @@ var crudSalaRouter = require("./src/routes/crudSala");
 var crudTurmaRouter = require("./src/routes/crudTurma");
 var painelAlunoRouter = require("./src/routes/painelAluno");
 var crudUsuarioRouter = require("./src/routes/crudUsuario");
+var painelTecnicoRouter = require("./src/routes/painelTecnico");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,6 +32,7 @@ app.use("/crudSala", crudSalaRouter);
 app.use("/crudTurma", crudTurmaRouter);
 app.use("/painelAluno", painelAlunoRouter);
 app.use("/crudUsuario", crudUsuarioRouter);
+app.use("/painelTecnico", painelTecnicoRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
