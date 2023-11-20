@@ -18,6 +18,7 @@ var painelAlunoRouter = require("./src/routes/painelAluno");
 var crudUsuarioRouter = require("./src/routes/crudUsuario");
 var painelTecnicoRouter = require("./src/routes/painelTecnico");
 var relatorioRouter = require("./src/routes/relatorio");
+var painelMaquinaRouter = require("./src/routes/painelMaquina");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -35,6 +36,7 @@ app.use("/painelAluno", painelAlunoRouter);
 app.use("/crudUsuario", crudUsuarioRouter);
 app.use("/painelTecnico", painelTecnicoRouter);
 app.use("/relatorio", relatorioRouter);
+app.use("/painelMaquina", painelMaquinaRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

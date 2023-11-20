@@ -357,11 +357,6 @@ function desbloquearInventário(){
 
 }
 
-var pontoSegunda = 0;
-var pontoTerca = 0;
-var pontoQuarta = 0;
-var pontoQuinta = 0;
-var pontoSexta = 0;
 
 
 function plotarGrafico() {

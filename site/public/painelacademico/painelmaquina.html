@@ -7,8 +7,10 @@
     <link rel="shortcut icon" href="../assets/img/clemente favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboards1.js"></script>
     <title>Painel Maquina</title>
 </head>
+
 <style>
     html {
         scroll-behavior: smooth;
@@ -82,7 +84,7 @@
     }
 </style>
 
-<body>
+<body onload="carregarInfoUsuario(), listarSalas()">
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
 
@@ -144,15 +146,14 @@
                         <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Máquina</span>
                         <!-- <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button> -->
                         <br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">23/10/2023 -
-                            20:27</span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span>
                     </div>
 
 
                 </div>
 
                 <div style="width: 16%;">
-                    <select name="" id="" style="display: none;
+                    <select name="" id="selectSala" onchange="listarMaquinas()" style="display: none;
                     width: 90%;
                     height: 40px;
                     border-radius: 35px;
@@ -170,14 +171,12 @@
                     
                     ">
                         <option disabled selected>Ambiente</option>
-                        <option value="">14A</option>
-                        <option value="">15A</option>
-                        <option value="">16A</option>
+                
                     </select>
                 </div>
 
                 <div style="width: 50%;">
-                    <select name="" id="" style="display: none;
+                    <select name="" id="selectMaquina" onchange="exibirInfoMaquina()" style="display: none;
                     width: 30%;
                     height: 40px;
                     border-radius: 35px;
@@ -195,21 +194,18 @@
                     
                     ">
                         <option disabled selected>Máquina</option>
-                        <option value="">DESKTOP-FK0BTMT</option>
-                        <option value="">DESKTOP-FK0BTMT</option>
-                        <option value="">DESKTOP-FK0BTMT</option>
+                     
                     </select>
                 </div>
 
                 <div style="width: 20%;display: flex; align-items: start; justify-content: center; margin-top:2vh">
                     <div style="width: 30%">
-                        <img src="../assets/img/thaisailustracao.png" width="80%">
+                        <img src="../assets/img/circulo.png" width="80%">
                     </div>
                     <div style="display: flex; width: 70%; flex-direction: column;">
-                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                            Nobrega</span>
+                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d" id="spanNomeUsuario"></span>
                         <span
-                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Administrador</span>
+                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d" id="spanPermissao"></span>
                     </div>
                 </div>
 
@@ -218,9 +214,9 @@
             <!-- Por aqui serão inseridos todos os conteúdos relevantes: gráficos, listas, CRUDs -->
             <div class="conteudo">
 
-                <div style="display: flex;">
+                <div style="display: flex; display: flex; align-items: center; justify-content: space-between;" >
                     <!-- Primeiro conjunto de informações | Máquinas ativa -->
-                    <div class="card-visaoGeral">
+                    <div class="card-visaoGeral" style="height: 100%;" >
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGraf">
@@ -228,7 +224,7 @@
                         </div>
 
                         <!-- Conteúdo -->
-                        <div class="card">
+                        <div class="card" >
                             <div class="conteudo-card">
 
                                 <div style="display: flex;">
@@ -236,7 +232,7 @@
                                         <span class="descricao">Nome da Maquina</span>
                                     </div>
                                     <div style="width: 100%; text-align: right;">
-                                        <span id="nomeMaquina" class="detalhe">DESKTOP-FK0BTMT</span>
+                                        <span id="nomeMaquina" class="detalhe"></span>
                                     </div>
                                 </div>
 
@@ -245,7 +241,7 @@
                                         <span class="descricao">Sistema Operacional</span>
                                     </div>
                                     <div style="width: 100%; text-align: right;">
-                                        <span id="sistOp" class="detalhe">Windows 11 Home</span>
+                                        <span id="sistOp" class="detalhe"></span>
                                     </div>
                                 </div>
 
@@ -254,7 +250,7 @@
                                         <span class="descricao">Processador</span>
                                     </div>
                                     <div style="width: 100%; text-align: right;">
-                                        <span id="processador" class="detalhe">Intel(R) Core(TM) i5-10210U</span>
+                                        <span id="processador" class="detalhe"></span>
                                     </div>
                                 </div>
 
@@ -263,7 +259,7 @@
                                         <span class="descricao">Armazenamento</span>
                                     </div>
                                     <div style="width: 100%; text-align: right;">
-                                        <span id="armazenamento" class="detalhe">931 GB</span>
+                                        <span id="armazenamento" class="detalhe"></span>
                                     </div>
                                 </div>
 
@@ -272,7 +268,7 @@
                                         <span class="descricao">RAM</span>
                                     </div>
                                     <div style="width: 100%; text-align: right;">
-                                        <span id="ram" class="detalhe">8 GB</span>
+                                        <span id="ram" class="detalhe"></span>
                                     </div>
                                 </div>
 
@@ -330,17 +326,13 @@
                         <div class="cardAlerta">
 
                             <div class="circulo velocidadeRede">
-                                <span class="valor">14</span>
+                                <span class="valor" id="alertasDia"></span>
                             </div>
 
                         </div>
 
                     </div>
 
-                </div>
-
-                <div style="display: flex;">
-                    <!-- Quarto conjunto de informações  | Armazenamento-->
                     <div class="card-visaoGeral" style="width: 20vw;">
 
                         <!-- Título do conteúdo -->
@@ -361,7 +353,7 @@
                             <div style="display: flex;">
                                 <div>
                                     <canvas id="myChartArmazenamento"
-                                        style="position: relative; max-height: 28.5vh; max-width: 30vw;"></canvas>
+                                        style="position: relative; max-height: 23vh; max-width: 30vw;"></canvas>
                                 </div>
                                 <!-- <div style="display: flex; justify-content: center;">
                                 <button>Detalhes</button>
@@ -371,8 +363,13 @@
                         </div>
 
                     </div>
+                </div>
+
+                <div style=" width: 100%; display: flex; align-items: center; justify-content: space-between;" >
+                    <!-- Quarto conjunto de informações  | Armazenamento-->
+                    
                     <!-- Quinto conjunto de informações  | Memoria crit-->
-                    <div class="card-visaoGeral" style="width: 30vw;">
+                    <div class="card-visaoGeral">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
@@ -392,7 +389,7 @@
                             <div>
                                 <div>
                                     <canvas id="myChartRAM"
-                                        style="position: relative; height: 190px; width: 30vw;"></canvas>
+                                        style="position: relative; height: 190px; width: 40vw;"></canvas>
                                 </div>
 
                                 <!-- <div style="display: flex; justify-content: center;">
@@ -406,7 +403,7 @@
                     </div>
 
                     <!-- Sexto conjunto de informações  | CPU crit-->
-                    <div class="card-visaoGeral" style="width: 30vw;">
+                    <div class="card-visaoGeral">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGrafRede">
@@ -427,7 +424,7 @@
                             <div>
                                 <div>
                                     <canvas id="myChartCPU"
-                                        style="position: relative; height: 190px; width: 30vw;"></canvas>
+                                        style="position: relative; height: 190px; width: 40vw;"></canvas>
                                 </div>
 
                                 <!-- <div style="display: flex; justify-content: center;">

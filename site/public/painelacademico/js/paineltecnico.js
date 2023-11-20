@@ -24,7 +24,7 @@ setTimeout(() => {
             }
         }
     });
-  }, "2000");
+  }, "1000");
 
   const ctxRAM = document.getElementById("myChartRAM");
   var labels = [];
