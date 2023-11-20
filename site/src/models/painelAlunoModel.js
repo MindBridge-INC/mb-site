@@ -47,16 +47,10 @@ function mostrarEstrelinhas(idAluno){
 }
 
 function plotarGrafico(idAluno){
-    var instrucao = `SELECT
-    DATE(dtRegistro) AS diaSemana,
-    SUM(pontos) AS pontos
-  FROM
-    Pontuacao
-  WHERE
-    dtRegistro BETWEEN DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND DATE_SUB(CURDATE(), INTERVAL 1 DAY)
-    AND fkAluno = ${idAluno}
-  GROUP BY
-    diaSemana;`
+    var instrucao = `SELECT SUM(pontos) pontos, DATE(dtRegistro) dtRegistro FROM pontuacao
+    WHERE fkAluno = ${idAluno} and WEEKOFYEAR(dtRegistro) = WEEKOFYEAR(CURRENT_DATE-1)
+    GROUP BY DATE(dtRegistro), WEEKDAY(DATE(dtRegistro)) 
+    LIMIT 7;`
     
     console.log("Executando a instrução SQL: \n" + instrucao);
         return database.executar(instrucao);

@@ -231,7 +231,7 @@ gap: 5vh;
                         align-items: end;
                         justify-content: space-between; width: 100%; margin-bottom: 5vh">
                         <span style="font-size: 3.5vh; font-weight: 600; color: #2e2d2d">Performance</span>
-                        <span style="font-family: Arimo;font-size: 2vh; font-weight: 400; color: transparent">Semanal</span>
+                        <span style="font-family: Arimo;font-size: 2vh; font-weight: 400;">Semanal</span>
                     </div>
                     <div>
                         <canvas id="myChart" style="position: relative; height: 30vh; width: 60vh;"></canvas>
@@ -303,39 +303,40 @@ gap: 5vh;
 
 </html>
 <script>
-    const ctx = document.getElementById("myChart");
+        const ctx = document.getElementById("myChart");
+var labels = [];
+var dados = {
+    labels: labels,
+    datasets: [{
+        label: 'Pontos',
+        data: [],
+        backgroundColor: '#EEB758',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 80,
+    }]
+};
 
-    setTimeout(() => {
-        new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
-            datasets: [{
-                label: 'Pontos',
-                data: [`${pontoSegunda}`, `${pontoTerca}`, `${pontoQuarta}`, `${pontoQuinta}`, `${pontoSexta}`],
-                backgroundColor: '#EEB758',
-                borderColor: '#ffffff',
-                borderWidth: 0,
-                borderRadius: 80,
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false,
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false,
-                    }
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: dados,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: false,
+                }
+            },
+            x: {
+                grid: {
+                    display: false,
                 }
             }
         }
-    });
-      }, "1000");
+    }
+});
+
 
     
 

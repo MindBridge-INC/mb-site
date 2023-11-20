@@ -367,27 +367,29 @@ var pontoSexta = 0;
 function plotarGrafico() {
     var idUsuario = sessionStorage.ID_USUARIO;
 
-    fetch(`/painelAluno/plotarGrafico/${idUsuario}`,).then(function (response) {
+    fetch(`/painelAluno/plotarGrafico/${idUsuario}`).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
 
                 console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
 
-                if (resposta.length > 0) {
-                pontoSegunda = resposta[0].pontos
-                pontoTerca = resposta[1].pontos
-                pontoQuarta = resposta[2].pontos
-                pontoQuinta = resposta[3].pontos
-                pontoSexta = resposta[3].pontos
+                for (var i = 0; i < resposta.length; i++) {
+                    var dataRegistro = new Date(resposta[i].dtRegistro);
+                    var formattedDate = (dataRegistro.getMonth() + 1) + '/' + dataRegistro.getDate();
+
+                    labels.push(formattedDate);
+                    dados.datasets[0].data.push(resposta[i].pontos);
                 }
+               
+                myChart.update();
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
     })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados: ${error.message}`);
-        });
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
+    });
 }
 
 function alertaMetaSemana(){

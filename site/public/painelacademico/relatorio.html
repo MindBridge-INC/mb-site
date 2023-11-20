@@ -6,7 +6,7 @@
     <title>Relatório Técnico</title>
     <link rel="shortcut icon" href="../assets/img/clemente favicon.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="./relatorio.js"></script>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500;700&family=Fredoka:wght@500;600;700&display=swap');
@@ -55,7 +55,7 @@
         justify-content: space-between;
         gap: 2vh;
         width: 100%;
-        margin-top: 10vh;
+        margin-top: 5vh;
     }
 
     .info{
@@ -81,7 +81,7 @@
         display: flex;
         align-items: center;
         justify-content: start;
-        margin-top: 10vh;
+        margin-top: 3vh;
     }
 
     .dados{
@@ -95,7 +95,7 @@
 
 
 </style>
-<body onload=" exibir_armazenamento(), gerarPDF()">
+<body onload=" mostrarNomeInstituicao(), mostrarNumMaquinasArmazenamento80(), mostrarMaquinasCPULimite(), mostrarMaquinasRAMLimite(), visualizarAlertas(),visualizarAlertasArm() ">
     <div id="conteudo" class="container">
         <div class="header">
             <img src="../assets/img/logo pay quadrado.png" width="90vh">
@@ -103,8 +103,8 @@
         </div>
 
         <div class="dadosEscola">
-            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; ">Colégio Santo André</span>
-            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; ">10/11/2023 - 21:55:09</span>
+            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; " id="spanNomeInstituicao"></span>
+            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; " id="dataAtual"></span>
         </div>
 
         <div class="dadosGerais">
@@ -112,7 +112,7 @@
                 <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Armazenamento</span>
                 <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
                 <div class="caixa">
-                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" id="amrmazenamento"></span>
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" id="spanArmazenamento"></span>
                 </div>
             </div>
 
@@ -120,7 +120,7 @@
                 <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Consumo de RAM</span>
                 <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
                 <div class="caixa">
-                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" >10</span>
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" id="spanRAM" >10</span>
                 </div>
             </div>
 
@@ -128,57 +128,68 @@
                 <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Consumo de CPU</span>
                 <span style="font-family:'Arimo'; font-size: 1.9vh; font-weight: 700; color: #2e2d2d; ">Maior que o Limite</span>
                 <div class="caixa">
-                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;" >5</span>
+                    <span style="font-family:'Fredoka'; font-size: 6vh; font-weight: 700; color: #2e2d2d;"  id="spanCPU">5</span>
                 </div>
             </div>
         </div>
         
         <div class="alertasTitulo">
-            <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Alertas</span>
+            <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Alertas CPU/RAM</span>
         </div>
         
         <div class="dados">
-            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 30%; flex-direction:column">
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 30%; flex-direction:column" id="divMaquina">
                 <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Máquina</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >DESKTOP-FK0BTMT</span>
+                
             </div>
 
-            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 20%; flex-direction:column">
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 20%; flex-direction:column" id="divComponente">
                 <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Ocorrência</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >CPU</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >CPU</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >RAM</span>
+                
+                
             </div>
 
-            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column">
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column" id="divTipo">
                 <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Classificação</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Atenção</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Atenção</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >Crítico</span>
+                
+   
             </div>
 
-            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column">
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column" id="divData">
                 <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Data/Hora</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
-                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >10/11/2023 - 21:55:09</span>
+               
+                
             </div>
         </div>
+
+        <div class="alertasTitulo">
+            <span style="font-family:'Fredoka'; font-size: 3vh; font-weight: 700; color: #2e2d2d;" >Alertas Armazenamento</span>
+        </div>
         
+        <div class="dados">
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 30%; flex-direction:column" id="divMaquina2">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Máquina</span>
+                
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: start; width: 20%; flex-direction:column" id="divComponente2">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Ocorrência</span>
+                
+                
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column" id="divTipo2">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d; height: 5vh;" >Classificação</span>
+                
+   
+            </div>
+
+            <div style="display: flex; display: flex; align-items: start; justify-content: space-arround; width: 25%; flex-direction:column" id="divData2">
+                <span style="font-family:'Fredoka'; font-size: 2.5vh; font-weight: 700; color: #2e2d2d;  height: 5vh;" >Data/Hora</span>
+               
+                
+            </div>
+        </div>
     </div>
 
 
@@ -186,26 +197,6 @@
 </body>
 </html>
 <script>
-function exibir_armazenamento(){
-    
-        var valor_armazenamento;
-
-        fetch("/relatorio/exibir_armazenamento").then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    valor_armazenamento = resposta
-
-                    armazenamento.innerHTML = `${resposta}`
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-        });
-        console.log(contar)
-    }
 
     function BuscarData(){
         const today = new Date();
@@ -214,13 +205,15 @@ function exibir_armazenamento(){
         const year = today.getFullYear();
         return day + month + year;
     }
-     function gerarPDF() {
+
+ 
+        function gerarPDF() {
             var titulo = BuscarData();
            var element = document.getElementById('conteudo');
             var opt = {
             margin:       0,
             filename:     `relatório${titulo}`,
-            image:        { type: 'png', quality: 5 },
+            image:        { type: 'png', quality: 100 },
             html2canvas:  { scale: 1 },
             jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
@@ -232,7 +225,9 @@ function exibir_armazenamento(){
                 window.location.href = "paineltecnico.html";
             }, 8000);
            
-        }
+        } 
+     
+     
 
         
 </script>
