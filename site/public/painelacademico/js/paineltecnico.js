@@ -26,24 +26,25 @@ setTimeout(() => {
     });
   }, "2000");
 
-
-const ctxRAM = document.getElementById("myChartRAM");
-
-new Chart(ctxRAM, {
-    type: 'bar',
-    data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
-        datasets: [{
-            label: 'Máquinas',
-            data: [],
-            backgroundColor: '#17395c',
-            borderColor: '#ffffff',
-            borderWidth: 0,
-            borderRadius: 80,
-            barThickness: 45
-        }]
-    },
-    options: {
+  const ctxRAM = document.getElementById("myChartRAM");
+  var labels = [];
+  var dados = {
+    labels: labels,
+    datasets: [{
+        label: 'Máquinas',
+        data: [],
+        backgroundColor: '#17395c',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 80,
+        barThickness: 45
+    }]
+  };
+  
+  var myChartRAM = new Chart(ctxRAM, {
+      type: 'bar',
+      data: dados,
+      options: {
         scales: {
             y: {
                 beginAtZero: true,
@@ -66,24 +67,28 @@ new Chart(ctxRAM, {
             }
         }
     }
-});
+  });
+
+
 
 const ctxCPU = document.getElementById("myChartCPU");
+var labels2 = [];
+var dados2 = {
+    labels: labels2,
+    datasets: [{
+        label: 'Máquinas',
+        data: [],
+        backgroundColor: '#17395c',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 80,
+        barThickness: 45
+    }]
+};
 
-new Chart(ctxCPU, {
+var myChartCPU = new Chart(ctxCPU, {
     type: 'bar',
-    data: {
-        labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
-        datasets: [{
-            label: 'Máquinas',
-            data: [],
-            backgroundColor: '#17395c',
-            borderColor: '#ffffff',
-            borderWidth: 0,
-            borderRadius: 80,
-            barThickness: 45
-        }]
-    },
+    data: dados2,
     options: {
         scales: {
             y: {
@@ -108,6 +113,4 @@ new Chart(ctxCPU, {
         }
     }
 });
-
-
 

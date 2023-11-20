@@ -62,11 +62,48 @@ function mostrarMaquinasCadastradas(idInstituicao){
             return database.executar(instrucao);
     }
 
+    function plotarGraficoCPU(idInstituicao){
+        var instrucao = `SELECT DATE(RegistroMaquina.dtRegistro) AS data,
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE WEEKOFYEAR(RegistroMaquina.dtRegistro) = WEEKOFYEAR(CURRENT_DATE - INTERVAL 1 WEEK)
+        AND Alertas.componente = 'CPU'
+        AND Maquinas.fkInstituicao = ${idInstituicao}
+        GROUP BY data
+        ORDER BY data
+        LIMIT 7; `
+        
+        console.log("Executando a instrução SQL: \n" + instrucao);
+            return database.executar(instrucao);
+    }
+
+    function plotarGraficoRAM(idInstituicao){
+        var instrucao = `SELECT DATE(RegistroMaquina.dtRegistro) AS data,
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE WEEKOFYEAR(RegistroMaquina.dtRegistro) = WEEKOFYEAR(CURRENT_DATE - INTERVAL 1 WEEK)
+        AND Alertas.componente = 'RAM'
+        AND Maquinas.fkInstituicao = ${idInstituicao}
+        GROUP BY data
+        ORDER BY data
+        LIMIT 7; `
+        
+        console.log("Executando a instrução SQL: \n" + instrucao);
+            return database.executar(instrucao);
+    }
+
     module.exports = {
         mostrarMaquinasCadastradas,
         mostrarMaquinasLigadas,
         mostrarMaquinasDesligadas,
         mostrarAlertasDiaArm,
         mostrarAlertasDiaTotal,
-        mostrarNumMaquinasArmazenamento80
+        mostrarNumMaquinasArmazenamento80,
+        plotarGraficoCPU,
+        plotarGraficoRAM,
+
     };

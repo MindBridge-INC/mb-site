@@ -27,4 +27,11 @@ router.get("/mostrarNumMaquinasArmazenamento80/:idInstituicao", function (req, r
     painelTecnicoController.mostrarNumMaquinasArmazenamento80(req, res);
 })
 
+router.get("/plotarGraficoCPU/:idInstituicao", function (req, res) {
+    painelTecnicoController.plotarGraficoCPU(req, res);
+})
+
+router.get("/plotarGraficoRAM/:idInstituicao", function (req, res) {
+    painelTecnicoController.plotarGraficoRAM(req, res);
+})
 module.exports = router;

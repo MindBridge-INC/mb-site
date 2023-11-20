@@ -170,4 +170,66 @@ function mostrarNumMaquinasArmazenamento80() {
 }
 
 
+function plotarGraficoCPU() {
+    var idInstituicao = sessionStorage.ID_INST;
+
+    fetch(`/painelTecnico/plotarGraficoCPU/${idInstituicao}`).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+
+                console.log('Resposta plotarGraficoCPU ', JSON.stringify(resposta));
+
+                for (var i = 0; i < resposta.length; i++) {
+                    var data = new Date(resposta[i].data);
+                    
+                    
+                    var formattedDate = (data.getDate()) + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
+
+                    labels2.push(formattedDate);
+                    dados2.datasets[0].data.push(resposta[i].total);
+                }
+               
+                myChartCPU.update();
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
+    });
+}
+
+function plotarGraficoRAM() {
+    var idInstituicao = sessionStorage.ID_INST;
+
+    fetch(`/painelTecnico/plotarGraficoRAM/${idInstituicao}`).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+
+                console.log('Resposta plotarGraficoRAM ', JSON.stringify(resposta));
+
+                for (var i = 0; i < resposta.length; i++) {
+                    var data = new Date(resposta[i].data);
+                    
+                    
+                    var formattedDate = (data.getDate()) + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
+
+                    labels.push(formattedDate);
+                    dados.datasets[0].data.push(resposta[i].total);
+                }
+               
+                myChartRAM.update();
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
+    });
+}
+
+
+
 
