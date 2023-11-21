@@ -9,6 +9,7 @@
     <title>Painel Acadêmico</title>
     <link rel="shortcut icon" href="../assets/img/clemente favicon.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboards2.js"></script>
 </head>
 
 <style>
@@ -84,7 +85,7 @@
     }
 </style>
 
-<body>
+<body onload="carregarInfoUsuario(), listarTurmas()">
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
     <div class="container">
@@ -148,15 +149,14 @@
                                 class="legenda" style="transition: all 0.2s linear;"
                                 src="../assets/img/legenda icone.png" width="20vh"></button>
                         <br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">23/10/2023 -
-                            20:27</span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span>
                     </div>
 
 
                 </div>
 
                 <div style="width: 55%;">
-                    <select name="" id="" style="display: none;
+                    <select name="" id="selectTurmas" onchange="exibirAlunosMatriculados()" style="display: none;
                     width: 30%;
                     height: 40px;
                     border-radius: 35px;
@@ -174,21 +174,18 @@
                     
                     ">
                         <option disabled selected hidden>Turma</option>
-                        <option value="">1EM2023A</option>
-                        <option value="">2EM2023A</option>
-                        <option value="">3EM2023A</option>
+                        
                     </select>
                 </div>
 
                 <div style="width: 20%;display: flex; align-items: center; justify-content: center; margin-top:2vh">
                     <div style="width: 30%">
-                        <img src="../assets/img/thaisailustracao.png" width="80%">
+                        <img src="../assets/img/circulo.png" width="80%">
                     </div>
                     <div style="display: flex; width: 70%; flex-direction: column;">
-                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                            Nobrega</span>
+                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d" id="spanNomeUsuario"></span>
                         <span
-                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Administrador</span>
+                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d" id="spanPermissao"></span>
                     </div>
                 </div>
 
@@ -216,7 +213,7 @@
                     align-items: center;
                     justify-content: center;
                     ">
-                                <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d">7</span>
+                                <span style="font-size: 7vh; font-weight: 700; color: #2e2d2d" id="alunosMatriculados"></span>
                             </div>
 
                         </div>
@@ -237,36 +234,31 @@
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">1°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Google
-                                        Chrome</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d" id="primeiroLugar"></span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
-                                        style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">2°</span>
+                                        style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d" >2°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
-                                        Word</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d" id="segundoLugar"></span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">3°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
-                                        Power Point</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d" id="terceiroLugar"></span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">4°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
-                                        Excel</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d" id="quartoLugar"></span>
                                 </div>
                                 <div style="display: flex; align-items: center; justify-content: center; gap: 2vh;">
                                     <span
                                         style="font-family: Fredoka;font-size: 3vh; font-weight: 700; color: #2e2d2d">5°</span>
                                     <span
-                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d">Microsoft
-                                        Edge</span>
+                                        style="font-family: Arimo;font-size: 2.5vh; font-weight: 500; color: #2e2d2d" id="quintoLugar"></span>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +283,7 @@
                             justify-content: center;
                             margin-top: 3vh;
                             ">
-                                <span style="font-size: 6vh; font-weight: 700; color: #2e2d2d">214</span>
+                                <span style="font-size: 6vh; font-weight: 700; color: #2e2d2d" id="pontuacaoMedia"></span>
                             </div>
                         </div>
                     </div>
@@ -303,7 +295,7 @@
                                 <span style="font-size: 3vh; font-weight: 600; color: #2e2d2d">Picos de
                                     Ociosidade</span>
                                 <span
-                                    style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">23/10/2023</span>
+                                    style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Hoje</span>
                             </div>
                             <div>
                                 <canvas id="myChart" style="position: relative; height: 30vh; width: 60vh;"></canvas>
@@ -344,51 +336,19 @@
 
                     ">
                         <div
-                            style="width: 60%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                            style="width: 60%; display: flex; align-items: start; justify-content: start; flex-direction: column;" id="spanNome">
                             <span
                                 style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Nome</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Thaisa
-                                Nobrega</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Kaue
-                                Mesquita</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Maria
-                                Costa</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Pedro
-                                Oliveira</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Carolina
-                                Pereira</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">João
-                                Sousa</span>
-                            <span
-                                style=" font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d; height: 4vh;">Beatriz
-                                Ferreira</span>
+                            
+                            
 
 
                         </div>
                         <div
-                            style="width: 40%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                            style="width: 40%; display: flex; align-items: start; justify-content: start; flex-direction: column;" id="spanPontos">
                             <span
                                 style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Pontos</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1254</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">865</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2569</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1789</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">811</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">2111</span>
-                            <span
-                                style="font-family: Arimo;font-size: 2.3vh; font-weight: 400; color: #2e2d2d;height: 4vh;">1999</span>
+                            
 
                         </div>
                     </div>
@@ -409,23 +369,25 @@
 
 </html>
 <script>
-    const ctx = document.getElementById("myChart");
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['7:00', '8:00', '9:00', '10:00', '11:00', '12:00', '13:00'],
+const ctx = document.getElementById("myChart");
+var labels = [];
+var dados = {
+    labels: labels,
             datasets: [{
                 label: 'Pop-ups não Respondidos',
-                data: [2, 2, 5, 7, 5, 4, 3],
+                data: [],
                 backgroundColor: '#3E6389',
                 borderColor: '#ffffff',
                 borderWidth: 0,
                 borderRadius: 80,
                 barThickness: 30
             }]
-        },
-        options: {
+};
+
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: dados,
+    options: {
             scales: {
                 y: {
                     beginAtZero: true,
@@ -440,15 +402,15 @@
                 }
             }
         }
-    });
+});
 
-    const ctx2 = document.getElementById("myChart2");
 
-    new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'],
-            datasets: [{
+
+const ctx2 = document.getElementById("myChart2");
+var labels = [];
+var dados = {
+    labels: labels,
+    datasets: [{
                 label: 'Pop-ups não Respondidos',
                 data: [20, 12, 17, 10, 23],
                 backgroundColor: '#3E6389',
@@ -457,8 +419,12 @@
                 borderRadius: 80,
                 barThickness: 30
             }]
-        },
-        options: {
+};
+
+var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: dados,
+    options: {
             scales: {
                 y: {
                     beginAtZero: true,
@@ -473,7 +439,7 @@
                 }
             }
         }
-    });
+});
 
     function abrirLogin() {
         document.getElementById('backgroundBlur').style.display = 'block';
