@@ -78,19 +78,37 @@ function sendMail2(form, res){
 }
 
 function sendMailTelegramChamado(clienteNome,clienteId,problema, res){
-    transport.sendMail({
+
+    if (problema == 4) {
+        transport.sendMail({
         
-        to: 'mindbridgeatendimento@gmail.com',
-        subject: `Abertura de Chamado - ${clienteNome}`,
-        html: `
-            <h1>Abertura de Chamado - ${clienteNome}</h1>
-            <p>O cliente com ID: ${clienteId} fez a abertura de um chamado</p>
-            <p>Instituiçao: </p>
-             
-        `
-    })
-    .then(() => console.log("Chamado aberto"))
-    .catch((err) => console.log(err))
+            to: 'mindbridgeatendimento@gmail.com',
+            subject: `Abertura de Chamado -Falha no collector- ${clienteNome}`,
+            html: `
+                <h1>Abertura de Chamado - ${clienteNome}</h1>
+                <p>O cliente com ID: ${clienteId} fez a abertura de um chamado</p>
+                <p>Entar em contato para o reestabelecimento das coletas </p>
+                 
+            `
+        })
+        .then(() => console.log("Chamado aberto"))
+        .catch((err) => console.log(err)) 
+    }else{
+        transport.sendMail({
+        
+            to: 'mindbridgeatendimento@gmail.com',
+            subject: `Abertura de Chamado - ${clienteNome}`,
+            html: `
+                <h1>Abertura de Chamado -Falha nas Dashboards- ${clienteNome}</h1>
+                <p>O cliente com ID: ${clienteId} fez a abertura de um chamado</p>
+                <p>Dashborads apresentam falhas no cliente</p>
+                 
+            `
+        })
+        .then(() => console.log("Chamado aberto"))
+        .catch((err) => console.log(err))
+    }
+    
     
 }
 
