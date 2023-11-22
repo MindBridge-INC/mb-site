@@ -1,5 +1,5 @@
-process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-// process.env.AMBIENTE_PROCESSO = "producao";
+//process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require("express");
 var cors = require("cors");
@@ -40,50 +40,50 @@ app.listen(PORTA, function () {
     \t\t\t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'`);
 });
 
-const env = require('./.env')
-const Telegraf = require('telegraf')
+// const env = require('./.env')
+// const Telegraf = require('telegraf')
 
-   const bot = new Telegraf(env.token)
+//    const bot = new Telegraf(env.token)
   
 
-   bot.start(content => {
-       const from = content.update.message.from
-       console.log(from)
+//    bot.start(content => {
+//        const from = content.update.message.from
+//        console.log(from)
 
-       content.reply(`Olá! Eu sou o Clemente, seu assistente!\n
-       Digite:\n
-       [1]Para saber mais sobre o PayAttention;\n
-       [2]Para abrir um chamado\n`)
-   })
-   setTimeout(function(){
-    bot.telegram.sendMessage('6923776271',`olá`)
-   },2000)
+//        content.reply(`Olá! Eu sou o Clemente, seu assistente!\n
+//        Digite:\n
+//        [1]Para saber mais sobre o PayAttention;\n
+//        [2]Para abrir um chamado\n`)
+//    })
+//    setTimeout(function(){
+//     bot.telegram.sendMessage('6923776271',`olá`)
+//    },2000)
   
 
-   bot.hears('1', (ctx) => ctx.reply('vc apertou 1'))
-   bot.hears('2', (ctx) => {
-    ctx.reply(`Sinto muito pelo seu problema :( 
-        Como posso ajudar?
-        Digite:
-        [4]Para relatar falha ou interrupção do collector;
-        [5]Para falhas ou instabilidades nos painéis`)
+//    bot.hears('1', (ctx) => ctx.reply('vc apertou 1'))
+//    bot.hears('2', (ctx) => {
+//     ctx.reply(`Sinto muito pelo seu problema :( 
+//         Como posso ajudar?
+//         Digite:
+//         [4]Para relatar falha ou interrupção do collector;
+//         [5]Para falhas ou instabilidades nos painéis`)
 
-        console.log("o cliente quer abrir um chamado")
+//         console.log("o cliente quer abrir um chamado")
 
         
-    } )
-    bot.hears('4',(ctx) => ctx.reply ("ok, verifique se o último relatório contem os dados durante o intervalo da interrupção"))
+//     } )
+//     bot.hears('4',(ctx) => ctx.reply ("ok, verifique se o último relatório contem os dados durante o intervalo da interrupção"))
 
        
-   bot.on('text',(content,next) =>{
-    const from = content.update.message.from
-    if (content.update.message.text != 1) {
-        content.reply(`poxa, não entendi :(
- Digite:
-    [1]Para saber mais sobre o PayAttention;
-    [2]Para abrir um chamado\n`)
+//    bot.on('text',(content,next) =>{
+//     const from = content.update.message.from
+//     if (content.update.message.text != 1) {
+//         content.reply(`poxa, não entendi :(
+//  Digite:
+//     [1]Para saber mais sobre o PayAttention;
+//     [2]Para abrir um chamado\n`)
         
-    }
-   })
+//     }
+//    })
 
-   bot.startPolling()
+//    bot.startPolling()
