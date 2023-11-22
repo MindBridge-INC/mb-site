@@ -123,8 +123,9 @@ bot.hears('2', (ctx) => {
     [1]Para saber mais sobre o PayAttention;
     [2]Para abrir um chamado\n`)
         
-//     }
-//    })
+    }
+   })
 
    bot.startPolling()
+
 
