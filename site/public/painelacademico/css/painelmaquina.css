@@ -193,13 +193,13 @@ body {
     /* display: flex; */
     /* align-items: center; */
     justify-content: center;
-    height: 20vh;
+    height: 25vh;
     width: 35vw;
     padding-right: 4vh;
 }
 
 .conteudo-card {
-    margin-top: 1.8vh;
+    margin-top: 3vh;
     justify-content: center;
     align-items: center;
 

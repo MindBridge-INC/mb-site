@@ -22,7 +22,7 @@
     }
 </style>
 
-<body onload="listarMensagens(), carregarInfoAluno()">
+<body onload="listarMensagens(), carregarInfoAluno(), mostrarEstrelinhas()">
 
     <div class="container">
 
@@ -58,12 +58,14 @@
 
         <div class="painel">
 
-            <div class="header">
+            <div class="header" style="margin-top: 3vh;">
 
                 <div class="titulo" style="margin-top: 3vh;">
 
                     <div>
-                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Chat da turma</span>
+                        <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Chat de Turma</span>
+                        <br>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span>
                     </div>
 
                 </div>
@@ -71,7 +73,7 @@
                 <div class="pontuacao">
                     <div class="moedasepontos">
                         <img src="../assets/img/estrela.png" width="18%">
-                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">8567</span>
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d" id="estrelinhas"></span>
                     </div>
 
                     <!-- <div class="moedasepontos">
@@ -83,13 +85,13 @@
             </div>
 
             <!-- CHAT -->
-            <div id="divContainerChat" class="containerChat">
+            <div id="divContainerChat" class="containerChat" style="height: 65vh;">
 
             </div>
 
             <div>
                 <div style="display: flex; align-items: center; justify-content: start; gap: 5vh;margin-top: 2vh;">
-                    <img src="../assets/img/thaisailustracao.png" width="6%">
+                    <img src="../assets/img/circulo.png" width="6%">
                     <input id="iptMensagem" style="
                             width: 75%;
                             height: 40px;
@@ -125,7 +127,7 @@
         <div class="painel2">
             <div
                 style="margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
-                <img src="../assets/img/thaisailustracao.png" width="80%">
+                <img src="../assets/img/circulo.png" width="80%">
             </div>
             <div style="display: flex;
             align-items: center;

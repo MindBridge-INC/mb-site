@@ -1,9 +1,9 @@
-var painelAlunoModel = require("../models/painelAlunoModel");
+var painelTecnicoModel = require("../models/painelTecnicoModel");
 
-function listarMensagens(req, res) {
-    var idTurma = req.params.idTurma;
+function mostrarMaquinasCadastradas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.listarMensagens(idTurma)
+    painelTecnicoModel.mostrarMaquinasCadastradas(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -25,11 +25,34 @@ function listarMensagens(req, res) {
         );
 }
 
-function enviarMensagem(req, res) {
-    var mensagem = req.body.mensagemServer;
-    var idAluno = req.body.idAlunoServer;
+function mostrarMaquinasLigadas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.enviarMensagem(mensagem, idAluno)
+    painelTecnicoModel.mostrarMaquinasLigadas(idInstituicao)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function mostrarMaquinasDesligadas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
+
+    painelTecnicoModel.mostrarMaquinasDesligadas(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -51,10 +74,10 @@ function enviarMensagem(req, res) {
         );
 }
 
-function mostrarPontuacaoHoje(req, res) {
-    var idUsuario = req.params.idUsuario;
+function mostrarAlertasDiaArm(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoHoje(idUsuario)
+    painelTecnicoModel.mostrarAlertasDiaArm(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -76,10 +99,10 @@ function mostrarPontuacaoHoje(req, res) {
         );
 }
 
-function mostrarPontuacaoSemana(req, res) {
-    var idUsuario = req.params.idUsuario;
+function mostrarAlertasDiaTotal(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoSemana(idUsuario)
+    painelTecnicoModel.mostrarAlertasDiaTotal(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -101,10 +124,10 @@ function mostrarPontuacaoSemana(req, res) {
         );
 }
 
-function mostrarEstrelinhas(req, res) {
-    var idUsuario = req.params.idUsuario;
+function mostrarNumMaquinasArmazenamento80(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarEstrelinhas(idUsuario)
+    painelTecnicoModel.mostrarNumMaquinasArmazenamento80(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -126,10 +149,10 @@ function mostrarEstrelinhas(req, res) {
         );
 }
 
-function plotarGrafico(req, res) {
-    var idUsuario = req.params.idUsuario;
+function plotarGraficoCPU(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.plotarGrafico(idUsuario)
+    painelTecnicoModel.plotarGraficoCPU(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -151,12 +174,39 @@ function plotarGrafico(req, res) {
         );
 }
 
+
+function plotarGraficoRAM(req, res) {
+    var idInstituicao = req.params.idInstituicao;
+
+    painelTecnicoModel.plotarGraficoRAM(idInstituicao)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
-    listarMensagens,
-    enviarMensagem,
-    mostrarPontuacaoHoje,
-    mostrarPontuacaoSemana,
-    mostrarEstrelinhas,
-    plotarGrafico
+    mostrarMaquinasCadastradas,
+    mostrarMaquinasLigadas,
+    mostrarMaquinasDesligadas,
+    mostrarAlertasDiaArm,
+    mostrarAlertasDiaTotal,
+    mostrarNumMaquinasArmazenamento80,
+    plotarGraficoCPU,
+    plotarGraficoRAM
 }

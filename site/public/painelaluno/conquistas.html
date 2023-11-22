@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
     <title>Painel do Aluno</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/painelAluno.js"></script>
 </head>
 <style>
@@ -83,7 +84,7 @@
     }
 </style>
 
-<body onload="carregarInfoAluno()">
+<body onload="carregarInfoAluno(), desbloquearInventário(), desbloquearEmblemas(), mostrarEstrelinhas()">
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
     <div class="container">
@@ -128,8 +129,7 @@
                         <span style="font-size: 5.5vh; font-weight: 700; color: #2e2d2d">Conquistas</span>
                         <!-- <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button> -->
                         <br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d">08/10/2023 -
-                            14:28</span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span>
                     </div>
 
 
@@ -138,7 +138,7 @@
                 <div class="pontuacao">
                     <div class="moedasepontos">
                         <img src="../assets/img/estrela.png" width="18%">
-                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d">8567</span>
+                        <span style="font-size: 3.5vh; font-weight: 700; color: #2e2d2d" id="estrelinhas"></span>
                     </div>
 
                     <!-- <div class="moedasepontos">
@@ -156,13 +156,13 @@
                     </div>
 
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 5vh;">
-                        <img src="../assets/img/emblema_amarelo.png" width="130vh">
-                        <img src="../assets/img/emblema_vermelho.png" width="130vh">
+                        <img src="../assets/img/emblema_amarelo.png" id="emblemaAmarelo" style="opacity: 0.6;" width="130vh">
+                        <img src="../assets/img/emblema_vermelho.png" id="emblemaVermelho" style="opacity: 0.6;" width="130vh">
                     </div>
 
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 5vh;">
-                        <img src="../assets/img/emblema_verde.png" width="130vh">
-                        <img src="../assets/img/emblema_azul.png" width="130vh" style="opacity: 0.6;">
+                        <img src="../assets/img/emblema_verde.png" id="emblemaVerde" style="opacity: 0.6;"  width="130vh">
+                        <img src="../assets/img/emblema_azul.png" id="emblema_azul" width="130vh" style="opacity: 0.6;">
                     </div>
                 </div>
 
@@ -172,21 +172,21 @@
                     </div>
 
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
-                        <img src="../assets/img/inventário_lapis.png" width="100vh">
-                        <img src="../assets/img/inventário_livro.png" width="100vh">
-                        <img src="../assets/img/inventario_clip.png" width="100vh">
+                        <img src="../assets/img/inventário_lapis.png" id="inv1" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventário_livro.png" id="inv2" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_clip.png" id="inv3" width="100vh" style="opacity: 0.6;"> 
                     </div>
 
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
-                        <img src="../assets/img/inventario_pin.png" width="100vh" style="opacity: 0.6;">
-                        <img src="../assets/img/inventario_note.png" width="100vh" style="opacity: 0.6;">
-                        <img src="../assets/img/inventario_carta.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_pin.png" id="inv4" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_note.png" id="inv5" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_carta.png" id="inv6" width="100vh" style="opacity: 0.6;">
                     </div>
 
                     <div style="width: 100%; display: flex; align-items: center; justify-content: start; gap: 3vh;">
-                        <img src="../assets/img/inventario_grafico.png" width="100vh" style="opacity: 0.6;">
-                        <img src="../assets/img/inventario_escola.png" width="100vh" style="opacity: 0.6;">
-                        <img src="../assets/img/inventario_formatura.png" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_grafico.png" id="inv7" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_escola.png" id="inv8" width="100vh" style="opacity: 0.6;">
+                        <img src="../assets/img/inventario_formatura.png" id="inv9" width="100vh" style="opacity: 0.6;">
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
         <div class="painel2">
             <div
                 style="margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
-                <img src="../assets/img/thaisailustracao.png" width="80%">
+                <img src="../assets/img/circulo.png" width="80%">
             </div>
             <div style="display: flex;
             align-items: center;

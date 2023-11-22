@@ -16,6 +16,11 @@ var crudSalaRouter = require("./src/routes/crudSala");
 var crudTurmaRouter = require("./src/routes/crudTurma");
 var painelAlunoRouter = require("./src/routes/painelAluno");
 var crudUsuarioRouter = require("./src/routes/crudUsuario");
+var painelTecnicoRouter = require("./src/routes/painelTecnico");
+var relatorioRouter = require("./src/routes/relatorio");
+var painelMaquinaRouter = require("./src/routes/painelMaquina");
+var painelAcademicoRouter = require("./src/routes/painelAcademico");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,6 +36,10 @@ app.use("/crudSala", crudSalaRouter);
 app.use("/crudTurma", crudTurmaRouter);
 app.use("/painelAluno", painelAlunoRouter);
 app.use("/crudUsuario", crudUsuarioRouter);
+app.use("/painelTecnico", painelTecnicoRouter);
+app.use("/relatorio", relatorioRouter);
+app.use("/painelMaquina", painelMaquinaRouter);
+app.use("/painelAcademico", painelAcademicoRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
@@ -40,50 +49,82 @@ app.listen(PORTA, function () {
     \t\t\t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'`);
 });
 
-// const env = require('./.env')
-// const Telegraf = require('telegraf')
+const env = require('./.env')
+const Telegraf = require('telegraf');
+const {sendMailTelegram, sendMailTelegramChamado } = require("./src/services/emailService");
 
-//    const bot = new Telegraf(env.token)
-  
+   const bot = new Telegraf(env.token)
 
-//    bot.start(content => {
-//        const from = content.update.message.from
-//        console.log(from)
+var clienteNome;
+   bot.start(content => {
+       const from = content.update.message.from
+       console.log(from)
+       content.reply(`Olá! Eu sou o Clemente, seu assistente!\n
+       Digite:\n
+       [1]Para saber mais sobre o PayAttention;\n
+       [2]Para abrir um chamado\n`)
+   })
+   bot.hears('1', (ctx) => ctx.reply(`A solução PayAttention é um coletor de informações de hardware
+voltada exclusivamente para escolas!
+A educação e a tecnologia devem ser alidas, assim como nós!
+Digite [3] e entraremos em contato contigo\uD83D\uDE01`))
 
-//        content.reply(`Olá! Eu sou o Clemente, seu assistente!\n
-//        Digite:\n
-//        [1]Para saber mais sobre o PayAttention;\n
-//        [2]Para abrir um chamado\n`)
-//    })
-//    setTimeout(function(){
-//     bot.telegram.sendMessage('6923776271',`olá`)
-//    },2000)
-  
-
-//    bot.hears('1', (ctx) => ctx.reply('vc apertou 1'))
-//    bot.hears('2', (ctx) => {
-//     ctx.reply(`Sinto muito pelo seu problema :( 
-//         Como posso ajudar?
-//         Digite:
-//         [4]Para relatar falha ou interrupção do collector;
-//         [5]Para falhas ou instabilidades nos painéis`)
-
-//         console.log("o cliente quer abrir um chamado")
-
+bot.hears('2', (ctx) => {
+    ctx.reply(`Sinto muito pelo seu problema :( 
+        Como posso ajudar?
+        Digite:
+        [4]Para relatar falha ou interrupção do PayAttention;
+        [5]Para falhas ou instabilidades nos painéis`)
         
-//     } )
-//     bot.hears('4',(ctx) => ctx.reply ("ok, verifique se o último relatório contem os dados durante o intervalo da interrupção"))
-
-       
-//    bot.on('text',(content,next) =>{
-//     const from = content.update.message.from
-//     if (content.update.message.text != 1) {
-//         content.reply(`poxa, não entendi :(
-//  Digite:
-//     [1]Para saber mais sobre o PayAttention;
-//     [2]Para abrir um chamado\n`)
+        console.log("o cliente quer abrir um chamado")
+        bot.launch()
+    } )
+    bot.hears('3',(ctx) =>{
+        ctx.reply(`
+    Em breve um consultor @MindBridge ira entar em contato!`)
+     clienteId = ctx.message.chat.id
+     clienteNome = ctx.message.from.first_name
+     sendMailTelegram(clienteNome,clienteId)
+        
+    })
+    bot.hears('4',(ctx) => {
+        clienteId = ctx.message.chat.id
+        clienteNome = ctx.message.from.first_name
+        var problema = ctx.message.text
+        console.log(problema)
+        sendMailTelegramChamado(clienteNome,clienteId,problema)  
+        ctx.reply(`
+    Nosso time de suporte entrará em contato para a resolução do problema
+        `)
+        bot.launch()
+ 
+    })
+    bot.hears('5',(ctx) => {
+        clienteId = ctx.message.chat.id
+        clienteNome = ctx.message.from.first_name
+        var problema = ctx.message.text
+        console.log(problema)
+        sendMailTelegramChamado(clienteNome,clienteId,problema)  
+        ctx.reply(`
+    Nosso time de suporte entrará em contato para a resolução do problema
+        `)
+        bot.launch()
+ 
+    })
+    bot.hears('chamado',(ctx) => {
+        
+    })
+      
+   bot.on('text',(content,next) =>{
+    const from = content.update.message.from
+    if (content.update.message.text != 1) {
+        content.reply(`poxa, não entendi :(
+ Digite:
+    [1]Para saber mais sobre o PayAttention;
+    [2]Para abrir um chamado\n`)
         
 //     }
 //    })
 
-//    bot.startPolling()
+   bot.startPolling()
+

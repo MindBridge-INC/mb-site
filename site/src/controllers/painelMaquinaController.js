@@ -1,9 +1,9 @@
-var painelAlunoModel = require("../models/painelAlunoModel");
+var painelMaquinaModel = require("../models/painelMaquinaModel");
 
-function listarMensagens(req, res) {
-    var idTurma = req.params.idTurma;
+function listarSalas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.listarMensagens(idTurma)
+    painelMaquinaModel.listarSalas(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -25,11 +25,10 @@ function listarMensagens(req, res) {
         );
 }
 
-function enviarMensagem(req, res) {
-    var mensagem = req.body.mensagemServer;
-    var idAluno = req.body.idAlunoServer;
+function listarMaquinas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.enviarMensagem(mensagem, idAluno)
+    painelMaquinaModel.listarMaquinas(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -51,10 +50,10 @@ function enviarMensagem(req, res) {
         );
 }
 
-function mostrarPontuacaoHoje(req, res) {
-    var idUsuario = req.params.idUsuario;
+function exibirInfoMaquina(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoHoje(idUsuario)
+    painelMaquinaModel.exibirInfoMaquina(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -76,10 +75,11 @@ function mostrarPontuacaoHoje(req, res) {
         );
 }
 
-function mostrarPontuacaoSemana(req, res) {
-    var idUsuario = req.params.idUsuario;
+function exibirAlertasDia(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarPontuacaoSemana(idUsuario)
+    painelMaquinaModel.exibirAlertasDia(idMaquina, idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -101,10 +101,11 @@ function mostrarPontuacaoSemana(req, res) {
         );
 }
 
-function mostrarEstrelinhas(req, res) {
-    var idUsuario = req.params.idUsuario;
+function exibirAlertasDia2(req, res) {
+    var idMaquina = req.params.idMaquina;
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.mostrarEstrelinhas(idUsuario)
+    painelMaquinaModel.exibirAlertasDia2(idMaquina, idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -126,10 +127,10 @@ function mostrarEstrelinhas(req, res) {
         );
 }
 
-function plotarGrafico(req, res) {
-    var idUsuario = req.params.idUsuario;
+function plotarGraficoArmazenamento(req, res) {
+    var idMaquina = req.params.idMaquina;
 
-    painelAlunoModel.plotarGrafico(idUsuario)
+    painelMaquinaModel.plotarGraficoArmazenamento(idMaquina)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -151,12 +152,63 @@ function plotarGrafico(req, res) {
         );
 }
 
+function plotarGraficoCPU(req, res) {
+    var idMaquina = req.params.idMaquina;
+
+    painelMaquinaModel.plotarGraficoCPU(idMaquina)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function plotarGraficoRAM(req, res) {
+    var idMaquina = req.params.idMaquina;
+
+    painelMaquinaModel.plotarGraficoRAM(idMaquina)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
-    listarMensagens,
-    enviarMensagem,
-    mostrarPontuacaoHoje,
-    mostrarPontuacaoSemana,
-    mostrarEstrelinhas,
-    plotarGrafico
+    listarSalas,
+    listarMaquinas,
+    exibirInfoMaquina,
+    exibirAlertasDia,
+    exibirAlertasDia2,
+    plotarGraficoArmazenamento,
+    plotarGraficoCPU,
+    plotarGraficoRAM
 }

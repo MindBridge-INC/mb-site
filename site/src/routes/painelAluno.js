@@ -11,6 +11,22 @@ router.post("/enviarMensagem/", function (req, res) {
     painelAlunoController.enviarMensagem(req, res);
 })
 
+router.get("/mostrarPontuacaoHoje/:idUsuario", function (req, res) {
+    painelAlunoController.mostrarPontuacaoHoje(req, res);
+})
+
+router.get("/mostrarPontuacaoSemana/:idUsuario", function (req, res) {
+    painelAlunoController.mostrarPontuacaoSemana(req, res);
+})
+
+router.get("/mostrarEstrelinhas/:idUsuario", function (req, res) {
+    painelAlunoController.mostrarEstrelinhas(req, res);
+})
+
+router.get("/plotarGrafico/:idUsuario", function (req, res) {
+    painelAlunoController.plotarGrafico(req, res);
+})
+
 // router.get("/visualizar/:idTurma", function (req, res) {
 //     painelAlunoController.visualizar(req, res);
 // })

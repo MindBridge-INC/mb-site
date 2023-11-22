@@ -1,9 +1,34 @@
-var painelAlunoModel = require("../models/painelAlunoModel");
+var painelAcademicoModel = require("../models/painelAcademicoModel");
 
-function listarMensagens(req, res) {
+function listarTurmas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
+
+    painelAcademicoModel.listarTurmas(idInstituicao)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function exibirAlunosMatriculados(req, res) {
     var idTurma = req.params.idTurma;
 
-    painelAlunoModel.listarMensagens(idTurma)
+    painelAcademicoModel.exibirAlunosMatriculados(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -25,11 +50,10 @@ function listarMensagens(req, res) {
         );
 }
 
-function enviarMensagem(req, res) {
-    var mensagem = req.body.mensagemServer;
-    var idAluno = req.body.idAlunoServer;
+function exibirRanking(req, res) {
+    var idInstituicao = req.params.idInstituicao;
 
-    painelAlunoModel.enviarMensagem(mensagem, idAluno)
+    painelAcademicoModel.exibirRanking(idInstituicao)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -51,10 +75,10 @@ function enviarMensagem(req, res) {
         );
 }
 
-function mostrarPontuacaoHoje(req, res) {
-    var idUsuario = req.params.idUsuario;
+function exibirPontuacaoMedia(req, res) {
+    var idTurma = req.params.idTurma;
 
-    painelAlunoModel.mostrarPontuacaoHoje(idUsuario)
+    painelAcademicoModel.exibirPontuacaoMedia(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -76,10 +100,10 @@ function mostrarPontuacaoHoje(req, res) {
         );
 }
 
-function mostrarPontuacaoSemana(req, res) {
-    var idUsuario = req.params.idUsuario;
+function plotarPicosHoje(req, res) {
+    var idTurma = req.params.idTurma;
 
-    painelAlunoModel.mostrarPontuacaoSemana(idUsuario)
+    painelAcademicoModel.plotarPicosHoje(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -101,10 +125,10 @@ function mostrarPontuacaoSemana(req, res) {
         );
 }
 
-function mostrarEstrelinhas(req, res) {
-    var idUsuario = req.params.idUsuario;
+function plotarPicosSemana(req, res) {
+    var idTurma = req.params.idTurma;
 
-    painelAlunoModel.mostrarEstrelinhas(idUsuario)
+    painelAcademicoModel.plotarPicosSemana(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -126,10 +150,10 @@ function mostrarEstrelinhas(req, res) {
         );
 }
 
-function plotarGrafico(req, res) {
-    var idUsuario = req.params.idUsuario;
+function visualizarAlunosTurma(req, res) {
+    var idTurma = req.params.idTurma;
 
-    painelAlunoModel.plotarGrafico(idUsuario)
+    painelAcademicoModel.visualizarAlunosTurma(idTurma)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -153,10 +177,11 @@ function plotarGrafico(req, res) {
 
 
 module.exports = {
-    listarMensagens,
-    enviarMensagem,
-    mostrarPontuacaoHoje,
-    mostrarPontuacaoSemana,
-    mostrarEstrelinhas,
-    plotarGrafico
+listarTurmas,
+exibirAlunosMatriculados,
+exibirRanking,
+exibirPontuacaoMedia,
+plotarPicosHoje,
+plotarPicosSemana,
+visualizarAlunosTurma
 }
