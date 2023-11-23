@@ -1,5 +1,5 @@
-//process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-process.env.AMBIENTE_PROCESSO = "producao";
+process.env.AMBIENTE_PROCESSO = "desenvolvimento";
+// process.env.AMBIENTE_PROCESSO = "producao";
 
 var express = require("express");
 var cors = require("cors");
@@ -20,6 +20,8 @@ var painelTecnicoRouter = require("./src/routes/painelTecnico");
 var relatorioRouter = require("./src/routes/relatorio");
 var painelMaquinaRouter = require("./src/routes/painelMaquina");
 var painelAcademicoRouter = require("./src/routes/painelAcademico");
+var crudLimitesRouter = require("./src/routes/crudLimites");
+
 
 
 app.use(express.json());
@@ -40,6 +42,7 @@ app.use("/painelTecnico", painelTecnicoRouter);
 app.use("/relatorio", relatorioRouter);
 app.use("/painelMaquina", painelMaquinaRouter);
 app.use("/painelAcademico", painelAcademicoRouter);
+app.use("/crudLimites", crudLimitesRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

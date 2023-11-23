@@ -46,7 +46,7 @@ function visualizarAlunos(idTurma) {
 
                         divNome.innerHTML += `
                             <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                                <img src="./img/thaisailustracao.png" width="15%">
+                                <img src="./img/circulo.png" width="15%">
                                 <span class="dadosCadastrados">${alunoAtual.nome} ${alunoAtual.sobrenome}</span>
                             </div>
                             `
