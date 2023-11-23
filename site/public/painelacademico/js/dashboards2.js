@@ -143,6 +143,7 @@ function plotarPicosHoje() {
                 myChart.data.labels = ["00:00:00"];
                 myChart.data.datasets[0].data = [0];
                 myChart.update();
+                visualizarAlunosTurma() 
                 return;
             }
             
@@ -186,6 +187,7 @@ function plotarPicosSemana() {
                 myChart2.data.labels = ["00:00:00"];
                 myChart2.data.datasets[0].data = [0];
                 myChart2.update();
+                visualizarAlunosTurma() 
                 return;
             }
             
