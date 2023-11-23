@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="limites.js"></script>
 </head>
 <style>
     a {
@@ -91,7 +92,7 @@ option{
 }
 
 </style>
-<body>
+<body onload="visualizar()">
 
     <div class="container">
 
@@ -151,25 +152,22 @@ option{
                 <div class="dados" style="width: 100%;">
                     <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
                         <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">CPU</span>
-                        <input type="text" >
+                        <input required id="CPULimite" type="number" placeholder="0.0" >
                     </div>
                     <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
                         <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">RAM</span>
-                        <input type="text" >
+                        <input required id="RAMLimite" type="number"  placeholder="0.0">
                     </div>
                     <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
                         <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">Disco</span>
-                        <input type="text" >
+                        <input required id="discoLimite" type="number" placeholder="0.0" >
                     </div>
-                    <div style="display: flex; gap:2vh; align-items: center; justify-content: start; width: 100%;">
-                        <span style="font-family: Arimo; font-weight: 700; color: #2e2d2d; font-size: 13px;">Rede</span>
-                        <input type="text" >
-                    </div>
+                   
                     
                 </div>
 
                 <div style="width: 100%; display: flex; align-items: center;justify-content: center;">
-                    <button>Salvar</button>
+                    <button onclick="editar()">Salvar</button>
                 </div>
             </div>
                 
