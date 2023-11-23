@@ -28,7 +28,7 @@ function listarMensagens() {
         if (response.ok) {
             response.json().then(function (resposta) {
 
-                console.log('Resposta listarTurmas ', JSON.stringify(resposta));
+                // console.log('Resposta listarMensagens ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
 
@@ -36,7 +36,7 @@ function listarMensagens() {
                         var msgAtual = resposta[i];
 
                         if (Number(msgAtual.idAluno) == Number(idAluno)) {
-                            console.log("ADSBDFSGDUHSADVSKJDBASJDKSDMASKDNBASKJDASKJDNASNDSDNASKDNAKLDNASKLDNASDKLNASDKLANSDAKLD: " + idAluno);
+                            // console.log("ADSBDFSGDUHSADVSKJDBASJDKSDMASKDNBASKJDASKJDNASNDSDNASKDNAKLDNASKLDNASDKLNASDKLANSDAKLD: " + idAluno);
                             divContainerChat.innerHTML += `
                             <div id="${msgAtual.idMsg}" class="containerMsg" style="justify-content: end !important">
                                 <div class="abc" style="background-color: #ffeccb" >
@@ -113,7 +113,7 @@ function enviarMensagem() {
             idAlunoServer: idAluno
         })
     }).then(function (resultado) {
-        console.log("resposta:", resultado);
+        // console.log("resposta:", resultado);
 
         if (resultado.ok) {
             // Swal.fire({
@@ -143,7 +143,10 @@ function enviarMensagem() {
     })
 
 }
+
+function intervaloChat() {
     setInterval(listarMensagens, 5000)
+}
 
 function mostrarPontuacaoHoje() {
     var idUsuario = sessionStorage.ID_USUARIO;
@@ -356,8 +359,6 @@ function desbloquearInventário(){
 
 
 }
-
-
 
 function plotarGrafico() {
     var idUsuario = sessionStorage.ID_USUARIO;
