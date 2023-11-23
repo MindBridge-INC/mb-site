@@ -29,8 +29,8 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 }
 
 function mostrarPontuacaoSemana(idAluno){
-    var instrucao = `SELECT SUM(pontos) pontos, DATE (dtRegistro) 'data', WEEKDAY(DATE(dtRegistro)) 'dataSemana' FROM Pontuacao 
-    WHERE fkAluno = ${idAluno} 
+    var instrucao = `SELECT SUM(pontos) pontos, WEEKDAY(DATE(dtRegistro)) 'dataSemana' FROM Pontuacao 
+    WHERE fkAluno = ${idAluno}
     group by DATE (dtRegistro), WEEKDAY(DATE(dtRegistro)) 
     ORDER BY DATE (dtRegistro) desc 
     LIMIT 7;`

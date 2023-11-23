@@ -192,25 +192,24 @@ function mostrarPontuacaoSemana() {
 
                 if (resposta.length > 0) {
                     
-                    var pontosSemana = 0;
-
-                    for(var i = 0 ; i < resposta.length; i++ ){
-                        console.log("estou no for")
-                        pontosSemana += resposta[i].pontos
-                        if(resposta[i].dataSemana == 0){
-                            console.log("estou no if")
-                            pontosSemana += resposta[i].pontos
-                            pontosMeta += resposta[i].pontos
+                    
+                    pontosSemana = 0
+                    for (var i = 0; i < resposta.length; i++) {
+                        if(Number(resposta[i].dataSemana) == 0){
+                            pontosSemana += Number(resposta[i].pontos)
                             break
+                        } else {
+                            pontosSemana += Number(resposta[i].pontos)
                         }
 
                     }
+                    
+                    pontuacaoSemana.innerHTML += `${pontosSemana}`
+                    pontosMeta = pontosSemana
 
-                    pontuacaoSemana.innerHTML += `${resposta[0].pontos}`
-
-                        if(resposta[0].pontos >= 0 && resposta[0].pontos <= 120){
+                        if(pontosSemana >= 0 && pontosSemana <= 120){
                             circuloPontuacaoSemana.style.border = "18px solid #c24229"
-                        } else if (resposta[0].pontos <= 240){
+                        } else if (pontosSemana <= 240){
                             circuloPontuacaoSemana.style.border = "18px solid #eeb758"
                         } else {
                             circuloPontuacaoSemana.style.border = "18px solid #39692d"
