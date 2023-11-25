@@ -68,7 +68,7 @@ function sucessoAdmin(){
                     sessionStorage.SOBRENOME_USUARIO = json.sobrenome;
                     sessionStorage.TIPO_USUARIO = json.tipo;
                     sessionStorage.ID_INST = json.idInst;
-
+                    var tipoUsuario = sessionStorage.TIPO_USUARIO
                     Swal.fire({
                         title: 'Login Efetuado!',
                         icon: 'success',
@@ -77,9 +77,17 @@ function sucessoAdmin(){
                         position: 'top-end',
                         showConfirmButton: false
                       })
-                    setTimeout(function () {
-                        window.location = "./painelacademico/paineltecnico.html";
-                    }, 1000); // apenas para exibir o loading
+
+                    if (tipoUsuario == "Coordenação") {
+                        setTimeout(function () {
+                            window.location = "./painelacademico/painelacademico.html";
+                        }, 1000); // apenas para exibir o loading
+                    } else {
+                        setTimeout(function () {
+                            window.location = "./painelacademico/paineltecnico.html";
+                        }, 1000); // apenas para exibir o loading
+                    }
+                    
 
                 });
 

@@ -226,7 +226,10 @@ function visualizarAlunosTurma() {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log('Resposta visualizarAlertas ', JSON.stringify(resposta));
-
+                    spanNome.innerHTML =`<span
+                    style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Nome</span>`
+                    spanPontos.innerHTML = `<span
+                    style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; margin-bottom: 1vh;">Pontos</span>`
                     if (resposta.length > 0) {
                         
                         for (var i = 0; i < resposta.length; i++) {

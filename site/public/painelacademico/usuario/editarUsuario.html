@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
+    <title>Editar Usuários | PayAttention!</title>
     <script src="usuario.js"></script>
     <script src="trazerMenuLateral.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../permissionamento.js"></script>
+
 </head>
 <style>
     a {
@@ -93,7 +95,7 @@
     }
 </style>
 
-<body onload="trazerDados(sessionStorage.GUARDAR_ID_USUARIO), trazerMenuLateral()">
+<body onload="permissoes(), trazerDados(sessionStorage.GUARDAR_ID_USUARIO), trazerMenuLateral()">
 
     <div class="container">
 
@@ -105,24 +107,22 @@
                     <img id="logoHorizontal" src="../../assets/img/logo pay quadrado.png" alt="">
                 </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone  hover">
-                        <a href="../painelacademico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
+                <div style="display: flex; justify-content: center;" id="painelTecnico">
+                    <div class="alinharIcone dash hover">
+                        <a href=".././paineltecnico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
                     </div>
                 </div>
 
 
-                <div style="display: flex; justify-content: center;">
+                <div style="display: flex; justify-content: center;" id="painelMaquina">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png"
-                                alt=""></a>
+                        <a href=".././painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover">
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
-                                src="../../assets/img/icone_chapeu.png" alt=""></a>
+                <div style="display: flex; justify-content: center;" id="painelacademico">
+                    <div class="alinharIcone hover" >
+                        <a href=".././painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -135,10 +135,10 @@
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png"
-                                alt=""></a>
+                        <a onclick="sair2()"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
                     </div>
                 </div>
+
 
             </div>
 

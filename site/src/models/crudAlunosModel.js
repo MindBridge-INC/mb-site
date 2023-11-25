@@ -18,10 +18,11 @@ function visualizar(idTurma) {
     return database.executar(instrucao);
 }
 
-function cadastrar(matricula, nome, sobrenome, email, senha, idTurma) {
+function cadastrar(nome, sobrenome, matricula, email, senha, idTurma) {
+    console.log(`thaisaaaaaa('${matricula}','${nome}','${sobrenome}','${email}','${senha}',${idTurma}, 1);`)
     var instrucao = `
-    INSERT INTO UsuarioAluno (matricula, nome, sobrenome, email, senha, fkTurma, statSist) VALUES
-    ('${matricula}','${nome}','${sobrenome}','${email}','${senha}',${idTurma}, 1);
+    INSERT INTO UsuarioAluno (nome, sobrenome, matricula, email, senha, fkTurma, statSist) VALUES
+    ('${nome}','${sobrenome}','${matricula}','${email}','${senha}',${idTurma}, 1);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

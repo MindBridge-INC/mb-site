@@ -2,7 +2,7 @@ function sair() {
     sessionStorage.clear();
 
     setTimeout(function() {
-        window.location.href = "../index.html"
+        window.location.href = "../portalacademico.html"
     }, 1000);
 }
 

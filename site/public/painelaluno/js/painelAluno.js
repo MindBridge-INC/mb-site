@@ -369,10 +369,10 @@ function plotarGrafico() {
                 console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
 
                 for (var i = 0; i < resposta.length; i++) {
-                    var dataRegistro = new Date(resposta[i].dtRegistro);
-                    var formattedDate = (dataRegistro.getMonth() + 1) + '/' + dataRegistro.getDate();
+                    var dataRegistro = resposta[i].dtRegistro;
+                    
 
-                    labels.push(formattedDate);
+                    labels.push(dataRegistro);
                     dados.datasets[0].data.push(resposta[i].pontos);
                 }
                

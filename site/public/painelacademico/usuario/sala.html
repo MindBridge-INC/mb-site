@@ -9,6 +9,8 @@
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Salas | PayAttention!</title>
     <script src="sala.js"></script>
+    <script src="../permissionamento.js"></script>
+
 </head>
 <style>
     a {
@@ -20,7 +22,7 @@ a:hover {
     transform: scale(1.05);
 }
 </style>
-<body onload="listarSala(), trazerMenuLateral()">
+<body onload="permissoes(), listarSala(), trazerMenuLateral()">
 
     <div class="container">
 
@@ -32,22 +34,22 @@ a:hover {
                     <img id="logoHorizontal" src="../../assets/img/logo pay quadrado.png" alt="">
                 </div>
 
-                <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone  hover">
-                        <a href="../painelacademico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
+                <div style="display: flex; justify-content: center;" id="painelTecnico">
+                    <div class="alinharIcone dash hover">
+                        <a href=".././paineltecnico.html"><img id="icon" src="../../assets/img/grafico.png" alt=""></a>
                     </div>
                 </div>
 
 
-                <div style="display: flex; justify-content: center;">
+                <div style="display: flex; justify-content: center;" id="painelMaquina">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
+                        <a href=".././painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: center;">
+                <div style="display: flex; justify-content: center;" id="painelacademico">
                     <div class="alinharIcone hover" >
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
+                        <a href=".././painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -60,9 +62,10 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
+                        <a onclick="sair2()"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
                     </div>
                 </div>
+
 
             </div>
 

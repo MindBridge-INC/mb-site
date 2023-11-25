@@ -2,7 +2,7 @@ function trazerMenuLateral() {
     divMenuLateralDireito.innerHTML = `
     <div
                 style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
-                <img src="./img/circulo.png" width="80%">
+                <img src="./img/icone profs.png" width="80%">
             </div>
             <div style="display: flex;
             align-items: center;

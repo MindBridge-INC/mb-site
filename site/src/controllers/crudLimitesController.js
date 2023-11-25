@@ -2,30 +2,26 @@ var crudLimitesModel = require("../models/crudLimitesModel");
 
 
 function editar(req, res) {
-    var valorCPU = req.body.CPUServer;
-    var valorRAM = req.body.RAMServer;
-    var valorDisco = req.body.discoServer;
-    var idInst = req.body.idInst;
+    var valorCPU = req.body.valorCPUServer;
+    var valorRAM = req.body.valorRAMServer;
+    var valorDisco = req.body.valorDiscoServer;
+    var idInst = req.body.idInstServer;
 
     if (valorCPU == undefined) {
         res.status(400).send("valorCPU está undefined!");
-        console.log("CPU esta undefined")
     } else if (valorRAM == undefined) {
         res.status(400).send("valorRAM está undefined!");
-        console.log("RAM esta undefined")
     }else if (valorDisco == undefined) {
-        console.log("disco esta undefined")
         res.status(400).send("valorDisco está undefined!");
-    } else if (idInst == undefined) {
-        console.log("idinst esta undefined")
-        res.status(400).send("idinst está undefined!");
-    } else {
-        crudLimitesModel.editar(valorCPU, valorRAM, valorDisco, idInst)
+    }else if (idInst == undefined) {
+        res.status(400).send("idInst está undefined!");
+    }
+
+    crudLimitesModel.editar(valorCPU, valorRAM, valorDisco, idInst)
         .then(
             function (resultado) {
                 res.json(resultado);
             }
-        
         ).catch(
             function (erro) {
                 console.log(erro);
@@ -36,9 +32,6 @@ function editar(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-        console.log("OIIITHAISASASJKAJSKASJAKSJAKSJKAJSKAJSAJS")
-    }
-    
 }
 
 function visualizar(req, res) {
