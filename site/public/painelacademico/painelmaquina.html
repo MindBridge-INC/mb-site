@@ -141,72 +141,74 @@
 
             <div class="header">
 
-                <div class="titulo" style="margin-top: 3vh; width: 30%; ">
-
+                <div class="titulo" style="margin-top: 3vh; width: 30%;">
                     <div>
                         <span style="font-size: 5vh; font-weight: 700; color: #2e2d2d">Painel Máquina</span>
                         <!-- <button onclick="abrirLogin()" style="border: none; background-color: transparent; margin-left: 1vh; cursor: pointer;"><img class="legenda" style="transition: all 0.2s linear;" src="../assets/img/legenda icone.png" width="20vh"></button> -->
                         <br>
-                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d" id="dataAtual"></span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color:#2e2d2d"
+                            id="dataAtual"></span>
                     </div>
-
-
                 </div>
 
-                <div style="width: 16%;">
+                <div style="display: flex; width: 30%; margin-right: 15vw; align-items: center; gap:3vh">
+                    <!-- <div style="width: 16%;"> -->
                     <select name="" id="selectSala" onchange="listarMaquinas()" style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3.5px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #585858;
-                    padding-left: 2vh;
-                    margin-top: 2vh;
-                    
-                    ">
+                                        width: 15vw;
+                                        height: 40px;
+                                        border-radius: 35px;
+                                        border: 3.5px solid #D2C6AE;
+                                        background-color: transparent;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-around;
+                                        font-family: Arimo;
+                                        font-size: 2vh;
+                                        font-weight: 700;
+                                        color: #585858;
+                                        padding-left: 2vh;
+                                        margin-top: 2vh;
+                                        
+                                        ">
                         <option disabled selected>Ambiente</option>
-                
-                    </select>
-                </div>
 
-                <div style="width: 50%;">
+                    </select>
+                    <!-- </div> -->
+
+                    <!-- <div style="width: 50%;"> -->
                     <select name="" id="selectMaquina" onchange="exibirInfoMaquina()" style="display: none;
-                    width: 30%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3.5px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #585858;
-                    padding-left: 2vh;
-                    margin-top: 2vh;
-                    
-                    ">
+                                        width: 15vw;
+                                        height: 40px;
+                                        border-radius: 35px;
+                                        border: 3.5px solid #D2C6AE;
+                                        background-color: transparent;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-around;
+                                        font-family: Arimo;
+                                        font-size: 2vh;
+                                        font-weight: 700;
+                                        color: #585858;
+                                        padding-left: 2vh;
+                                        margin-top: 2vh;
+                                        
+                                        ">
                         <option disabled selected>Máquina</option>
-                     
+
                     </select>
+                    <!-- </div> -->
+
                 </div>
 
-                <div style="width: 20%;display: flex; align-items: start; justify-content: center; margin-top:2vh">
+                <div style="width: 20%;display: flex; align-items: center; justify-content: center; margin-top:2vh">
                     <div style="width: 30%">
                         <img src="../assets/img/circulo.png" width="80%">
                     </div>
                     <div style="display: flex; width: 70%; flex-direction: column;">
-                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d" id="spanNomeUsuario"></span>
-                        <span
-                            style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d" id="spanPermissao"></span>
+                        <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d"
+                            id="spanNomeUsuario"></span>
+                        <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d"
+                            id="spanPermissao"></span>
                     </div>
                 </div>
 
@@ -215,9 +217,9 @@
             <!-- Por aqui serão inseridos todos os conteúdos relevantes: gráficos, listas, CRUDs -->
             <div class="conteudo">
 
-                <div style="display: flex; display: flex; align-items: center; justify-content: space-between;" >
+                <div style="display: flex; display: flex; align-items: center; justify-content: space-between;">
                     <!-- Primeiro conjunto de informações | Máquinas ativa -->
-                    <div class="card-visaoGeral" style="height: 100%;" >
+                    <div class="card-visaoGeral" style="height: 100%;">
 
                         <!-- Título do conteúdo -->
                         <div class="tituloGraf">
@@ -225,7 +227,7 @@
                         </div>
 
                         <!-- Conteúdo -->
-                        <div class="card" >
+                        <div class="card">
                             <div class="conteudo-card">
 
                                 <div style="display: flex;">
@@ -366,9 +368,9 @@
                     </div>
                 </div>
 
-                <div style=" width: 100%; display: flex; align-items: center; justify-content: space-between;" >
+                <div style=" width: 100%; display: flex; align-items: center; justify-content: space-between;">
                     <!-- Quarto conjunto de informações  | Armazenamento-->
-                    
+
                     <!-- Quinto conjunto de informações  | Memoria crit-->
                     <div class="card-visaoGeral">
 
@@ -378,7 +380,9 @@
                                 <div style="display: flex; justify-content: space-between; align-items: end;">
                                     <div>
                                         <span style="font-size: 3vh; font-weight: 600;">Consumo de RAM</span>
-                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">GB</span>
+                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">GB<br>
+                                            <span id="diaRAM"
+                                                style="font-family: Arimo;font-size: 1.6vh; font-weight: 300;"></span></span>
                                     </div>
                                 </div>
                             </div>
@@ -412,7 +416,9 @@
                                 <div style="display: flex; justify-content: space-between; align-items: end;">
                                     <div>
                                         <span style="font-size:3vh; font-weight: 600;">Consumo de CPU</span>
-                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)</span>
+                                        <span style="font-family: Arimo;font-size: 1.7vh; font-weight: 300;">(%)<br>
+                                            <span id="diaCPU"
+                                                style="font-family: Arimo;font-size: 1.6vh; font-weight: 300;"></span></span>
                                     </div>
 
                                 </div>

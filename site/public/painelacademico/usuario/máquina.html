@@ -7,19 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
     <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="maquina.js"></script>
+    <script src="trazerMenuLateral.js"></script>
 </head>
 <style>
     a {
-    transition: all 0.2s linear;
-}
+        transition: all 0.2s linear;
+    }
 
-a:hover {
-    transition: .3s;
-    transform: scale(1.05);
-}
+    a:hover {
+        transition: .3s;
+        transform: scale(1.05);
+    }
 </style>
-<body>
+
+<body onload="listarSalas(), visualizarMaquinasTotal(sessionStorage.ID_INST), trazerMenuLateral()">
 
     <div class="container">
 
@@ -40,13 +42,15 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover">
-                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png" alt=""></a>
+                        <a href="../painelmaquina.html"><img id="icon" src="../../assets/img/icone_maquina.png"
+                                alt=""></a>
                     </div>
                 </div>
 
                 <div style="display: flex; justify-content: center;">
-                    <div class="alinharIcone hover" >
-                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon" src="../../assets/img/icone_chapeu.png" alt=""></a>
+                    <div class="alinharIcone hover">
+                        <a href="../painelacademico.html"><img style="width: 33px;" id="icon"
+                                src="../../assets/img/icone_chapeu.png" alt=""></a>
                     </div>
                 </div>
 
@@ -59,7 +63,8 @@ a:hover {
 
                 <div style="display: flex; justify-content: center;">
                     <div class="alinharIcone hover logout">
-                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png" alt=""></a>
+                        <a href="../../portalacademico.html"><img id="iconLogout" src="../../assets/img/sair.png"
+                                alt=""></a>
                     </div>
                 </div>
 
@@ -70,7 +75,7 @@ a:hover {
 
         <div class="painel">
 
-            <div class="header" >
+            <div class="header">
 
                 <div class="titulo" style="margin-top: 3vh; width: 20%;">
 
@@ -83,7 +88,7 @@ a:hover {
 
                 <!-- SELECT DE SALAS -->
                 <div style="width: 70%;">
-                    <select name="" id="selTurma" style="display: none;
+                    <select onchange="mudarSala()" id="selSala" style="display: none;
                     width: 25%;
                     height: 40px;
                     border-radius: 35px;
@@ -102,243 +107,59 @@ a:hover {
                     </select>
                 </div>
 
-                    <!-- <div style="gap: 3vh; width: 50%; display: flex; align-items: center; justify-content: end;">
-                        <a style="display: none;
-                        width: 40%;
-                        height: 40px;
-                        border-radius: 35px;
-                        border: 3.5px solid #D2C6AE;
-                        background-color: transparent;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        font-family: Arimo;
-                        font-size: 2vh;
-                        font-weight: 700;
-                        color: #585858;
-                        cursor: pointer;
-                        text-decoration: none;
-                        " href="./cadastroSala.html">
-                            Cadastrar Sala
-                        </a>
-
-                        <a style="display: none;
-                        width: 40%;
-                        height: 40px;
-                        border-radius: 35px;
-                        border: 3.5px solid #D2C6AE;
-                        background-color: transparent;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                        font-family: Arimo;
-                        font-size: 2vh;
-                        font-weight: 700;
-                        color: #585858;
-                        cursor: pointer;
-                        text-decoration: none;
-                        " href="./cadastroMáquina.html">
-                            Cadastrar Máquina
-                        </a>
-                </div> -->
-
             </div>
-            
+
 
             <div class="colunas" style="display: flex; align-items: start; justify-content: start; width: 100%;">
 
-                
-                <div class="nome" style="width: 15%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">ID</span>
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <span class="dadosCadastrados">100001</span>
-                        </div>
+                <div class="email"
+                    style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
+                    </div>
+                    <div id="divNome">
+                        <!-- <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;"
+                            class="dadosCadastrados">DESKTOP-FK0BTMT</span> -->
+                    </div>
                 </div>
 
 
-                <div class="email" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Nome</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">DESKTOP-FK0BTMT</span>
-                </div>
-
-
-                <div class="permissao" style="width: 12%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Sala</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">14A</span>
-
-                </div>
-
-                <div class="permissao" style="width: 25%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Instituição</span>
-                   <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Colégio Santo André</span>
+                <div class="permissao"
+                    style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Sala</span>
+                    </div>
+                    <div id="divSala">
+                        <!-- <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;"
+                            class="dadosCadastrados">14A</span> -->
+                    </div>
 
                 </div>
 
-                <div class="ação" style="width: 10%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
-                    <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;" class="dadosCadastrados">Ativo</span>
+                <div class="ação"
+                    style="width: 30%; display: flex; align-items: start; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d;">Status</span>
+                    </div>
+                    <div id="divStatus">
+                        <!-- <span style=" display: flex;align-items: center;justify-content: start; height: 8vh;"
+                            class="dadosCadastrados">Ativo</span> -->
+                    </div>
                 </div>
 
-                <div class="ação" style="width: 10%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
-                    <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
-    
-                        <div style="display: flex; align-items: center; justify-content: start; gap: 2vh; height: 8vh;">
-                            <a style="display: none;
-                            width: 90px;
-                            height: 35px;
-                            border-radius: 35px;
-                            border: 3.5px solid #57769a;
-                            background-color: transparent;
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-around;
-                            font-family: Arimo;
-                            font-size: 1.8vh;
-                            font-weight: 700;
-                            color: #2e2d2d;
-                            cursor: pointer;
-                            text-decoration: none;
-                            " href="./editarMaquina.html">
-                                Editar
-                            </a>
-                        </div>
+                <div class="ação"
+                    style="width: 20%; display: flex; align-items: center; justify-content: start; flex-direction: column;">
+                    <div>
+                        <span style="font-size: 2.5vh; font-weight: 600; color: #2e2d2d; ">Ação</span>
+                    </div>
+                    <div id="divAcaoBotoes">
+                        
+                    </div>
                 </div>
             </div>
-
-            
-
         </div>
 
-        <div class="painel2">
-            <div style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
-                <img src="./img/circulo.png" width="80%">
-            </div>
-            <div style="display: flex;
-            align-items: center;
-            justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa
-                    Nóbrega</span>
-            </div>
-            <div style="display: flex;
-            align-items: center;
-            justify-content: center; margin-top: 0.5vh">
-                <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Administrador
-                </span>
-            </div>
-
-            <div style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_user.png" width="14%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./usuario.html">Usuário</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_maquina.png" width="15%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./máquina.html">Máquina</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_maquina.png" width="15%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./sala.html">Sala</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./aluno.html">Aluno</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./turma.html">Turma</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/config.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./limites.html">Limites</a>
-                </div>
-
-            </div>
-
-
+        <div id="divMenuLateralDireito" class="painel2">
             
         </div>
 

@@ -1,13 +1,5 @@
 var database = require("../database/config")
 
-// function listarTurmas(idInst) {
-//     var instrucao = `
-//     SELECT * FROM UsuarioInstituicao WHERE fkInstituicao = ${idInst};
-//     `
-//     console.log("Executando a instrução SQL: \n" + instrucao);
-//     return database.executar(instrucao);
-// }
-
 function visualizar(idTurma) {
     var instrucao = `
     SELECT * FROM UsuarioInstituicao WHERE fkInstituicao = ${idTurma};

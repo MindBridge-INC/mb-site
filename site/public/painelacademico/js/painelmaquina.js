@@ -15,7 +15,7 @@ function criarGraficoArmazenamento() {
         data: {
             labels: ['Disponível', 'Utilizado'],
             datasets: [{
-                label: 'Máquinas',
+                label: 'Porcentagem (%)',
                 data: [armazenamentoLivre, armazenamentoUsado],
                 backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
                 borderColor: '#ffffff',
@@ -40,7 +40,7 @@ var labels = [];
 var dados = {
     labels: labels,
         datasets: [{
-            label: 'Máquinas',
+            label: 'RAM (GB)',
             data: [],
             backgroundColor: 'transparent',
             borderColor: '#17395cff',
@@ -78,17 +78,13 @@ var myChartRAM = new Chart(ctxRAM, {
     }
 });
 
-
-
-
-
 const ctxCPU = document.getElementById("myChartCPU");
 
 var labels2 = [];
 var dados2 = {
     labels: labels2,
         datasets: [{
-            label: 'Máquinas',
+            label: 'CPU (%)',
             data: [],
             backgroundColor: 'transparent',
             borderColor: '#17395cff',

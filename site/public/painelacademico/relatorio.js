@@ -118,35 +118,40 @@ function visualizarAlertas() {
     
     fetch(`/relatorio/visualizarAlertas/${idInstituicao}`).then(function (response) {
             if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log('Resposta visualizarAlertas ', JSON.stringify(resposta));
-
-                    if (resposta.length > 0) {
-                        
-                        for (var i = 0; i < resposta.length; i++) {
-                            var alertaAtual = resposta[i];
-
-                            divMaquina.innerHTML += `
-                                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.maquina}</span>
-                            `;
+                
+                if (response.status != 204) {
+                    response.json().then(function (resposta) {
+                        console.log('Resposta visualizarAlertas ', JSON.stringify(resposta));
+    
+                        if (resposta.length > 0) {
                             
-                            divComponente.innerHTML += `
-                                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.ocorrencia}</span>
-                            `;
-
-                            divTipo.innerHTML += `
-                                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.classificacao}</span>
-                            `;
-                            divData.innerHTML += `
-                            <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;">
-                                ${new Date(alertaAtual.dtRegistro).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/,/g, ' -')}
-                            </span>
-                            `;
+                            for (var i = 0; i < resposta.length; i++) {
+                                var alertaAtual = resposta[i];
+    
+                                divMaquina.innerHTML += `
+                                    <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.maquina}</span>
+                                `;
+                                
+                                divComponente.innerHTML += `
+                                    <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.ocorrencia}</span>
+                                `;
+    
+                                divTipo.innerHTML += `
+                                    <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.classificacao}</span>
+                                `;
+                                divData.innerHTML += `
+                                <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;">
+                                    ${new Date(alertaAtual.dtRegistro).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/,/g, ' -')}
+                                </span>
+                                `;
+                            } 
                         }
-                        
+                    });
+                } else {
+                    console.log("O resultado retornou vazio")
+                }
 
-                    }
-                });
+                
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
@@ -161,6 +166,9 @@ function visualizarAlertasArm() {
     
     fetch(`/relatorio/visualizarAlertasArm/${idInstituicao}`).then(function (response) {
             if (response.ok) {
+
+                if (response.status != 204) {
+
                 response.json().then(function (resposta) {
                     console.log('Resposta visualizarAlertas ', JSON.stringify(resposta));
 
@@ -192,6 +200,11 @@ function visualizarAlertasArm() {
 
                     }
                 });
+
+            } else {
+                console.log("O resultado retornou vazio")
+            }
+
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }

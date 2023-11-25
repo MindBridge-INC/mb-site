@@ -166,7 +166,6 @@ function exibirAlertasDia2() {
                     alertasDia.innerHTML = `${alertasTotal + alertasArm}`
                     plotarGraficoArmazenamento()
                 }
-
                
             });
         } else {
@@ -222,6 +221,7 @@ function plotarGraficoCPU() {
                 for (var i = 0; i < resposta.length; i++) {
                     var dataRegistro = new Date(resposta[i].dtRegistro);
                     var formattedTime = dataRegistro.getHours() + ':' + (dataRegistro.getMinutes() < 10 ? '0' : '') + dataRegistro.getMinutes();
+                    var dataFormatada = dataRegistro.getDate() + '/' + (dataRegistro.getMonth() + 1) + '/' + dataRegistro.getFullYear();
 
                     myChartCPU.data.labels.push(formattedTime);
                     myChartCPU.data.datasets[0].data.push(resposta[i].usoProcessador);
@@ -229,6 +229,8 @@ function plotarGraficoCPU() {
                
                 myChartCPU.update();
                 plotarGraficoRAM()
+                diaCPU.innerHTML = "Último registro: " + dataFormatada
+
 
             });
         } else {
@@ -239,7 +241,7 @@ function plotarGraficoCPU() {
     });
 }
 
-setInterval(plotarGraficoCPU, 1000)
+// setInterval(plotarGraficoCPU, 1000)
 
 function plotarGraficoRAM() {
     var idMaquina = selectMaquina.value;
@@ -257,12 +259,16 @@ function plotarGraficoRAM() {
                 for (var i = 0; i < resposta.length; i++) {
                     var dataRegistro = new Date(resposta[i].dtRegistro);
                     var formattedTime = dataRegistro.getHours() + ':' + (dataRegistro.getMinutes() < 10 ? '0' : '') + dataRegistro.getMinutes();
+                    var dataFormatada = dataRegistro.getDate() + '/' + (dataRegistro.getMonth() + 1) + '/' + dataRegistro.getFullYear();
 
                     myChartRAM.data.labels.push(formattedTime);
                     myChartRAM.data.datasets[0].data.push(resposta[i].usoRam);
                 } 
                
                 myChartRAM.update();
+                diaRAM.innerHTML = "Último registro: " + dataFormatada
+                console.log(dataFormatada)
+
 
             });
         } else {
@@ -273,6 +279,6 @@ function plotarGraficoRAM() {
     });
 }
 
-setInterval(plotarGraficoRAM, 1000)
+// setInterval(plotarGraficoRAM, 1000)
 
 

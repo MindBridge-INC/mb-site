@@ -29,46 +29,25 @@ function enviarMensagem(req, res) {
     var mensagem = req.body.mensagemServer;
     var idAluno = req.body.idAlunoServer;
 
-    // painelAlunoModel.enviarMensagem(mensagem, idAluno)
-    //     .then(
-    //         function (resultado) {
-    //             if (resultado.length > 0) {
-    //                 res.status(200).json(resultado);
-    //             } else {
-    //                 res.status(204).send("Nenhum resultado encontrado!");
-    //             }
-    //         }
-    //     )
-    //     .catch(
-    //         function (erro) {
-    //             console.log(erro);
-    //             console.log(
-    //                 "Houve um erro ao enviar a mensagem ",
-    //                 erro.sqlMessage
-    //             );
-    //             res.status(500).json(erro.sqlMessage);
-    //         }
-    //     );
-
-        if (mensagem == undefined) {
-            res.status(400).send("A mensagem está indefinida!");
-        } else if (idAluno == undefined) {
-            res.status(400).send("O idAluno está indefinido!");
-        } else {
-            painelAlunoModel.enviarMensagem(mensagem,idAluno)
-                .then(
-                    function (resultado) {
-                        res.json(resultado);
-                    }
-                )
-                .catch(
-                    function (erro) {
-                        console.log(erro);
-                        console.log("Houve um erro ao enviar a mensagem: ", erro.sqlMessage);
-                        res.status(500).json(erro.sqlMessage);
-                    }
-                );
-        }
+    if (mensagem == undefined) {
+        res.status(400).send("A mensagem está indefinida!");
+    } else if (idAluno == undefined) {
+        res.status(400).send("O idAluno está indefinido!");
+    } else {
+        painelAlunoModel.enviarMensagem(mensagem, idAluno)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            )
+            .catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao enviar a mensagem: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 }
 
 function mostrarPontuacaoHoje(req, res) {

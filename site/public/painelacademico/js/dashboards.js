@@ -180,9 +180,7 @@ function plotarGraficoCPU() {
                 console.log('Resposta plotarGraficoCPU ', JSON.stringify(resposta));
 
                 for (var i = 0; i < resposta.length; i++) {
-                    var data = new Date(resposta[i].data);
-                    
-                    
+                    var data = new Date(resposta[i].dtRegistro);
                     var formattedDate = (data.getDate()) + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
 
                     labels2.push(formattedDate);
@@ -210,9 +208,7 @@ function plotarGraficoRAM() {
                 console.log('Resposta plotarGraficoRAM ', JSON.stringify(resposta));
 
                 for (var i = 0; i < resposta.length; i++) {
-                    var data = new Date(resposta[i].data);
-                    
-                    
+                    var data = new Date(resposta[i].dtRegistro);
                     var formattedDate = (data.getDate()) + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
 
                     labels.push(formattedDate);

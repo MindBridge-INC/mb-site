@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/img/clemente favicon.png" type="image/x-icon">
-    <title>Cadastro</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Cadastro Máquina | PayAttention!</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="trazerMenuLateral.js"></script>
+    <script src="maquina.js"></script>
 </head>
 <style>
     a {
@@ -42,10 +44,19 @@ input{
     background-color: rgb(241, 233, 216);
     border-radius: 30px;
     outline: none;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     font-family: Arimo;
     color: #727272;
+}
+
+input[type=text]:disabled {
+  background-color: #D2C6AE;
+  color: FFFFFF;
+}
+
+input[type=text]::placeholder {
+    color: rgb(255, 255, 255);
 }
 
 select{
@@ -56,7 +67,7 @@ select{
     background-color: rgb(241, 233, 216);
     border-radius: 30px;
     outline: none;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     font-family: Arimo;
     color: #727272;
@@ -91,7 +102,7 @@ option{
 }
 
 </style>
-<body>
+<body onload="trazerDados(sessionStorage.GUARDAR_ID_MAQUINA), listarSalas(), trazerMenuLateral()">
 
     <div class="container">
 
@@ -150,33 +161,32 @@ option{
 
                 <div class="dados">
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" placeholder="Nome">
+                        <input id="iptNome" type="text" placeholder="Nome" disabled>
                         
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" placeholder="Sistema Operacional">
-                        <input type="text" placeholder="Processador">
+                        <input id="iptSO" type="text" placeholder="Sistema Operacional" disabled>
+                        <input id="iptCPU" type="text" placeholder="Processador" disabled>
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <input type="text" placeholder="RAM">
-                        <input type="text" placeholder="Armazenamento">
+                        <input id="iptRAM" type="text" placeholder="RAM" disabled>
+                        <input id="iptArm" type="text" placeholder="Armazenamento" disabled>
                     </div>
                     <div style="display: flex; gap:2vh ">
-                        <select name="" id="" style="width: 100%;">
-                            <option disabled selected value="">Instituição</option>
-                            <option value="">Colégio Santo André</option>
-                        </select>
-                    </div>
-                    <div style="display: flex; gap:2vh ">
-                        <select name="" id="" style="width: 50%;">
+                        <select id="selSala" name="" id="" style="width: 50%;">
                             <option disabled selected value="">Sala</option>
-                            <option value="">14B</option>
+                        </select>
+                        <select id="selStatus" name="" id="" style="width: 50%;">
+                            <option disabled selected value="">Ativar / Inativar</option>
+                            <option value="1">Ativo</option>
+                            <option value="0">Inativo</option>
+                            
                         </select>
                     </div>
                 </div>
 
                 <div>
-                    <button>Salvar</button>
+                    <button onclick="editar()">Salvar</button>
                 </div>
             </div>
                 
@@ -185,136 +195,8 @@ option{
 
         </div>
 
-        <div class="painel2">
-            <div style=" margin-top: 2vh; display: flex; align-items: center;justify-content: center; margin-bottom: 2vh">
-                <img src="./img/circulo.png" width="80%">
-            </div>
-            <div style="display: flex;
-            align-items: center;
-            justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 3vh; font-weight: 700; color: #2e2d2d">Thaisa Nóbrega</span>
-            </div>
-            <div style="display: flex;
-            align-items: center;
-            justify-content: center; margin-top: 0.5vh">
-                <span style="font-family: Arimo; font-size: 2vh; font-weight: 400; color: #2e2d2d">Administrador
-                </span>
-            </div>
-
-            <div style="margin-top: 3vh; gap: 2vh;display: flex; align-items: center; justify-content: center;flex-direction: column;">
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_user.png" width="14%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./usuario.html">Usuário</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_maquina.png" width="15%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./máquina.html">Máquina</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_maquina.png" width="15%">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./sala.html">Sala</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./aluno.html">Aluno</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/icone_chapeu.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./turma.html">Turma</a>
-                </div>
-                <div style="width: 90%; display: flex; align-items: center; justify-content: center; gap: 1vh; ">
-                    <img src="./img/config.png" width="18%" style="margin-left: -3px;">
-                    <a style="display: none;
-                    width: 90%;
-                    height: 40px;
-                    border-radius: 35px;
-                    border: 3px solid #D2C6AE;
-                    background-color: transparent;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
-                    font-family: Arimo;
-                    font-size: 2vh;
-                    font-weight: 700;
-                    color: #2e2d2d;
-                    cursor: pointer;
-                    text-decoration: none;" href="./limites.html">Limites</a>
-                </div>
-
-
-            </div>
-
-
+        <div id="divMenuLateralDireito" class="painel2">
+            
             
         </div>
 
