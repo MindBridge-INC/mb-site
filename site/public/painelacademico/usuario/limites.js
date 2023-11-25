@@ -24,12 +24,18 @@ function visualizar() {
 }
 
 function editar() {
-    var idInst = sessionStorage.ID_INST;
-    var valorCPU = Number(CPULimite.value)
-    var valorRAM = Number(RAMLimite.value)
-    var valorDisco = Number(discoLimite.value)
+    var valorCPU = CPULimite.value;
+    var valorRAM = RAMLimite.value;
+    var valorDisco = discoLimite.value;
+    var idInstituicao = sessionStorage.ID_INST;
 
-    if (idInst == "" || valorCPU == "" || valorRAM == "" || valorDisco == "") {
+    console.log(`${valorCPU}`)
+    console.log(`${valorRAM}`)
+    console.log(`${valorDisco}`)
+    console.log(`${idInstituicao}`)
+
+
+    if (valorCPU == "" || valorRAM == "" || valorDisco == "" || idInstituicao == null) {
         Swal.fire({
             title: 'Preencha todos os campos!',
             icon: 'error',
@@ -39,24 +45,24 @@ function editar() {
             showConfirmButton: false
         })
         return false;
-    }
+    } 
 
-    fetch("/crudLimites/editar", {
+    fetch(`/crudLimites/editar/${idInstituicao}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            idInstServer: idInst,
-            valorCPUServer: valorCPU,
-            valorRAMServer: valorRAM,
-            valorDiscoServer: valorDisco,
-
+            CPUServer: valorCPU,
+            RAMServer: valorRAM,
+            discoServer: valorDisco,
+            idInst: idInstituicao
         })
     }).then(function (resultado) {
         console.log("resposta:", resultado);
 
         if (resultado.ok) {
+            console.log(resultado.ok)
             Swal.fire({
                 title: 'Edição efetuada!',
                 icon: 'success',

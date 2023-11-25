@@ -3,8 +3,11 @@ var router = express.Router();
 
 var crudLimitesController = require("../controllers/crudLimitesController");
 
-router.put("/editar", function (req, res) {
+
+router.put("/editar/:IdInstituicao", function (req, res) {
+    
     crudLimitesController.editar(req, res);
+   console.log("entrei no routessssss")
 });
 
 router.get("/visualizar/:idInst", function(req, res) {
