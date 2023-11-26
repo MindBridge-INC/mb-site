@@ -35,36 +35,54 @@ function exibirAlunosMatriculados(idTurma) {
 
 function exibirRanking(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = `SELECT TOP 5
-        dbo.substring_index(JanelasAbertas.titulo, ' ', -1) AS UltimaPalavra,
-        COUNT(*) AS QuantidadeUtilizada
-      FROM
-        JanelasAbertas
-      JOIN
-        Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
-      WHERE
-        Maquinas.fkInstituicao = 1
-      GROUP BY
-        dbo.substring_index(JanelasAbertas.titulo, ' ', -1)
-      ORDER BY
-        QuantidadeUtilizada DESC
-`
+//         var instrucao = `SELECT TOP 5
+//         dbo.substring_index(JanelasAbertas.titulo, ' ', -1) AS UltimaPalavra,
+//         COUNT(*) AS QuantidadeUtilizada
+//       FROM
+//         JanelasAbertas
+//       JOIN
+//         Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
+//       WHERE
+//         Maquinas.fkInstituicao = ${idInstituicao}
+//       GROUP BY
+//         dbo.substring_index(JanelasAbertas.titulo, ' ', -1)
+//       ORDER BY
+//         QuantidadeUtilizada DESC
+// `
+      var instrucao = `
+      SELECT TOP 5 JanelasAbertas.titulo, COUNT(JanelasAbertas.id) as QuantidadeUtilizada
+      FROM JanelasAbertas
+      JOIN Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
+      WHERE Maquinas.fkInstituicao = ${idInstituicao} AND JanelasAbertas.comando NOT LIKE '%Windows%'
+      GROUP BY JanelasAbertas.titulo
+	    ORDER BY COUNT(JanelasAbertas.id) DESC
+
+      `
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        var instrucao = `SELECT
-        SUBSTRING_INDEX(JanelasAbertas.titulo, ' ', -1) AS UltimaPalavra,
-        COUNT(*) AS QuantidadeUtilizada
-      FROM
-        JanelasAbertas
-      JOIN
-        Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
-      WHERE
-        Maquinas.fkInstituicao IN (${idInstituicao})
-      GROUP BY
-        UltimaPalavra
-      ORDER BY
-        QuantidadeUtilizada DESC
-      LIMIT 5;`
+      //   var instrucao = `SELECT
+      //   SUBSTRING_INDEX(JanelasAbertas.titulo, ' ', -1) AS UltimaPalavra,
+      //   COUNT(*) AS QuantidadeUtilizada
+      // FROM
+      //   JanelasAbertas
+      // JOIN
+      //   Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
+      // WHERE
+      //   Maquinas.fkInstituicao IN (${idInstituicao})
+      // GROUP BY
+      //   UltimaPalavra
+      // ORDER BY
+      //   QuantidadeUtilizada DESC
+      // LIMIT 5;`
+      var instrucao = `
+      SELECT JanelasAbertas.titulo, COUNT(JanelasAbertas.id) as QuantidadeUtilizada
+      FROM JanelasAbertas
+      JOIN Maquinas ON JanelasAbertas.fkMaquina = Maquinas.id
+      WHERE Maquinas.fkInstituicao = ${idInstituicao} AND JanelasAbertas.comando NOT LIKE '%Windows%'
+      GROUP BY JanelasAbertas.titulo
+	    ORDER BY COUNT(JanelasAbertas.id) DESC
+      LIMIT 5
+      `
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")

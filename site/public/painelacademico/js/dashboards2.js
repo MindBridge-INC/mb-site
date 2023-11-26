@@ -90,11 +90,11 @@ function exibirRanking() {
                 console.log('Resposta listarTurmas ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
-                    primeiroLugar.innerHTML = `${resposta[0].UltimaPalavra}`
-                    segundoLugar.innerHTML = `${resposta[1].UltimaPalavra}`
-                    terceiroLugar.innerHTML = `${resposta[2].UltimaPalavra}`
-                    quartoLugar.innerHTML = `${resposta[3].UltimaPalavra}`
-                    quintoLugar.innerHTML = `${resposta[4].UltimaPalavra}`
+                    primeiroLugar.innerHTML = `${resposta[0].titulo.split(".exe")[0]}`
+                    segundoLugar.innerHTML = `${resposta[1].titulo.split(".exe")[0]}`
+                    terceiroLugar.innerHTML = `${resposta[2].titulo.split(".exe")[0]}`
+                    quartoLugar.innerHTML = `${resposta[3].titulo.split(".exe")[0]}`
+                    quintoLugar.innerHTML = `${resposta[4].titulo.split(".exe")[0]}`
                     exibirPontuacaoMedia()
                 }
             });
