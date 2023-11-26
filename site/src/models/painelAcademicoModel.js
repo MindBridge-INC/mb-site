@@ -77,24 +77,26 @@ function exibirRanking(idInstituicao) {
 function exibirPontuacaoMedia(idTurma) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         var instrucao = `SELECT
-        AVG(pontos) AS PontuacaoMediaDaSemana
+        SUM(p.pontos) * 1.0 / COUNT(DISTINCT u.id) AS PontuacaoMediaDaSemana
     FROM
-        Pontuacao p
-    JOIN
-        UsuarioAluno u ON p.fkAluno = u.id
+        UsuarioAluno u
+    LEFT JOIN
+        Pontuacao p ON p.fkAluno = u.id AND p.dtRegistro >= DATEADD(DAY, -6, GETDATE())
     WHERE
         u.fkTurma = ${idTurma}
-        AND DATEPART(ISO_WEEK,p.dtRegistro) = DATEPART(ISO_WEEK,getDate())`
+    GROUP BY
+        u.fkTurma;`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT
-        AVG(pontos) AS PontuacaoMediaDaSemana
+        SUM(p.pontos) / COUNT(DISTINCT u.id) AS PontuacaoMediaDaSemana
     FROM
-        Pontuacao p
-    JOIN
-        UsuarioAluno u ON p.fkAluno = u.id
+        UsuarioAluno u
+    LEFT JOIN
+        Pontuacao p ON p.fkAluno = u.id AND p.dtRegistro >= CURDATE() - INTERVAL 6 DAY
     WHERE
         u.fkTurma = ${idTurma}
-        AND WEEK(p.dtRegistro) = WEEK(NOW());`
+    GROUP BY
+        u.fkTurma;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")
@@ -107,20 +109,20 @@ function exibirPontuacaoMedia(idTurma) {
 function plotarPicosHoje(idTurma) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         var instrucao = `SELECT
-        DATEPART(HOUR,p.dtRegistro) AS DataHoraRegistro,
+        DATEPART(HOUR, p.dtRegistro) AS DataHoraRegistro,
         COUNT(p.id) AS QuantidadeRegistrosZero
-      FROM
+        FROM
         Pontuacao p
         INNER JOIN UsuarioAluno u ON p.fkAluno = u.id
-        INNER JOIN Turma ON u.fkTurma = Turma.id
+        JOIN Turma ON u.fkTurma = Turma.id
         WHERE
-            u.fkTurma = 1
-            AND p.pontos = 0
-            AND CONVERT(varchar,p.dtRegistro,108) = CONVERT(varchar,getDate(),108)
-      GROUP BY
-        DATEPART(HOUR,p.dtRegistro)
-      ORDER BY
-        DATEPART(HOUR,p.dtRegistro)`
+        u.fkTurma =${idTurma}
+        AND p.pontos = 0
+        AND CONVERT(DATE, p.dtRegistro) = CONVERT(DATE, GETDATE())
+        GROUP BY
+        DATEPART(HOUR, p.dtRegistro)
+        ORDER BY
+        DataHoraRegistro;`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT
         HOUR(p.dtRegistro) AS DataHoraRegistro,
@@ -134,9 +136,9 @@ function plotarPicosHoje(idTurma) {
         AND p.pontos = 0
         AND DATE(p.dtRegistro) = CURDATE()
       GROUP BY
-        time(p.dtRegistro)
+        DataHoraRegistro
       ORDER BY
-        time(p.dtRegistro);`
+        DataHoraRegistro;`
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")

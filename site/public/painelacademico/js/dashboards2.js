@@ -117,8 +117,9 @@ function exibirPontuacaoMedia() {
                 console.log('Resposta listarTurmas ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
+
                     pontos = parseFloat(resposta[0].PontuacaoMediaDaSemana);
-                    pontuacaoMedia.innerHTML = isNaN(pontos) ? 'Valor inválido' : pontos.toFixed(1);
+                    pontuacaoMedia.innerHTML = isNaN(pontos) ? '0' : pontos.toFixed(1);
                     plotarPicosHoje()
                 }
             });
@@ -132,91 +133,172 @@ function exibirPontuacaoMedia() {
 }
 
 function plotarPicosHoje() {
+    // Destruir o gráfico existente
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    // Criar um novo gráfico
+    const ctx = document.getElementById("myChart");
+    var labels = [];
+    var dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Pop-ups não Respondidos',
+            data: [],
+            backgroundColor: '#17395cff',
+            borderColor: '#ffffff',
+            borderWidth: 0,
+            borderRadius: 80,
+            barThickness: 30
+        }]
+    };
+
+    myChart = new Chart(ctx, {
+        type: 'bar',
+        data: dados,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false,
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    }
+                }
+            }
+        }
+    });
+
     var idTurma = selectTurmas.value;
 
     fetch(`/painelAcademico/plotarPicosHoje/${idTurma}`)
-    .then(function (response) {
-        if (response.ok) {
-            if (response.status === 204) {
-                // Resposta vazia (No Content), tratamento conforme necessário
-                console.log('A resposta está vazia (204 No Content)');
-                myChart.data.labels = ["00:00:00"];
-                myChart.data.datasets[0].data = [0];
-                myChart.update();
-                visualizarAlunosTurma() 
-                return;
-            }
-            
-            response.json().then(function (resposta) {
-                console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
-
-                myChart.data.labels = [];
-                myChart.data.datasets[0].data = [];
-
-                if (resposta.length === 0) {
-                    myChart.data.labels.push("00:00:00");
-                    myChart.data.datasets[0].data.push(0);
-                } else {
-                    for (var i = 0; i < resposta.length; i++) {
-                        myChart.data.labels.push(resposta[i].DataHoraRegistro);
-                        myChart.data.datasets[0].data.push(resposta[i].QuantidadeRegistrosZero);
-                    }
+        .then(function (response) {
+            if (response.ok) {
+                if (response.status === 204) {
+                    // Resposta vazia (No Content), tratamento conforme necessário
+                    console.log('A resposta está vazia (204 No Content)');
+                    myChart.data.labels = ["00:00:00"];
+                    myChart.data.datasets[0].data = [0];
+                    myChart.update();
+                    plotarPicosSemana();
+                    return;
                 }
 
-                myChart.update();
-                plotarPicosSemana()
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados: ${error.message}`);
-    });
+                response.json().then(function (resposta) {
+                    console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
+
+                    myChart.data.labels = [];
+                    myChart.data.datasets[0].data = [];
+
+                    if (resposta.length === 0) {
+                        myChart.data.labels.push("00:00:00");
+                        myChart.data.datasets[0].data.push(0);
+                    } else {
+                        for (var i = 0; i < resposta.length; i++) {
+                            myChart.data.labels.push(resposta[i].DataHoraRegistro);
+                            myChart.data.datasets[0].data.push(resposta[i].QuantidadeRegistrosZero);
+                        }
+                    }
+
+                    myChart.update();
+                    plotarPicosSemana();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados: ${error.message}`);
+        });
 }
 
 function plotarPicosSemana() {
+    // Destruir o gráfico existente
+    if (myChart2) {
+        myChart2.destroy();
+    }
+
+    // Criar um novo gráfico
+    const ctx2 = document.getElementById("myChart2");
+    var labels2 = [];
+    var dados2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Pop-ups não Respondidos',
+            data: [],
+            backgroundColor: '#17395cff',
+            borderColor: '#ffffff',
+            borderWidth: 0,
+            borderRadius: 80,
+            barThickness: 30
+        }]
+    };
+
+    myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: dados2,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        display: false,
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    }
+                }
+            }
+        }
+    });
+
     var idTurma = selectTurmas.value;
 
     fetch(`/painelAcademico/plotarPicosSemana/${idTurma}`)
-    .then(function (response) {
-        if (response.ok) {
-            if (response.status === 204) {
-                // Resposta vazia (No Content), tratamento conforme necessário
-                console.log('A resposta está vazia (204 No Content)');
-                myChart2.data.labels = ["00:00:00"];
-                myChart2.data.datasets[0].data = [0];
-                myChart2.update();
-                visualizarAlunosTurma() 
-                return;
-            }
-            
-            response.json().then(function (resposta) {
-                console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
-
-                myChart2.data.labels = [];
-                myChart2.data.datasets[0].data = [];
-
-                if (resposta.length === 0) {
-                    myChart2.data.labels.push("00:00:00");
-                    myChart2.data.datasets[0].data.push(0);
-                } else {
-                    for (var i = 0; i < resposta.length; i++) {
-                        myChart2.data.labels.push(resposta[i].DataFormatada);
-                        myChart2.data.datasets[0].data.push(resposta[i].qtd_pontos_0);
-                    }
+        .then(function (response) {
+            if (response.ok) {
+                if (response.status === 204) {
+                    // Resposta vazia (No Content), tratamento conforme necessário
+                    console.log('A resposta está vazia (204 No Content)');
+                    myChart2.data.labels = ["00:00:00"];
+                    myChart2.data.datasets[0].data = [0];
+                    myChart2.update();
+                    visualizarAlunosTurma();
+                    return;
                 }
 
-                myChart2.update();
-                visualizarAlunosTurma() 
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-    .catch(function (error) {
-        console.error(`Erro na obtenção dos dados: ${error.message}`);
-    });
+                response.json().then(function (resposta) {
+                    console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
+
+                  
+                    if (resposta == undefined) {
+                        console.log("OIIIIIIIIII")
+                        myChart2.data.labels.push("00:00:00");
+                        myChart2.data.datasets[0].data.push(0);
+                    } else {
+                        for (var i = 0; i < resposta.length; i++) {
+                            myChart2.data.labels.push(resposta[i].DataFormatada);
+                            myChart2.data.datasets[0].data.push(resposta[i].qtd_pontos_0);
+                        }
+                    }
+
+                    myChart2.update();
+                    visualizarAlunosTurma();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados: ${error.message}`);
+        });
 }
 
 function visualizarAlunosTurma() {

@@ -15,7 +15,7 @@ function criarGraficoArmazenamento() {
         data: {
             labels: ['Disponível', 'Utilizado'],
             datasets: [{
-                label: 'Porcentagem (%)',
+                label: 'GB',
                 data: [armazenamentoLivre, armazenamentoUsado],
                 backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
                 borderColor: '#ffffff',

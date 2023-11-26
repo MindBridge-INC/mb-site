@@ -8,7 +8,7 @@ setTimeout(() => {
             datasets: [{
                 label: 'Máquinas',
                 data: [`${NmaquinasCadastradas - numMaquinasArmazenamento80}`, numMaquinasArmazenamento80],
-                backgroundColor: ['rgb(162, 177, 193)', 'rgb(87, 118, 154)'],
+                backgroundColor: ['rgb(162, 177, 193)', '#57769a'],
                 borderColor: '#ffffff',
                 borderWidth: 0,
                 // borderRadius: 80,

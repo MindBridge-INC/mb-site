@@ -22,7 +22,7 @@ var sqlServerConfig = {
 // CONEXÃO DO MYSQL WORKBENCH
 var mySqlConfig = {
     host: "localhost",
-    database: "Mindbridge",
+    database: "mindbridge",
     user: "admin",
     password: "admin",
 };

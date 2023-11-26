@@ -277,7 +277,7 @@
                             <div style="width: 150px;
                             height: 150px;
                             border-radius: 50%;
-                            border: 14px solid #57769a;
+                            border: 14px solid #a2b1c1ff;
                             background-color: transparent;
                             display: flex;
                             align-items: center;
@@ -374,72 +374,72 @@ const ctx = document.getElementById("myChart");
 var labels = [];
 var dados = {
     labels: labels,
-            datasets: [{
-                label: 'Pop-ups não Respondidos',
-                data: [],
-                backgroundColor: '#3E6389',
-                borderColor: '#ffffff',
-                borderWidth: 0,
-                borderRadius: 80,
-                barThickness: 30
-            }]
+    datasets: [{
+        label: 'Pop-ups não Respondidos',
+        data: [],
+        backgroundColor: '#17395cff',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 80,
+        barThickness: 30
+    }]
 };
 
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: dados,
     options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false,
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false,
-                    }
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: false,
+                }
+            },
+            x: {
+                grid: {
+                    display: false,
                 }
             }
         }
+    }
 });
 
 
 
 const ctx2 = document.getElementById("myChart2");
-var labels = [];
-var dados = {
-    labels: labels,
+var labels2 = [];
+var dados2 = {
+    labels: labels2,
     datasets: [{
-                label: 'Pop-ups não Respondidos',
-                data: [20, 12, 17, 10, 23],
-                backgroundColor: '#3E6389',
-                borderColor: '#ffffff',
-                borderWidth: 0,
-                borderRadius: 80,
-                barThickness: 30
-            }]
+        label: 'Pop-ups não Respondidos',
+        data: [],
+        backgroundColor: '#17395cff',
+        borderColor: '#ffffff',
+        borderWidth: 0,
+        borderRadius: 80,
+        barThickness: 30
+    }]
 };
 
 var myChart2 = new Chart(ctx2, {
     type: 'bar',
-    data: dados,
+    data: dados2,
     options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    grid: {
-                        display: false,
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false,
-                    }
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: false,
+                }
+            },
+            x: {
+                grid: {
+                    display: false,
                 }
             }
         }
+    }
 });
 
     function abrirLogin() {

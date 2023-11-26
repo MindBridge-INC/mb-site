@@ -46,7 +46,7 @@ function mostrarMaquinasDesligadas(idInstituicao) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT count(LogAcesso.fkMaquina) numDesligadas FROM LogAcesso 
             JOIN Maquinas on Maquinas.id = LogAcesso.fkMaquina 
-            WHERE DATEDIFF(DATE(CURRENT_TIMESTAMP), DATE(LogAcesso.dtInicializacao)) > 7 AND Maquinas.fkInstituicao = ${idInstituicao}; `
+            WHERE DATEDIFF(DATE(CURRENT_TIMESTAMP), DATE(LogAcesso.dtRegistro)) > 7 AND Maquinas.fkInstituicao = ${idInstituicao}; `
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")
@@ -62,14 +62,14 @@ function mostrarAlertasDiaArm(idInstituicao) {
             FROM AlertasLog
             INNER JOIN LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
             INNER JOIN Maquinas ON LogAcesso.fkMaquina = Maquinas.id
-            WHERE convert(varchar, LogAcesso.dtInicializacao, 103) = convert(varchar, getDate(), 103)
+            WHERE convert(varchar, LogAcesso.dtRegistro, 103) = convert(varchar, getDate(), 103)
             AND Maquinas.fkInstituicao = ${idInstituicao}; `
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT COUNT(AlertasLog.id) AS total
             FROM AlertasLog
             JOIN LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
             JOIN Maquinas ON LogAcesso.fkMaquina = Maquinas.id
-            WHERE  date(LogAcesso.dtInicializacao) = current_date()
+            WHERE  date(LogAcesso.dtRegistro) = current_date()
             AND Maquinas.fkInstituicao = ${idInstituicao}; `
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
@@ -130,70 +130,69 @@ function mostrarNumMaquinasArmazenamento80(idInstituicao) {
 //convert(varchar, RegistroMaquina.dtRegistro, 103)
 function plotarGraficoCPU(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = `SELECT TOP 7 dtRegistro,
-            COUNT(DISTINCT Maquinas.id) AS total
-            FROM Alertas
-            INNER JOIN RegistroMaquina on Alertas.fkRegistro = RegistroMaquina.id
-            INNER JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
-            WHERE DATEPART(ISO_WEEK,RegistroMaquina.dtRegistro) = DATEPART(ISO_WEEK, getDate()) - 1
-            AND Alertas.componente = 'CPU'
-            AND Maquinas.fkInstituicao = ${idInstituicao}
-            GROUP BY RegistroMaquina.dtRegistro
-            ORDER BY RegistroMaquina.dtRegistro
+        var instrucao = `SELECT CONVERT(DATE, RegistroMaquina.dtRegistro) AS dtRegistro,
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE CAST(RegistroMaquina.dtRegistro AS DATE) >= CAST(GETDATE() - 7 AS DATE)
+       AND Alertas.componente = 'CPU'
+       AND Maquinas.fkInstituicao = ${idInstituicao} 
+        GROUP BY CONVERT(DATE, RegistroMaquina.dtRegistro)
+        ORDER BY CONVERT(DATE, RegistroMaquina.dtRegistro)
             `
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT DATE(RegistroMaquina.dtRegistro) AS dtRegistro,
-            COUNT(DISTINCT Maquinas.id) AS total
-            FROM Alertas
-            JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
-            JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
-            WHERE WEEKOFYEAR(RegistroMaquina.dtRegistro) = WEEKOFYEAR(CURRENT_DATE - INTERVAL 1 WEEK)
-            AND Alertas.componente = 'CPU'
-            AND Maquinas.fkInstituicao = ${idInstituicao}
-            GROUP BY data
-            ORDER BY data
-            LIMIT 7; `
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+         WHERE RegistroMaquina.dtRegistro >= CURRENT_DATE - INTERVAL 7 DAY
+        AND Alertas.componente = 'CPU'
+        AND Maquinas.fkInstituicao = ${idInstituicao}
+        GROUP BY dtRegistro
+        ORDER BY dtRegistro
+        LIMIT 7;  `
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")
     }
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function plotarGraficoRAM(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = `SELECT TOP 7 dtRegistro,
-            COUNT(DISTINCT Maquinas.id) AS total
-            FROM Alertas
-            INNER JOIN RegistroMaquina on Alertas.fkRegistro = RegistroMaquina.id
-            INNER JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
-            WHERE DATEPART(ISO_WEEK,RegistroMaquina.dtRegistro) = DATEPART(ISO_WEEK, getDate()) - 1
-            AND Alertas.componente = 'RAM'
-            AND Maquinas.fkInstituicao = ${idInstituicao}
-            GROUP BY RegistroMaquina.dtRegistro
-            ORDER BY RegistroMaquina.dtRegistro
+        var instrucao = `SELECT CONVERT(DATE, RegistroMaquina.dtRegistro) AS dtRegistro,
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE CAST(RegistroMaquina.dtRegistro AS DATE) >= CAST(GETDATE() - 7 AS DATE)
+        AND Alertas.componente = 'RAM'
+        AND Maquinas.fkInstituicao = ${idInstituicao}
+        GROUP BY CONVERT(DATE, RegistroMaquina.dtRegistro)
+        ORDER BY CONVERT(DATE, RegistroMaquina.dtRegistro)
             `
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT DATE(RegistroMaquina.dtRegistro) AS dtRegistro,
-            COUNT(DISTINCT Maquinas.id) AS total
-            FROM Alertas
-            JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
-            JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
-            WHERE WEEKOFYEAR(RegistroMaquina.dtRegistro) = WEEKOFYEAR(CURRENT_DATE - INTERVAL 1 WEEK)
-            AND Alertas.componente = 'RAM'
-            AND Maquinas.fkInstituicao = ${idInstituicao}
-            GROUP BY data
-            ORDER BY data
-            LIMIT 7; `
+        COUNT(DISTINCT Maquinas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE RegistroMaquina.dtRegistro >= CURRENT_DATE - INTERVAL 7 DAY
+        AND Alertas.componente = 'RAM'
+        AND Maquinas.fkInstituicao = ${idInstituicao}
+        GROUP BY dtRegistro
+        ORDER BY dtRegistro
+        LIMIT 7; `
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         reject("AMBIENTE NÃO CONFIGURADO EM app.js")
     }
-
-    //console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
