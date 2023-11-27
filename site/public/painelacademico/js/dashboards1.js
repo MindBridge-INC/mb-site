@@ -241,7 +241,7 @@ function plotarGraficoCPU() {
     });
 }
 
-// setInterval(plotarGraficoCPU, 1000)
+setInterval(plotarGraficoCPU, 1000)
 
 function plotarGraficoRAM() {
     var idMaquina = selectMaquina.value;
@@ -279,6 +279,6 @@ function plotarGraficoRAM() {
     });
 }
 
-// setInterval(plotarGraficoRAM, 1000)
+setInterval(plotarGraficoRAM, 1000)
 
 

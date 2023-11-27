@@ -3,7 +3,7 @@ var database = require("../database/config")
 function visualizarMaquinasTotal(idInst) {
     var instrucao = `
     SELECT Maquinas.*, Sala.nome nomeSala FROM Maquinas
-    JOIN Sala ON Maquinas.fkSala = Sala.id
+    FULL JOIN Sala ON Maquinas.fkSala = Sala.id
     WHERE Maquinas.fkInstituicao = ${idInst};
     `
     console.log("Executando a instrução SQL: \n" + instrucao);

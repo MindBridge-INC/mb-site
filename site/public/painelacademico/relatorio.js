@@ -124,7 +124,7 @@ function visualizarAlertas() {
                         console.log('Resposta visualizarAlertas ', JSON.stringify(resposta));
     
                         if (resposta.length > 0) {
-                            
+                            const dataHoraFormatada = ""
                             for (var i = 0; i < resposta.length; i++) {
                                 var alertaAtual = resposta[i];
     
@@ -139,9 +139,10 @@ function visualizarAlertas() {
                                 divTipo.innerHTML += `
                                     <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;" >${alertaAtual.classificacao}</span>
                                 `;
+                                  
                                 divData.innerHTML += `
                                 <span style="font-family:'Arimo'; font-size: 2vh; font-weight: 700; color: #2e2d2d; height: 3vh;">
-                                    ${new Date(alertaAtual.dtRegistro).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/,/g, ' -')}
+                                    ${alertaAtual.dtRegistro}
                                 </span>
                                 `;
                             } 

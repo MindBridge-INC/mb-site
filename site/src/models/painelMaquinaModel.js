@@ -117,7 +117,7 @@ function plotarGraficoCPU(idMaquina) {
         var instrucao = `SELECT TOP 10 usoProcessador, dtRegistro
         FROM RegistroMaquina
         WHERE fkMaquinas = ${idMaquina}
-        ORDER BY dtRegistro`
+        ORDER BY dtRegistro DESC;`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT usoProcessador, dtRegistro
         FROM RegistroMaquina
@@ -138,7 +138,7 @@ function plotarGraficoRAM(idMaquina) {
         var instrucao = `SELECT TOP 10 usoRam, dtRegistro
         FROM RegistroMaquina
         WHERE fkMaquinas = ${idMaquina}
-        ORDER BY dtRegistro`
+        ORDER BY dtRegistro DESC`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT usoRam, dtRegistro
         FROM RegistroMaquina

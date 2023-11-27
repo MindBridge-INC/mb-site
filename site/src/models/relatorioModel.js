@@ -87,13 +87,13 @@ function visualizarAlertas(idInstituicao){
         Maquinas.hostname AS maquina,
         Alertas.componente AS ocorrencia,
         Alertas.tipo AS classificacao,
-        RegistroMaquina.dtRegistro AS dtRegistro
-    FROM Maquinas
-    JOIN RegistroMaquina ON Maquinas.id = RegistroMaquina.fkMaquinas
-    JOIN Alertas ON RegistroMaquina.id = Alertas.fkRegistro
-    WHERE CAST(RegistroMaquina.dtRegistro AS DATE) = CAST(GETDATE() AS DATE)
-        AND Maquinas.fkInstituicao = ${idInstituicao}
-    ORDER BY Alertas.componente, CAST(RegistroMaquina.dtRegistro AS DATE);`
+        FORMAT(RegistroMaquina.dtRegistro, 'dd/MM/yyyy hh:mm') AS dtRegistro
+        FROM Maquinas
+        JOIN RegistroMaquina ON Maquinas.id = RegistroMaquina.fkMaquinas
+        JOIN Alertas ON RegistroMaquina.id = Alertas.fkRegistro
+        WHERE CAST(RegistroMaquina.dtRegistro AS DATE) = CAST(GETDATE() AS DATE)
+            AND Maquinas.fkInstituicao = ${idInstituicao}
+        ORDER BY Alertas.componente, CAST(RegistroMaquina.dtRegistro AS DATE);`
     // } else if (process.env.AMBIENTE_PROCESSO = "desenvolvimento") {
     //     var instrucao = `SELECT
     //     Maquinas.hostname AS maquina,
