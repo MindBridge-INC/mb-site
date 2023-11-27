@@ -119,7 +119,7 @@ function mostrarAlertasDiaArm() {
         });
 }
 
-var aletasTotais = 0;
+var alertasTotais = 0;
 
 function mostrarAlertasDiaTotal() {
     var idInstituicao = sessionStorage.ID_INST;
@@ -131,8 +131,8 @@ function mostrarAlertasDiaTotal() {
                 console.log('Resposta mostrarAlertasDiaArm ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
-                    aletasTotais = alertasAmarzenamento + resposta[0].total
-                    alertasDia.innerHTML = `${aletasTotais}`
+                    alertasTotais = alertasAmarzenamento + resposta[0].total
+                    alertasDia.innerHTML = alertasAmarzenamento + resposta[0].total
                 }
             });
         } else {

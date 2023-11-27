@@ -1,6 +1,7 @@
 var database = require("../database/config")
 
 function listarMensagens(idTurma) {
+    
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         var instrucao = `
         SELECT C.mensagem, FORMAT(C.dtEnvio, 'dd/MM à"s" hh:mm') dtEnvio, A.nome, A.sobrenome, A.id idAluno, C.id idMsg FROM Chat C
@@ -62,10 +63,20 @@ function mostrarPontuacaoHoje(idAluno){
 
 function mostrarPontuacaoSemana(idAluno){
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = `SELECT TOP 7 SUM(pontos) pontos, CONVERT(varchar,dtRegistro,103) 'data', DATEPART(WEEKDAY, convert(varchar,dtRegistro, 103)) 'dataSemana' FROM Pontuacao
-        WHERE fkAluno = ${idAluno} 
-        GROUP BY dtRegistro, DATEPART(WEEKDAY, convert(varchar,dtRegistro, 103)) 
-        ORDER BY pontuacao.dtRegistro DESC`
+        var instrucao = `SELECT
+        SUM(pontos) AS pontos,
+        CONVERT(DATE, dtRegistro) AS data,
+        DATEPART(WEEKDAY, dtRegistro) AS dataSemana
+    FROM
+        Pontuacao
+    WHERE
+        fkAluno = ${idAluno} 
+    GROUP BY
+        CONVERT(DATE, dtRegistro),
+        DATEPART(WEEKDAY, dtRegistro)
+    ORDER BY
+        CONVERT(DATE, dtRegistro) DESC
+    OFFSET 0 ROWS FETCH NEXT 7 ROWS ONLY;`
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT SUM(pontos) pontos, DATE (dtRegistro) 'data', WEEKDAY(DATE(dtRegistro)) 'dataSemana' FROM Pontuacao 
         WHERE fkAluno = ${idAluno} 
@@ -97,9 +108,19 @@ function mostrarEstrelinhas(idAluno){
 
 function plotarGrafico(idAluno){
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = `SELECT TOP 7 SUM(pontos) pontos, CONVERT(varchar,dtRegistro,103) dtRegistro FROM pontuacao
-        WHERE fkAluno = ${idAluno} and DATEPART(ISO_WEEK,dtRegistro) = DATEPART(ISO_WEEK,getDate()) - 1
-        GROUP BY CONVERT(varchar,dtRegistro,103) 
+        var instrucao = `SELECT
+        SUM(pontos) AS pontos,
+        CONVERT(DATE, dtRegistro) AS dtRegistro
+    FROM
+        Pontuacao
+    WHERE
+        fkAluno = 1
+        AND DATEPART(ISO_WEEK, dtRegistro) = DATEPART(ISO_WEEK, GETDATE() - 1)
+    GROUP BY
+        CONVERT(DATE, dtRegistro)
+    ORDER BY
+        CONVERT(DATE, dtRegistro) DESC
+    OFFSET 0 ROWS FETCH NEXT 7 ROWS ONLY; 
         `
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT SUM(pontos) pontos, DATE(dtRegistro) dtRegistro FROM pontuacao

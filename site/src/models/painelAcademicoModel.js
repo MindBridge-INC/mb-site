@@ -177,7 +177,7 @@ function plotarPicosSemana(idTurma) {
         WHERE
         p.pontos = 0
         AND p.dtRegistro >= DATEADD(day,-7,getDate())
-        AND u.fkTurma = 1
+        AND u.fkTurma = ${idTurma}
         GROUP BY
         FORMAT(p.dtRegistro, 'dd/MM')
         ORDER BY

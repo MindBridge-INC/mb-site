@@ -198,6 +198,7 @@
 </html>
 <script>
 
+
     function BuscarData(){
         const today = new Date();
         const day = String(today.getDate()).padStart(2, '0');
@@ -221,9 +222,9 @@
             html2pdf().set(opt).from(element).save();
             
             
-            setTimeout(() => {
-                window.location.href = "paineltecnico.html";
-            }, 8000);
+            // setTimeout(() => {
+            //     window.location.href = "paineltecnico.html";
+            // }, 8000);
            
         } 
      

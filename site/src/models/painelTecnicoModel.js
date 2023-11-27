@@ -59,11 +59,11 @@ function mostrarMaquinasDesligadas(idInstituicao) {
 function mostrarAlertasDiaArm(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         var instrucao = `SELECT COUNT(AlertasLog.id) AS total
-            FROM AlertasLog
-            INNER JOIN LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
-            INNER JOIN Maquinas ON LogAcesso.fkMaquina = Maquinas.id
-            WHERE convert(varchar, LogAcesso.dtRegistro, 103) = convert(varchar, getDate(), 103)
-            AND Maquinas.fkInstituicao = ${idInstituicao}; `
+        FROM AlertasLog
+        INNER JOIN LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
+        INNER JOIN Maquinas ON LogAcesso.fkMaquina = Maquinas.id
+        WHERE CAST(LogAcesso.dtRegistro AS DATE) = CAST(GETDATE() AS DATE)
+        AND Maquinas.fkInstituicao = ${idInstituicao}; `
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT COUNT(AlertasLog.id) AS total
             FROM AlertasLog
@@ -81,12 +81,12 @@ function mostrarAlertasDiaArm(idInstituicao) {
 
 function mostrarAlertasDiaTotal(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        var instrucao = ` SELECT COUNT(A.id) total
-            FROM Alertas A
-            INNER JOIN RegistroMaquina R ON A.fkRegistro = R.id
-            INNER JOIN Maquinas M ON M.id = R.fkMaquinas
-            WHERE convert(varchar, R.dtRegistro, 103) = convert(varchar, getDate(), 103)
-            AND M.fkInstituicao = ${idInstituicao}
+        var instrucao = ` SELECT COUNT(Alertas.id) AS total
+        FROM Alertas
+        JOIN RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+        JOIN Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+        WHERE CAST(RegistroMaquina.dtRegistro AS DATE) = CAST(GETDATE() AS DATE)
+              AND Maquinas.fkInstituicao = ${idInstituicao}
             `
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         var instrucao = `SELECT COUNT(Alertas.id) AS total

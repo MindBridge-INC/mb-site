@@ -198,7 +198,7 @@ function mostrarPontuacaoSemana() {
                     
                     pontosSemana = 0
                     for (var i = 0; i < resposta.length; i++) {
-                        if(Number(resposta[i].dataSemana) == 0){
+                        if(Number(resposta[i].dataSemana) == 2){
                             pontosSemana += Number(resposta[i].pontos)
                             break
                         } else {
@@ -369,10 +369,10 @@ function plotarGrafico() {
                 console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
 
                 for (var i = 0; i < resposta.length; i++) {
-                    var dataRegistro = resposta[i].dtRegistro;
-                    
+                    var dataRegistro = new Date(resposta[i].dtRegistro);
+                    var formattedDate = dataRegistro.getDate() + '/' + (dataRegistro.getMonth() + 1) ;
 
-                    labels.push(dataRegistro);
+                    labels.push(formattedDate);
                     dados.datasets[0].data.push(resposta[i].pontos);
                 }
                

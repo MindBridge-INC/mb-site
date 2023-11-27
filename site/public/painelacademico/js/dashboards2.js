@@ -90,11 +90,11 @@ function exibirRanking() {
                 console.log('Resposta listarTurmas ', JSON.stringify(resposta));
 
                 if (resposta.length > 0) {
-                    primeiroLugar.innerHTML = `${resposta[0].titulo.split(".exe")[0]}`
-                    segundoLugar.innerHTML = `${resposta[1].titulo.split(".exe")[0]}`
-                    terceiroLugar.innerHTML = `${resposta[2].titulo.split(".exe")[0]}`
-                    quartoLugar.innerHTML = `${resposta[3].titulo.split(".exe")[0]}`
-                    quintoLugar.innerHTML = `${resposta[4].titulo.split(".exe")[0]}`
+                    primeiroLugar.innerHTML = `${resposta[0].titulo}`
+                    segundoLugar.innerHTML = `${resposta[1].titulo}`
+                    terceiroLugar.innerHTML = `${resposta[2].titulo}`
+                    quartoLugar.innerHTML = `${resposta[3].titulo}`
+                    quintoLugar.innerHTML = `${resposta[4].titulo}`
                     exibirPontuacaoMedia()
                 }
             });
@@ -231,7 +231,7 @@ function plotarPicosSemana() {
         datasets: [{
             label: 'Pop-ups não Respondidos',
             data: [],
-            backgroundColor: '#17395cff',
+            backgroundColor: '#17395c',
             borderColor: '#ffffff',
             borderWidth: 0,
             borderRadius: 80,
@@ -277,7 +277,7 @@ function plotarPicosSemana() {
                 response.json().then(function (resposta) {
                     console.log('Resposta plotarGrafico ', JSON.stringify(resposta));
 
-                  
+                  console.log("OIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEE" + resposta)
                     if (resposta == undefined) {
                         console.log("OIIIIIIIIII")
                         myChart2.data.labels.push("00:00:00");
