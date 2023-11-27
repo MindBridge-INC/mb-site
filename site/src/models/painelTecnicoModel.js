@@ -1,5 +1,104 @@
 var database = require("../database/config")
 
+function gerarAlertas(idInstituicao) {
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        var instrucao = `SELECT TOP 1
+        Alertas.componente,
+        Alertas.tipo,
+        RegistroMaquina.dtRegistro,
+        Maquinas.hostname,
+        Sala.nome
+    FROM
+        Alertas
+    JOIN
+        RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+    JOIN
+        Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+    LEFT JOIN
+        Sala ON Maquinas.fkSala = Sala.id
+    WHERE
+        Maquinas.fkInstituicao = ${idInstituicao}
+    ORDER BY
+        RegistroMaquina.dtRegistro DESC; `
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        var instrucao = `SELECT
+        Alertas.componente,
+        Alertas.tipo,
+        RegistroMaquina.dtRegistro,
+        Maquinas.hostname,
+        Sala.nome
+    FROM
+        Alertas
+    JOIN
+        RegistroMaquina ON Alertas.fkRegistro = RegistroMaquina.id
+    JOIN
+        Maquinas ON RegistroMaquina.fkMaquinas = Maquinas.id
+    LEFT JOIN
+        Sala ON Maquinas.fkSala = Sala.id
+    WHERE
+        Maquinas.fkInstituicao = ${idInstituicao}
+    ORDER BY
+        RegistroMaquina.dtRegistro DESC
+    LIMIT 1; `
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        reject("AMBIENTE NÃO CONFIGURADO EM app.js")
+    }
+
+    // console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function gerarAlertasArm(idInstituicao) {
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        var instrucao = `SELECT TOP 1
+        AlertasLog.componente,
+        AlertasLog.tipo,
+        LogAcesso.dtRegistro,
+        Maquinas.hostname,
+        Sala.nome
+    FROM
+        AlertasLog
+    JOIN
+        LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
+    JOIN
+        Maquinas ON LogAcesso.fkMaquina = Maquinas.id
+    LEFT JOIN
+        Sala ON Maquinas.fkSala = Sala.id
+    WHERE
+        Maquinas.fkInstituicao = ${idInstituicao}
+    ORDER BY
+        LogAcesso.dtRegistro DESC; `
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        var instrucao = `SELECT
+        AlertasLog.componente,
+        AlertasLog.tipo,
+        LogAcesso.dtRegistro,
+        Maquinas.hostname,
+        Sala.nome
+    FROM
+        AlertasLog
+    JOIN
+        LogAcesso ON AlertasLog.fkLogAcesso = LogAcesso.id
+    JOIN
+        Maquinas ON LogAcesso.fkMaquina = Maquinas.id
+    LEFT JOIN
+        Sala ON Maquinas.fkSala = Sala.id
+    WHERE
+        Maquinas.fkInstituicao = ${idInstituicao}
+    ORDER BY
+        LogAcesso.dtRegistro DESC
+    LIMIT 1;`
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        reject("AMBIENTE NÃO CONFIGURADO EM app.js")
+    }
+
+    // console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 function mostrarMaquinasCadastradas(idInstituicao) {
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         var instrucao = `SELECT COUNT(id) numMaquinas FROM Maquinas 
@@ -197,6 +296,8 @@ function plotarGraficoRAM(idInstituicao) {
 }
 
 module.exports = {
+    gerarAlertas,
+    gerarAlertasArm,
     mostrarMaquinasCadastradas,
     mostrarMaquinasLigadas,
     mostrarMaquinasDesligadas,

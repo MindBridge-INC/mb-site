@@ -4,6 +4,100 @@ var idUsuario = sessionStorage.ID_USUARIO;
 var nomeUsuario = `${sessionStorage.NOME_USUARIO} ${sessionStorage.SOBRENOME_USUARIO}`
 var permissao = `${sessionStorage.TIPO_USUARIO}`
 
+function formatarData(dataString) {
+    var data = new Date(dataString);
+    var options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+    return new Intl.DateTimeFormat('pt-BR', options).format(data);
+}
+
+function gerarAlertas() {
+    var idInstituicao = sessionStorage.ID_INST;
+
+    fetch(`/painelTecnico/gerarAlertas/${idInstituicao}`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log('Resposta mostrarMaquinasCadastradas ', JSON.stringify(resposta));
+
+                    if (resposta.length > 0) {
+                        var dataFormatada = formatarData(resposta[0].dtRegistro);
+
+                        var titulo = `
+                            Máquina: ${resposta[0].hostname} - ${resposta[0].nome}
+                            Alerta: ${resposta[0].tipo} - ${resposta[0].componente}
+                            Data: ${dataFormatada}
+                        `;
+
+                        var icone = resposta[0].tipo === "Atenção" ? 'warning' : 'error';
+
+                        Swal.fire({
+                            title: titulo,
+                            icon: icone,
+                            timer: 3000, // Tempo de exibição do toast em milissegundos
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false
+                        });
+
+                        setTimeout(() => {
+                            gerarAlertasArm()
+                          }, "4000");
+
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados: ${error.message}`);
+        });
+}
+
+function gerarAlertasArm() {
+    var idInstituicao = sessionStorage.ID_INST;
+
+    fetch(`/painelTecnico/gerarAlertasArm/${idInstituicao}`)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log('Resposta mostrarMaquinasCadastradas ', JSON.stringify(resposta));
+
+                    if (resposta.length > 0) {
+                        var dataFormatada = formatarData(resposta[0].dtRegistro);
+
+                        var titulo = `
+                            Máquina: ${resposta[0].hostname} - ${resposta[0].nome}
+                            Alerta: ${resposta[0].tipo} - ${resposta[0].componente}
+                            Data: ${dataFormatada}
+                        `;
+
+                        var icone = resposta[0].tipo === "Atenção" ? 'warning' : 'error';
+
+                        Swal.fire({
+                            title: titulo,
+                            icon: icone,
+                            timer: 3000, // Tempo de exibição do toast em milissegundos
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false
+                        });
+
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados: ${error.message}`);
+        });
+}
+
+setInterval(gerarAlertas, 10000)
+
 function carregarInfoUsuario() {
     spanNomeUsuario.innerHTML = nomeUsuario
     spanPermissao.innerHTML = permissao

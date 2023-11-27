@@ -1,4 +1,53 @@
 var painelTecnicoModel = require("../models/painelTecnicoModel");
+function gerarAlertas(req, res) {
+    var idInstituicao = req.params.idInstituicao;
+
+    painelTecnicoModel.gerarAlertas(idInstituicao)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function gerarAlertasArm(req, res) {
+    var idInstituicao = req.params.idInstituicao;
+
+    painelTecnicoModel.gerarAlertasArm(idInstituicao)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 function mostrarMaquinasCadastradas(req, res) {
     var idInstituicao = req.params.idInstituicao;
@@ -201,6 +250,8 @@ function plotarGraficoRAM(req, res) {
 }
 
 module.exports = {
+    gerarAlertas,
+    gerarAlertasArm,
     mostrarMaquinasCadastradas,
     mostrarMaquinasLigadas,
     mostrarMaquinasDesligadas,

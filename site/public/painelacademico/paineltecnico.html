@@ -88,7 +88,7 @@ gap: 5vh;
 }
 </style>
 
-<body onload="permissoes(),carregarInfoUsuario(), mostrarMaquinasCadastradas(),mostrarMaquinasLigadas(), mostrarMaquinasDesligadas(), mostrarAlertasDiaArm(), mostrarAlertasDiaTotal(), mostrarNumMaquinasArmazenamento80(), plotarGraficoCPU(), plotarGraficoRAM()">
+<body onload="permissoes(),carregarInfoUsuario(), gerarAlertas(), mostrarMaquinasCadastradas(),mostrarMaquinasLigadas(), mostrarMaquinasDesligadas(), mostrarAlertasDiaArm(), mostrarAlertasDiaTotal(), mostrarNumMaquinasArmazenamento80(), plotarGraficoCPU(), plotarGraficoRAM()">
     <div class="backgroundBlur" id="backgroundBlur"></div>
     <div id="aparecerLogin"></div>
 
@@ -439,12 +439,12 @@ gap: 5vh;
     <section class="alinhamento">
         <section class="paineisLogin" >
             <section style="width: 80%; display: flex; align-items: center; justify-content: center;">
-                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Legenda</span>
+                <span style="font-family: Fredoka; font-size: 4vh; font-weight: 700; color: #2e2d2d">Alertas</span>
                 <a style="margin-left: 45vh;" href="javascript:void(0);" onclick="fecharLogin()"><img src="../assets/img/x.png" width="120%"></a>
             </section>
 
             <section style="display: flex; align-items: center; justify-content: center;">
-                <img src="../assets/img/legendas painel academico.png" width="65%">
+                <img src="../assets/img/legendas painel aluno.png" width="65%">
             </section>
         </section>
     </section>

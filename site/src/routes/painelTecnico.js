@@ -3,6 +3,14 @@ var router = express.Router();
 
 var painelTecnicoController = require("../controllers/painelTecnicoController");
 
+router.get("/gerarAlertas/:idInstituicao", function (req, res) {
+    painelTecnicoController.gerarAlertas(req, res);
+})
+
+router.get("/gerarAlertasArm/:idInstituicao", function (req, res) {
+    painelTecnicoController.gerarAlertasArm(req, res);
+})
+
 router.get("/mostrarMaquinasCadastradas/:idInstituicao", function (req, res) {
     painelTecnicoController.mostrarMaquinasCadastradas(req, res);
 })
