@@ -34,7 +34,7 @@ function cadastrar(nome, email, sobrenome) {
 }
 
 function cadastrarEscola(nomeEscola, telefone, modalidade, cnpj, cep, logradouro, numero, complemento, bairro, cidade, estado){
-    var instrucao2 = `INSERT INTO InstituicaoEnsino (nomeEscola, CNPJ, CEP, Logradouro, numeroLogradouro, Complemento, Bairro, Cidade, Estado, Telefone, modalidadeEnsino) VALUES ('${nomeEscola}',${cnpj}, ${cep}, '${logradouro}', '${numero}', '${bairro}', '${complemento}', '${cidade}', '${estado}', '${telefone}', '${modalidade}');`
+    var instrucao2 = `INSERT INTO InstituicaoEnsino (nome, CNPJ, CEP, Logradouro, numero, complemento, bairro, cidade, estado, telefone, modalidadeEnsino) VALUES ('${nomeEscola}',${cnpj}, ${cep}, '${logradouro}', '${numero}', '${bairro}', '${complemento}', '${cidade}', '${estado}', '${telefone}', '${modalidade}');`
     console.log("Executando a instrução SQL: \n" + instrucao2);
     return database.executar(instrucao2);
 }
